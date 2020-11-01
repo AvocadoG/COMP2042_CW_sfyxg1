@@ -20,6 +20,7 @@ public class Main extends Application {
 	MyStage background;
 	Animal animal;
 	StartScreen start;
+	InfoScreen info;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -33,7 +34,10 @@ public class Main extends Application {
 		start = new StartScreen("file:src/froggertextures/startscreenfrogger.png");
 		Scene startscreen = new Scene(start.getStartScreen(),600,800);
 		
-		
+		//GENERATE INFO SCREEN//
+
+		info = new InfoScreen("file:src/froggertextures/infoscreenfrogger.png");
+		Scene infoscreen = new Scene(info.getInfoScreen(),600,800);
 		
 		
 		background = new MyStage();
@@ -111,6 +115,10 @@ public class Main extends Application {
 	  		
 	  		
 	  	//set startbtn action
+	  	//if startbtn is clicked
+	  	//check for username
+	  	//if username exists, go to maingamescreen
+	  	//else alert for username input
 		start.getstartbtn().setOnMouseClicked(event-> {
 			if(start.getusername()!= null) {
 				primaryStage.setScene(scene);
@@ -124,17 +132,36 @@ public class Main extends Application {
 			}
 	    });
 		
+		
+		//set infobtn action
+		//if info button is clicked, switch to INFO SCREEN
+		start.getinfobtn().setOnMouseClicked(event -> {
+			primaryStage.setScene(infoscreen);
+		});
+				
+		
 		//set exitbtn action
 		start.getexitbtn().setOnMouseClicked(event -> {
 			Platform.exit();
 		});
 		
-			//initialize the stage with start screen
-	  		primaryStage.setScene(startscreen);
-	  		primaryStage.show();
-	  		start();  //start timer for the whole stage
+		
+		//set backtostartbtn action
+		//if backtostart button is clicked, switch to START SCREEN
+		info.getbacktostartbtn().setOnMouseClicked(event -> {
+			primaryStage.setScene(startscreen);
+		});
+		
+		
+		//initialize the stage with start screen
+	  	primaryStage.setScene(startscreen);
+	  	primaryStage.show();
+	  	start();  //start timer for the whole stage
 	  		
 	}
+	
+	
+	
 	public void createTimer() {
         timer = new AnimationTimer() {
             @Override
@@ -156,6 +183,9 @@ public class Main extends Application {
             }
         };
     }
+	
+	
+	
 	public void start() {
 		background.playMusic();
     	createTimer();
@@ -166,6 +196,8 @@ public class Main extends Application {
         timer.stop();
     }
     
+    
+    //set points display on game screen
     public void setNumber(int n) {
     	int shift = 0;
     	if(n<100) {//if points has 2 digits
