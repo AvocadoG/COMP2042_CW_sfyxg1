@@ -5,6 +5,7 @@ import java.util.List;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -18,13 +19,24 @@ public class Main extends Application {
 	AnimationTimer timer;
 	MyStage background;
 	Animal animal;
+	StartScreen start;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-	    background = new MyStage();
+	    
+		//GENERATE START SCREEN//
+		
+		start = new StartScreen("file:src/froggertextures/startscreenfrogger.png");
+		Scene startscreen = new Scene(start.getStartScreen(),600,800);
+		
+		
+		
+		
+		background = new MyStage();
 	    Scene scene  = new Scene(background,600,800);
 	    
 	    	//Obstacle obstacle = new Obstacle("file:src/p4_group_8_repo/truck1Right.png", 25, 25, 3);
@@ -96,10 +108,31 @@ public class Main extends Application {
 	  		//background.add(obstacle);
 	  		//background.add(obstacle1);
 	  		//background.add(obstacle2);
-	  		background.start();
-	  		primaryStage.setScene(scene);
+	  		
+	  		
+	  	//set startbtn action
+		start.getstartbtn().setOnMouseClicked(event-> {
+			if(start.getusername()!= null) {
+				primaryStage.setScene(scene);
+				background.start();
+				//start timer for background stage -activation-
+			}
+			else {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setHeaderText("Enter a username first!");
+				alert.show();
+			}
+	    });
+		
+		//set exitbtn action
+		start.getexitbtn().setOnMouseClicked(event -> {
+			Platform.exit();
+		});
+		
+			//initialize the stage with start screen
+	  		primaryStage.setScene(startscreen);
 	  		primaryStage.show();
-	  		start();  
+	  		start();  //start timer for the whole stage
 	  		
 	}
 	public void createTimer() {
