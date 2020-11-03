@@ -66,7 +66,7 @@ public class InfoScreen {
 				"There are two types of turtles, the red turtles are the regular ones while the green turtles will submerge into the river from time to time. Red turtles will turn into Green turtles too! " +
 				"When Frogger jumps onto the green turtle and the green turtle submerges, Frogger will sink into the river and die."+
 				"\n\n50points for reaching each Empty End.\n10points for each successful forward movement.\n" +
-				"MINUS 50points for getting hit by the Trucks/Cars or sinking into the River.\n" +
+				"MINUS 50points for getting hit by the Trucks/Cars, sinking into the River, knocking on the grass block.\n" +
 				"Game ends after ALL 5 Ends are reached.";
 	}
 	

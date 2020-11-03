@@ -17,7 +17,6 @@ public class StartScreen {
 	private Button exitbtn;
 	private TextField username;
 	private VBox startscreenVBox;
-	private BackgroundImage startscreenImage;
 	
 	StartScreen(){};
 	
@@ -56,7 +55,7 @@ public class StartScreen {
 		startscreenVBox.setTranslateY(320);
 		
 		//add start screen image (composition)
-		startscreenImage = new BackgroundImage(ImageLink);
+		BackgroundImage startscreenImage = new BackgroundImage(ImageLink);
 		
 		//add components to Group start
 		start.getChildren().addAll(startscreenImage,startscreenVBox);

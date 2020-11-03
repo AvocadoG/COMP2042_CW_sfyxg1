@@ -1,6 +1,7 @@
 package p4_group_8_repo;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.animation.AnimationTimer;
@@ -12,6 +13,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -116,7 +118,6 @@ public class Main extends Application {
 	  		
 	  	//set startbtn action
 	  	//if startbtn is clicked
-	  	//check for username
 	  	//if username exists, go to maingamescreen
 	  	//else alert for username input
 		start.getstartbtn().setOnMouseClicked(event-> {
@@ -174,11 +175,61 @@ public class Main extends Application {
             		background.stopMusic();
             		stop();
             		background.stop();
-            		Alert alert = new Alert(AlertType.INFORMATION);
+            		
+            		/*Alert alert = new Alert(AlertType.INFORMATION);
             		alert.setTitle("You Have Won The Game!");
             		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
             		alert.setContentText("Highest Possible Score: 800");
-            		alert.show();
+            		alert.show();*/
+            		
+            		
+            		//GENERATE HIGH SCORE POP UP//
+            		//controller : set, sort, get highscores-username
+            		//highscorepopup view : define how the highscorepopup is viewed
+            		//highscoremodel : information of username and the score 
+            		
+            		HighScoreController rw = new HighScoreController(start.getusername(),animal.getPoints());
+            		HighScoreView highscorepopup = new HighScoreView(animal.getPoints());
+            		//retrieving the scores and adding it to an ArrayList
+            		ArrayList<String> scorelist = rw.retrievingHighScore(); 
+            		
+            		//to display only the Top 5 HighScores
+            		int times=1;
+					for (String currentline : scorelist) {
+						if(times<6) {
+							highscorepopup.addscoretopopupview(times,currentline);
+							times++;
+						}
+						else {
+							break;
+						}
+					}
+					
+					//finishing up highscoreview
+					highscorepopup.updatepopupview();
+            		
+					//generating HighScore Scene and Stage
+					Scene highscore = new Scene(highscorepopup.gethighscorepopup(),400,500);
+            		Stage highscorestage = new Stage();
+            		highscorestage.setTitle("Game End");
+            		highscorestage.initModality(Modality.APPLICATION_MODAL);
+            		//set the HighScore Scene to the Stage
+            		highscorestage.setScene(highscore);
+            		highscorestage.show();
+            		
+            		//set highscore quitbtn action
+            		//if quitbtn is clicked, close the popup and exit the game
+            		highscorepopup.getquitbtn().setOnMouseClicked(event -> {
+            			highscorestage.close();
+            			Platform.exit();
+            		});
+            		
+            		//set highscore popup close icon action
+            		//if highscore popup is closed, exit the game
+            		highscorestage.setOnCloseRequest(event -> {
+            			Platform.exit();
+            		});
+            		
             	}
             }
         };
