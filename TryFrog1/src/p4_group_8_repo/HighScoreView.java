@@ -11,7 +11,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class HighScoreView {
+public class HighScoreView implements ButtonGenerator{
 
 	private Button quitbtn;
 	private Group highscore;
@@ -66,8 +66,9 @@ public class HighScoreView {
 		highscore.getChildren().add(highscoreVBox);
 	}
 	
-	//interface method
-	public Button createbtn(String BtnImageLink) { 
+	@Override
+	public Button createbtn(String BtnImageLink) {
+		// TODO Auto-generated method stub
 		Button btn = new Button();
 		btn.setMinSize(100, 30);
 		btn.setMaxSize(100, 30);
@@ -75,4 +76,6 @@ public class HighScoreView {
 		btn.setGraphic(new ImageView(quitbtnImg));
 		return btn;
 	}
+	
+	
 }

@@ -10,7 +10,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class InfoScreen {
+public class InfoScreen implements ButtonGenerator{
 
 	private Group info;
 	private Button backtostart;
@@ -20,11 +20,12 @@ public class InfoScreen {
 		
 		info = new Group();
 		
-		backtostart = new Button();
+		backtostart = createbtn("file:src/froggertextures/backtostartbtnfrogger.png");
+		/*backtostart = new Button();
 		backtostart.setMinSize(140,50);
 		backtostart.setMaxSize(140,50);
 		Image backtostartImg = new Image("file:src/froggertextures/backtostartbtnfrogger.png");
-		backtostart.setGraphic(new ImageView(backtostartImg));
+		backtostart.setGraphic(new ImageView(backtostartImg));*/
 		
 		//add instructions text 
 		Text subheading = new Text("How To Play??");
@@ -68,6 +69,17 @@ public class InfoScreen {
 				"\n\n50points for reaching each Empty End.\n10points for each successful forward movement.\n" +
 				"MINUS 50points for getting hit by the Trucks/Cars, sinking into the River, knocking on the grass block.\n" +
 				"Game ends after ALL 5 Ends are reached.";
+	}
+
+	@Override
+	public Button createbtn(String BtnImageLink) {
+		// TODO Auto-generated method stub
+		Button btn = new Button();
+	    btn.setMinSize(140,50);
+	    btn.setMaxSize(140, 50);
+		Image btnImg = new Image(BtnImageLink);
+		btn.setGraphic(new ImageView(btnImg));
+		return btn;
 	}
 	
 	

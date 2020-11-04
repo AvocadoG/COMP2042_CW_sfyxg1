@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
-public class StartScreen {
+public class StartScreen implements ButtonGenerator {
 
 	private Group start;
 	private Button startbtn;
@@ -26,7 +26,11 @@ public class StartScreen {
 		start = new Group();
 		
 		//create buttons
-		startbtn = new Button();
+		startbtn = createbtn("file:src/froggertextures/startbtnfrogger.png");
+		infobtn = createbtn("file:src/froggertextures/infobtnfrogger.png");
+		exitbtn = createbtn("file:src/froggertextures/exitbtnfrogger.png");
+		
+		/*startbtn = new Button();
 		startbtn.setMinSize(140,50);
 		Image startbtnImg = new Image("file:src/froggertextures/startbtnfrogger.png");
 		startbtn.setGraphic(new ImageView(startbtnImg));
@@ -39,7 +43,7 @@ public class StartScreen {
 		exitbtn = new Button();
 		exitbtn.setMinSize(140, 50);
 		Image exitbtnImg = new Image("file:src/froggertextures/exitbtnfrogger.png");
-		exitbtn.setGraphic(new ImageView(exitbtnImg));
+		exitbtn.setGraphic(new ImageView(exitbtnImg));*/
 		
 		//username input//
 		username = new TextField(null);
@@ -84,5 +88,15 @@ public class StartScreen {
 	
 	public String getusername() {
 		return username.getText();
+	}
+
+	@Override
+	public Button createbtn(String BtnImageLink) {
+		// TODO Auto-generated method stub
+		Button btn = new Button();
+	    btn.setMinSize(140,50);
+		Image btnImg = new Image(BtnImageLink);
+		btn.setGraphic(new ImageView(btnImg));
+		return btn;
 	}
 }
