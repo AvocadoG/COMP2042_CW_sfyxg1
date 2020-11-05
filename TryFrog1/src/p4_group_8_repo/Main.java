@@ -1,8 +1,8 @@
 package p4_group_8_repo;
 
-import java.io.File;
+//import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -10,19 +10,27 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.text.Text;
+//import javafx.scene.media.Media;
+//import javafx.scene.media.MediaPlayer;
+//import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Duration;
+//import javafx.util.Duration;
 
 public class Main extends Application {
+	
 	AnimationTimer timer;
-	MyStage background;
+	Level1 level1;
+	Scene level1scene;
+	Level2 level2;
+	Scene level2scene;
+	Level3 level3;
+	Scene level3scene;
 	Animal animal;
 	StartScreen start;
 	InfoScreen info;
+	
+	public static int currentlevel=1;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -42,89 +50,27 @@ public class Main extends Application {
 		Scene infoscreen = new Scene(info.getInfoScreen(),600,800);
 		
 		
-		background = new MyStage();
-	    Scene scene  = new Scene(background,600,800);
+		//GENERATE LEVELS FOR GAME SCREEN//
+		
+	    level1 = new Level1();//create an empty stage
+	    level1scene  = new Scene(level1,600,800);//set up the scene/screen 
+	    level2 = new Level2();
+	    level2scene = new Scene(level2,600,800);
+	    level3 = new Level3();
+	    level3scene = new Scene(level3,600,800);
+	  		
 	    
-	    	//Obstacle obstacle = new Obstacle("file:src/p4_group_8_repo/truck1Right.png", 25, 25, 3);
-	  		//Obstacle obstacle1 = new Obstacle("file:src/p4_group_8_repo/truck2Right.png", 100, 100,2 );
-	  		//Obstacle obstacle2 = new Obstacle("file:src/p4_group_8_repo/truck1Right.png",0,  150, 1);
-
-	  	    //change froggerback image link
-	  		BackgroundImage froggerback = new BackgroundImage("file:src/froggertextures/iKogsKW.png");
-	  	    
-	  		background.add(froggerback);
-	  		
-	  		background.add(new Log("file:src/froggertextures/log3.png", 150, 0, 166, 0.75));
-	  		background.add(new Log("file:src/froggertextures/log3.png", 150, 220, 166, 0.75));
-	  		background.add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75));
-	  		//background.add(new Log("file:src/froggertextures/log3.png", 150, 0, 166, 0.75));
-	  		background.add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2));
-	  		background.add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2));
-	  		//background.add(new Log("file:src/froggertextures/logs.png", 300, 800, 276, -2));
-	  		background.add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.75));
-	  		background.add(new Log("file:src/froggertextures/log3.png", 150, 270, 329, 0.75));
-	  		background.add(new Log("file:src/froggertextures/log3.png", 150, 490, 329, 0.75));
-	  		//background.add(new Log("file:src/froggertextures/log3.png", 150, 570, 329, 0.75));
-	  		
-	  		background.add(new Turtle(500, 376, -1, 130, 130));
-	  		background.add(new Turtle(300, 376, -1, 130, 130));
-	  		background.add(new WetTurtle(700, 376, -1, 130, 130));
-	  		background.add(new WetTurtle(600, 217, -1, 130, 130));
-	  		background.add(new WetTurtle(400, 217, -1, 130, 130));
-	  		background.add(new WetTurtle(200, 217, -1, 130, 130));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 200, 100, 1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 0, 100, 1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 100, 120, -1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 200, 120, -1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 100, 140, 1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 200, 140, 1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 100, 160, -1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 300, 160, -1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 100, 180, 1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 200, 180, 1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 100, 200, -1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 200, 200, -1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 100, 220, 1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 200, 220, 1));
-	  		//background.add(new Log("file:src/p4_group_8_repo/log2.png", 400, 220, 1));
-	  		//End end2 = new End();
-	  		//End end3 = new End();
-	  		//End end4 = new End();
-	  		//End end5 = new End();
-	  		background.add(new End(13,96));
-	  		background.add(new End(141,96));
-	  		background.add(new End(141 + 141-13,96));
-	  		background.add(new End(141 + 141-13+141-13+1,96));
-	  		background.add(new End(141 + 141-13+141-13+141-13+3,96));
-	  		animal = new Animal("file:src/froggertextures/froggerUp.png");
-	  		background.add(animal);
-	  		background.add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 0, 649, 1, 120, 120));
-	  		background.add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 300, 649, 1, 120, 120));
-	  		background.add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 600, 649, 1, 120, 120));
-	  		//background.add(new Obstacle("file:src/p4_group_8_repo/truck1"+"Right.png", 720, 649, 1, 120, 120));
-	  		background.add(new Obstacle("file:src/froggertextures/car1Left.png", 100, 597, -1, 50, 50));
-	  		background.add(new Obstacle("file:src/froggertextures/car1Left.png", 250, 597, -1, 50, 50));
-	  		background.add(new Obstacle("file:src/froggertextures/car1Left.png", 400, 597, -1, 50, 50));
-	  		background.add(new Obstacle("file:src/froggertextures/car1Left.png", 550, 597, -1, 50, 50));
-	  		background.add(new Obstacle("file:src/froggertextures/truck2Right.png", 0, 540, 1, 200, 200));
-	  		background.add(new Obstacle("file:src/froggertextures/truck2Right.png", 500, 540, 1, 200, 200));
-	  		background.add(new Obstacle("file:src/froggertextures/car1Left.png", 500, 490, -5, 50, 50));
-	  		//change score display position
-	  		background.add(new Digit(0, 30, 550, 25));
-	  		//background.add(obstacle);
-	  		//background.add(obstacle1);
-	  		//background.add(obstacle2);
-	  		
-	  		
-	  	//set startbtn action
+	    //SET ACTIONS FOR BUTTONS//
+	    
 	  	//if startbtn is clicked
 	  	//if username exists, go to maingamescreen
 	  	//else alert for username input
 		start.getstartbtn().setOnMouseClicked(event-> {
 			if(start.getusername()!= null) {
-				primaryStage.setScene(scene);
-				background.start();
-				//start timer for background stage -activation-
+				primaryStage.setScene(level1scene);
+				level1.start();
+				level1.setStage(primaryStage);
+				//start timer for level1 -activation-
 			}
 			else {
 				Alert alert = new Alert(AlertType.INFORMATION);
@@ -134,30 +80,29 @@ public class Main extends Application {
 	    });
 		
 		
-		//set infobtn action
 		//if info button is clicked, switch to INFO SCREEN
 		start.getinfobtn().setOnMouseClicked(event -> {
 			primaryStage.setScene(infoscreen);
 		});
 				
 		
-		//set exitbtn action
+		//if exit button is clicked, close the program
 		start.getexitbtn().setOnMouseClicked(event -> {
 			Platform.exit();
 		});
 		
 		
-		//set backtostartbtn action
-		//if backtostart button is clicked, switch to START SCREEN
+		//if backtostart button is clicked, back to START SCREEN
 		info.getbacktostartbtn().setOnMouseClicked(event -> {
 			primaryStage.setScene(startscreen);
 		});
 		
 		
-		//initialize the stage with start screen
+		//START THE STAGE with start screen//
+		
 	  	primaryStage.setScene(startscreen);
 	  	primaryStage.show();
-	  	start();  //start timer for the whole stage
+	  	start();  //start timer for the whole game, play music
 	  		
 	}
 	
@@ -167,20 +112,106 @@ public class Main extends Application {
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-            	if (animal.changeScore()) {
-            		setNumber(animal.getPoints());
+            	
+            	
+            	//UPDATE SCORE OF ANIMAL AT EACH LEVEL//
+            	
+            	if (level1.getAnimal().changeScore() && currentlevel==1) {
+            		setNumber(level1.getAnimal().getPoints(), level1);
             	}
-            	if (animal.getStop()) {
+            	
+            	if (level2.getAnimal().changeScore() && currentlevel==2){
+             		setNumber(level2.getAnimal().getPoints(), level2);
+                }
+            	if(level3.getAnimal().changeScore() && currentlevel==3){
+            	  		setNumber(level3.getAnimal().getPoints(), level3);
+            	}
+            	
+            	
+            	//LEVEL TRANSITION TILL END OF GAME//
+            	
+            	if(level1.getAnimal().getStop() && currentlevel==1 ){
+        	 		Stage primaryStage = level1.getStage();
+        	 		level2.setStage(primaryStage);
+        	 		System.out.println("Level1: final points :" + level1.getAnimal().getPoints());
+        	 		level2.setPoints(level1.getAnimal().getPoints());
+        	 		System.out.println("Level2 start points :" + level2.getAnimal().getPoints());
+        	 		setNumber(level2.getAnimal().getPoints(), level2);
+        	 		level1.stop();
+        	 		primaryStage.setScene(level2scene);
+        			currentlevel ++;
+        	 		level2.start();
+            	}
+            	if(level2.getAnimal().getStop()  && currentlevel==2){
+        	 		Stage primaryStage = level2.getStage();
+        	 		level3.setStage(primaryStage);
+        	 		System.out.println("Level2: final points :" + level2.getAnimal().getPoints());
+        	 		level3.setPoints(level2.getAnimal().getPoints());
+        	 		System.out.println("Level3: start points : " + level3.getAnimal().getPoints());
+        	 		setNumber(level3.getAnimal().getPoints(), level3);
+        	 		level2.stop();
+        	 		primaryStage.setScene(level3scene);
+        	 		currentlevel++;
+        	 		level3.start();
+            	}
+        	 
+            	if(level3.getAnimal().getStop()  && currentlevel==3){
+        	 		System.out.println("STOPPPP");
+        	 		level1.stopMusic();
+        	 		level3.stop();
+        	 		stop(); //stop timer for whole game
+        	 		
+        	 		//highscoreflag=true; }
+        	 		//if(highscoreflag){
+        	 
+        	 		//GENERATE HIGHSCORE POP UP//
+        	 		
+        	 		HighScoreController rw = new HighScoreController(start.getusername(),level3.getAnimal().getPoints());
+        			HighScoreView highscorepopup = new HighScoreView(level3.getAnimal().getPoints());
+            		ArrayList<String> scorelist = rw.retrievingHighScore();
+            		int times=1;
+					for (String currentline : scorelist) {
+						if(times<6) {
+							highscorepopup.addscoretopopupview(times,currentline);
+							times++;
+						}
+						else {
+							break;
+						}
+					}			
+					highscorepopup.updatepopupview();//finish up the HIGHSCORE view - add group()
+        		
+					Scene highscore = new Scene(highscorepopup.gethighscorepopup(),400,500);
+					Stage highscorestage = new Stage();
+					highscorestage.setTitle("Game End");
+					highscorestage.initModality(Modality.APPLICATION_MODAL);
+					highscorestage.setScene(highscore);
+					highscorestage.show();
+					
+						//SET HIGHSCORE POP UP BUTTON ACTIONS//
+					highscorepopup.getquitbtn().setOnMouseClicked(event -> {
+        			highscorestage.close();
+        			Platform.exit();
+        		
+					});
+        		
+					highscorestage.setOnCloseRequest(event -> {
+            		Platform.exit();
+					});
+					
+            	}
+        	 
+            	/*if (animal.getStop()) {
             		System.out.print("STOPP:");
             		background.stopMusic();
             		stop();
             		background.stop();
             		
-            		/*Alert alert = new Alert(AlertType.INFORMATION);
+            		Alert alert = new Alert(AlertType.INFORMATION);
             		alert.setTitle("You Have Won The Game!");
             		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
             		alert.setContentText("Highest Possible Score: 800");
-            		alert.show();*/
+            		alert.show();
             		
             		
             		//GENERATE HIGH SCORE POP UP//
@@ -230,7 +261,7 @@ public class Main extends Application {
             			Platform.exit();
             		});
             		
-            	}
+            	}*/
             }
         };
     }
@@ -238,7 +269,7 @@ public class Main extends Application {
 	
 	
 	public void start() {
-		background.playMusic();
+		level1.playMusic();
     	createTimer();
         timer.start();
     }
@@ -249,17 +280,18 @@ public class Main extends Application {
     
     
     //set points display on game screen
-    public void setNumber(int n) {
+    public void setNumber(int n, MyStage currentlevel) {
     	int shift = 0;
+    	
     	if(n<100) {//if points has 2 digits
         	while (n > 0) {
         		  int d = n / 10;
         		  int k = n - d * 10;
         		  n = d;
-        		  background.add(new Digit(k, 30, 550 - shift, 25));
+        		  currentlevel.add(new Digit(k, 30, 550 - shift, 25));
         		  shift+=30;
         	}
-        	background.add(new Digit(0,30,550 - shift, 25));
+        	currentlevel.add(new Digit(0,30,550 - shift, 25));
         }
         	
         else if(n>=100) {//if points has 3digits
@@ -267,9 +299,14 @@ public class Main extends Application {
           		  int d = n / 10;
           		  int k = n - d * 10;
           		  n = d;
-          		  background.add(new Digit(k, 30, 550 - shift, 25));
+          		  currentlevel.add(new Digit(k, 30, 550 - shift, 25));
           		  shift+=30;
           	}
         }
+    	
     }
+    
+    
+    
+    
 }
