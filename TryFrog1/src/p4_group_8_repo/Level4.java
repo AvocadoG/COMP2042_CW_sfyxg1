@@ -75,22 +75,48 @@ public class Level4 extends MyStage{
 			add(new Digit(getcurrentLevel(),30,550,450));
 	}
 
-	@Override
-	public void setcurrentlevelPoints(int points) {
-		// TODO Auto-generated method stub
-		getcurrentlevelAnimal().setPoints(points);
-	}
 
-	@Override
-	public Animal getcurrentlevelAnimal() {
+	private Animal getlevelAnimal() {
 		// TODO Auto-generated method stub
 		return animallevel4;
 	}
 
-	@Override
 	public int getcurrentLevel() {
 		// TODO Auto-generated method stub
 		return currentlevel;
+	}
+	
+	
+	@Override
+	public void setlevelPoints(int points) {
+		// TODO Auto-generated method stub
+		getlevelAnimal().setPoints(points);
+	}
+
+	
+	@Override
+	public int getlevelPoints() {
+		// TODO Auto-generated method stub
+		return getlevelAnimal().getPoints();
+	}
+
+	@Override
+	public boolean levelStop() {
+		// TODO Auto-generated method stub
+		return getlevelAnimal().getStop();
+	}
+
+	@Override
+	public boolean animalchangeScore() {
+		// TODO Auto-generated method stub
+		return getlevelAnimal().changeScore();
+	}
+	
+	@Override
+	public void createMusic() {
+		// TODO Auto-generated method stub
+		String musicFile = "src/p4_group_8_repo/Frogger Main Song Theme (loop).mp3";
+		super.playMusic(musicFile);
 	}
 
 }

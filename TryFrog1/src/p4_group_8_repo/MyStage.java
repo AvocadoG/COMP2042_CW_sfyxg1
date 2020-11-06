@@ -11,10 +11,10 @@ public abstract class MyStage extends World{
 	
 	private Stage stage;
 	
-	@Override
+	/*@Override
 	public void act(long now) {
 		
-	}
+	}*/
 	
 	public MyStage() {
 
@@ -31,8 +31,8 @@ public abstract class MyStage extends World{
 //		mediaPlayer.play();
 	}
 	
-	public void playMusic() {
-		String musicFile = "src/p4_group_8_repo/Frogger Main Song Theme (loop).mp3";   
+	public void playMusic(String musicFile) {
+		//String musicFile = "src/p4_group_8_repo/Frogger Main Song Theme (loop).mp3";   
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		mediaPlayer = new MediaPlayer(sound);
 		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
@@ -55,8 +55,13 @@ public abstract class MyStage extends World{
 	}
 	
 	//TEMPLATE METHOD DESIGN PATTERN
-	public abstract void createArena();//different arena for each level
-	public abstract void setcurrentlevelPoints(int points);//set different start points of each level
-	public abstract Animal getcurrentlevelAnimal();//get different animal at each level
-	public abstract int getcurrentLevel();//get different level value at each level
+	protected abstract void createArena();//different arena for each level
+	protected abstract void createMusic();
+	protected abstract void setlevelPoints(int points);//set different start points of each level
+	protected abstract int getlevelPoints();
+	//protected abstract Animal getlevelAnimal();
+	//protected abstract int getcurrentLevel();
+	protected abstract boolean levelStop();//check if the level is stopped
+	protected abstract boolean animalchangeScore();//check if the level animal changescore
+	
 }
