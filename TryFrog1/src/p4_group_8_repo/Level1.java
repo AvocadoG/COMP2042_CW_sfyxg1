@@ -17,8 +17,8 @@ package p4_group_8_repo;
 public class Level1 extends MyStage{
 
 	//private Stage level1stage;
-	private Animal animal;
-	private int level=1;
+	private Animal animallevel1;
+	private int currentlevel=1;
 	
 	Level1(){
 		createArena();
@@ -69,10 +69,10 @@ public class Level1 extends MyStage{
 		add(new End(141 + 141-13+141-13+1,96));
 		add(new End(141 + 141-13+141-13+141-13+3,96));
 		
-		animal = new Animal("file:src/froggertextures/froggerUp.png");
-		animal.movementX=14.222333;
-		animal.level=getLevel();
-		add(animal);
+		animallevel1 = new Animal("file:src/froggertextures/froggerUp.png");
+		animallevel1.setmovementX(14.222333);
+		animallevel1.setLevel(getcurrentLevel());
+		add(animallevel1);
 		
 		/*
 		Monster monster = new Monster("file:src/p4_group_8_repo/File_001.png");
@@ -100,7 +100,7 @@ public class Level1 extends MyStage{
 		add(new Digit(0, 30, 550, 25));
 		
 		//level display
-		add(new Digit(getLevel(), 30, 550, 450));
+		add(new Digit(getcurrentLevel(), 30, 550, 450));
 
 
 	}
@@ -109,21 +109,21 @@ public class Level1 extends MyStage{
 	
 	//initialize points for the level
 	@Override
-	public void setPoints(int points) {
+	public void setcurrentlevelPoints(int points) {
 		// TODO Auto-generated method stub
-		getAnimal().points=points;
+		getcurrentlevelAnimal().setPoints(points);
 	}
 
 	@Override
-	public Animal getAnimal() {
+	public Animal getcurrentlevelAnimal() {
 		// TODO Auto-generated method stub
-		return this.animal;
+		return this.animallevel1;
 	}
 
 	@Override
-	public int getLevel() {
+	public int getcurrentLevel() {
 		// TODO Auto-generated method stub
-		return this.level;
+		return this.currentlevel;
 	}
 
 	

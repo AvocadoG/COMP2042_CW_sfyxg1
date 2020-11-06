@@ -20,17 +20,15 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	
 	AnimationTimer timer;
-	Level1 level1;
-	Scene level1scene;
-	Level2 level2;
-	Scene level2scene;
-	Level3 level3;
-	Scene level3scene;
-	Animal animal;
-	StartScreen start;
-	InfoScreen info;
+	MyStage level1, level2, level3, level4, level5;
+	Scene level1scene, level2scene, level3scene, level4scene, level5scene;
 	
-	public static int currentlevel=1;
+	//Animal animal;
+	
+	public String username;
+	public static int currentlevelvalue=1;
+	public int gamescreenwidth=600;
+	public int gamescreenheight=800;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -40,24 +38,28 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 	    
 		//GENERATE START SCREEN//
-		
-		start = new StartScreen("file:src/froggertextures/startscreenfrogger.png");
-		Scene startscreen = new Scene(start.getStartScreen(),600,800);
+		//SINGLETON DESIGN PATTERN
+		StartScreen start = StartScreen.getInstance();
+		Scene startscreen = new Scene(start.getStartScreen(),gamescreenwidth,gamescreenheight);
 		
 		//GENERATE INFO SCREEN//
-
-		info = new InfoScreen("file:src/froggertextures/infoscreenfrogger.png");
-		Scene infoscreen = new Scene(info.getInfoScreen(),600,800);
+		//SINGLETON DESIGN PATTERN
+		InfoScreen info = InfoScreen.getInstance();
+		Scene infoscreen = new Scene(info.getInfoScreen(),gamescreenwidth,gamescreenheight);
 		
 		
 		//GENERATE LEVELS FOR GAME SCREEN//
 		
 	    level1 = new Level1();//create an empty stage
-	    level1scene  = new Scene(level1,600,800);//set up the scene/screen 
+	    level1scene  = new Scene(level1,gamescreenwidth,gamescreenheight);//set up the scene/screen 
 	    level2 = new Level2();
-	    level2scene = new Scene(level2,600,800);
+	    level2scene = new Scene(level2,gamescreenwidth,gamescreenheight);
 	    level3 = new Level3();
-	    level3scene = new Scene(level3,600,800);
+	    level3scene = new Scene(level3,gamescreenwidth,gamescreenheight);
+	    level4 = new Level4();
+	    level4scene = new Scene(level4,gamescreenwidth,gamescreenheight);
+	    level5 = new Level5();
+	    level5scene = new Scene(level5,gamescreenwidth,gamescreenheight);
 	  		
 	    
 	    //SET ACTIONS FOR BUTTONS//
@@ -67,9 +69,16 @@ public class Main extends Application {
 	  	//else alert for username input
 		start.getstartbtn().setOnMouseClicked(event-> {
 			if(start.getusername()!= null) {
+				username = start.getusername();
+				//
+				System.out.println(username + " -- Successfully get username.");
+				//
 				primaryStage.setScene(level1scene);
 				level1.start();
 				level1.setStage(primaryStage);
+				//
+				if(primaryStage == level1.getStage()) System.out.println("PrimaryStage Passed for level1 -- checked");
+				//
 				//start timer for level1 -activation-
 			}
 			else {
@@ -116,49 +125,73 @@ public class Main extends Application {
             	
             	//UPDATE SCORE OF ANIMAL AT EACH LEVEL//
             	
-            	if (level1.getAnimal().changeScore() && currentlevel==1) {
-            		setNumber(level1.getAnimal().getPoints(), level1);
+            	if (level1.getcurrentlevelAnimal().changeScore() && currentlevelvalue==1) {
+            		setNumber(level1.getcurrentlevelAnimal().getPoints(), level1);
             	}
             	
-            	if (level2.getAnimal().changeScore() && currentlevel==2){
-             		setNumber(level2.getAnimal().getPoints(), level2);
+            	if (level2.getcurrentlevelAnimal().changeScore() && currentlevelvalue==2){
+             		setNumber(level2.getcurrentlevelAnimal().getPoints(), level2);
                 }
-            	if(level3.getAnimal().changeScore() && currentlevel==3){
-            	  		setNumber(level3.getAnimal().getPoints(), level3);
+            	
+            	if(level3.getcurrentlevelAnimal().changeScore() && currentlevelvalue==3){
+            	  		setNumber(level3.getcurrentlevelAnimal().getPoints(), level3);
+            	}
+            	
+            	if(level4.getcurrentlevelAnimal().changeScore()&& currentlevelvalue==4){
+        	  		setNumber(level4.getcurrentlevelAnimal().getPoints(), level4);
+            	}
+            	
+            	if(level5.getcurrentlevelAnimal().changeScore()&& currentlevelvalue==5){
+        	  		setNumber(level5.getcurrentlevelAnimal().getPoints(), level5);
             	}
             	
             	
             	//LEVEL TRANSITION TILL END OF GAME//
             	
-            	if(level1.getAnimal().getStop() && currentlevel==1 ){
-        	 		Stage primaryStage = level1.getStage();
+            	if(level1.getcurrentlevelAnimal().getStop() && currentlevelvalue==1 ){
+            		
+            		levelUp(level1,level2,level2scene); 
+
+          		  /*Stage primaryStage = level1.getStage();
         	 		level2.setStage(primaryStage);
-        	 		System.out.println("Level1: final points :" + level1.getAnimal().getPoints());
-        	 		level2.setPoints(level1.getAnimal().getPoints());
-        	 		System.out.println("Level2 start points :" + level2.getAnimal().getPoints());
-        	 		setNumber(level2.getAnimal().getPoints(), level2);
+        	 		System.out.println("Level1: final points :" + level1.getcurrentlevelAnimal().getPoints());
+        	 		level2.setcurrentlevelPoints(level1.getcurrentlevelAnimal().getPoints());
+        	 		System.out.println("Level2 start points :" + level2.getcurrentlevelAnimal().getPoints());
+        	 		setNumber(level2.getcurrentlevelAnimal().getPoints(), level2);
         	 		level1.stop();
         	 		primaryStage.setScene(level2scene);
-        			currentlevel ++;
-        	 		level2.start();
+        			currentlevelvalue ++;
+        	 		level2.start();*/
             	}
-            	if(level2.getAnimal().getStop()  && currentlevel==2){
-        	 		Stage primaryStage = level2.getStage();
+            	if(level2.getcurrentlevelAnimal().getStop()  && currentlevelvalue==2){
+        	 		
+            		levelUp(level2,level3,level3scene);
+            		
+            		/*Stage primaryStage = level2.getStage();
         	 		level3.setStage(primaryStage);
-        	 		System.out.println("Level2: final points :" + level2.getAnimal().getPoints());
-        	 		level3.setPoints(level2.getAnimal().getPoints());
-        	 		System.out.println("Level3: start points : " + level3.getAnimal().getPoints());
-        	 		setNumber(level3.getAnimal().getPoints(), level3);
+        	 		System.out.println("Level2: final points :" + level2.getcurrentlevelAnimal().getPoints());
+        	 		level3.setcurrentlevelPoints(level2.getcurrentlevelAnimal().getPoints());
+        	 		System.out.println("Level3: start points : " + level3.getcurrentlevelAnimal().getPoints());
+        	 		setNumber(level3.getcurrentlevelAnimal().getPoints(), level3);
         	 		level2.stop();
         	 		primaryStage.setScene(level3scene);
-        	 		currentlevel++;
-        	 		level3.start();
+        	 		currentlevelvalue++;
+        	 		level3.start();*/
             	}
         	 
-            	if(level3.getAnimal().getStop()  && currentlevel==3){
+            	if(level3.getcurrentlevelAnimal().getStop()  && currentlevelvalue==3){
+            		
+            		levelUp(level3,level4,level4scene);
+            	}
+            	if(level4.getcurrentlevelAnimal().getStop() && currentlevelvalue==4) {
+            		
+            		levelUp(level4,level5,level5scene);
+            	}
+            	if(level5.getcurrentlevelAnimal().getStop() && currentlevelvalue==5) {
+            		
         	 		System.out.println("STOPPPP");
         	 		level1.stopMusic();
-        	 		level3.stop();
+        	 		level5.stop();
         	 		stop(); //stop timer for whole game
         	 		
         	 		//highscoreflag=true; }
@@ -166,8 +199,8 @@ public class Main extends Application {
         	 
         	 		//GENERATE HIGHSCORE POP UP//
         	 		
-        	 		HighScoreController rw = new HighScoreController(start.getusername(),level3.getAnimal().getPoints());
-        			HighScoreView highscorepopup = new HighScoreView(level3.getAnimal().getPoints());
+        	 		HighScoreController rw = new HighScoreController(username,level5.getcurrentlevelAnimal().getPoints());
+        			HighScoreView highscorepopup = new HighScoreView(level5.getcurrentlevelAnimal().getPoints());
             		ArrayList<String> scorelist = rw.retrievingHighScore();
             		int times=1;
 					for (String currentline : scorelist) {
@@ -305,6 +338,35 @@ public class Main extends Application {
         }
     	
     }
+    
+    public void levelUp(MyStage currentlevel, MyStage nextlevel, Scene nextlevelscene) {
+		// TODO Auto-generated method stub
+
+		Stage primaryStage = currentlevel.getStage();
+		nextlevel.setStage(primaryStage);
+	 	nextlevel.setcurrentlevelPoints(currentlevel.getcurrentlevelAnimal().getPoints());
+	 	setNumber(nextlevel.getcurrentlevelAnimal().getPoints(), nextlevel);
+	 	
+	 	//
+	 	if(currentlevel.getcurrentlevelAnimal().getPoints()==nextlevel.getcurrentlevelAnimal().getPoints()) {
+	 		System.out.println(nextlevel.getClass().getSimpleName() + "start with the points as " + currentlevel.getClass().getSimpleName());
+	 		
+	 	}
+	 	//
+	 	if(currentlevel.getcurrentlevelAnimal() == level1.getcurrentlevelAnimal() && currentlevelvalue==1) {
+	 		System.out.println("Level1 up, same animal passed as argument");
+	 	}
+	 	//
+	 	if(nextlevelscene == level2scene && currentlevelvalue==1) {
+	 		System.out.println("Level1 up, nextlevelscene is the same scene as level2scene, passed as argument");
+	 	}
+	 	currentlevel.stop();
+	 	currentlevelvalue++;
+	 	primaryStage.setScene(nextlevelscene);
+	 	nextlevel.start();
+	 	
+	 	
+	}
     
     
     

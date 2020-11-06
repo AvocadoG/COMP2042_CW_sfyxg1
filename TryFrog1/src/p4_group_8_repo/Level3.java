@@ -2,9 +2,8 @@ package p4_group_8_repo;
 
 public class Level3 extends MyStage{
 
-	//private Stage level1stage;
-	private Animal animal;
-	private int level=3;
+	private Animal animallevel3;
+	private int currentlevel=3;
 	
 	Level3(){
 		createArena();
@@ -52,10 +51,10 @@ public class Level3 extends MyStage{
 		//add(new End(141 + 141-13+141-13+141-13+3,96));
 		add(new End(141 + 141-13+141-13+141-13+3,96,true));
 		
-		animal = new Animal("file:src/froggertextures/froggerUp.png");
-		animal.level=getLevel();
-		animal.movementX=10.666666*2*1.3;
-		add(animal);
+		animallevel3 = new Animal("file:src/froggertextures/froggerUp.png");
+		animallevel3.setLevel(getcurrentLevel());
+		animallevel3.setmovementX(10.666666*2*1.3);
+		add(animallevel3);
 		
 		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 0, 649, 1*1.3, 120, 120));
 		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 300, 649, 1*1.3, 120, 120));
@@ -72,7 +71,7 @@ public class Level3 extends MyStage{
 	//changes on the score position 550
 		add(new Digit(0, 30, 550, 25));
 	//add level display	
-		add(new Digit(getLevel(),30,550,450));
+		add(new Digit(getcurrentLevel(),30,550,450));
 		//add level text display
 
 	}
@@ -81,21 +80,21 @@ public class Level3 extends MyStage{
 	
 	//initialize points for the level
 	@Override
-	public void setPoints(int points) {
+	public void setcurrentlevelPoints(int points) {
 		// TODO Auto-generated method stub
-		getAnimal().points=points;
+		getcurrentlevelAnimal().setPoints(points);
 	}
 
 	@Override
-	public Animal getAnimal() {
+	public Animal getcurrentlevelAnimal() {
 		// TODO Auto-generated method stub
-		return this.animal;
+		return this.animallevel3;
 	}
 
 	@Override
-	public int getLevel() {
+	public int getcurrentLevel() {
 		// TODO Auto-generated method stub
-		return this.level;
+		return this.currentlevel;
 	}
 
 

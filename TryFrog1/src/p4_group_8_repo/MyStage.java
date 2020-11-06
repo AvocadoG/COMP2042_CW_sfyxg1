@@ -54,9 +54,9 @@ public abstract class MyStage extends World{
 		return this.stage;
 	}
 	
-	
+	//TEMPLATE METHOD DESIGN PATTERN
 	public abstract void createArena();//different arena for each level
-	public abstract void setPoints(int points);//set different start points of each level
-	public abstract Animal getAnimal();//get different animal at each level
-	public abstract int getLevel();
+	public abstract void setcurrentlevelPoints(int points);//set different start points of each level
+	public abstract Animal getcurrentlevelAnimal();//get different animal at each level
+	public abstract int getcurrentLevel();//get different level value at each level
 }
