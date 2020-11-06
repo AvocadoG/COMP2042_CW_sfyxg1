@@ -13,12 +13,17 @@ import java.util.Collections;
 public class HighScoreController {
 
 	private File scorefile = new File("src/froggerfiles/scorefile.txt");
+	private HighScoreView view;
+	private HighScoreModel model;
 	
 	HighScoreController(){};
 	
-	HighScoreController(String username, int points){
-		writingHighScore(username,points);
+	HighScoreController(HighScoreModel model, HighScoreView view){
+		this.model=model;
+		this.view=view;
+		writingHighScore(model.getusername(),model.getpoints());
 		sortingHighScore();
+		
 	}
 
 	//where we read and write highscores into files
@@ -175,5 +180,9 @@ public class HighScoreController {
 		
 		return scorelist;
 		
+	}
+	
+	public void updateView(int rank, String currenthighscore) {
+		this.view.addscoretopopupview(rank,currenthighscore);
 	}
 }

@@ -52,15 +52,15 @@ public class HighScoreView implements ButtonGenerator{
 		return quitbtn;
 	}
 	
-	public void addscoretopopupview(int times, String highscoreinput) {
-		Text highscoredata = new Text(times + ".   " + highscoreinput);
+	public void addscoretopopupview(int rank, String highscoreinput) {
+		Text highscoredata = new Text(rank + ".   " + highscoreinput);
 		highscoredata.setTextAlignment(TextAlignment.LEFT);
 		highscoredata.setFill(Color.DARKGREEN);
 		highscoredata.setFont(Font.loadFont("file:src/froggerfonts/Phosb___.ttf", 15));
 		highscoreVBox.getChildren().add(highscoredata);
 	}
 	
-	public void updatepopupview() {
+	public void finishup() {
 		quitbtn = createbtn("file:src/froggertextures/quitbtnfrogger.png");
 		highscoreVBox.getChildren().add(quitbtn);
 		highscore.getChildren().add(highscoreVBox);
