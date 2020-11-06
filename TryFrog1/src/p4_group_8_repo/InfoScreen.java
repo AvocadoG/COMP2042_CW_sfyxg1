@@ -25,12 +25,7 @@ public class InfoScreen implements ButtonGenerator{
 		info = new Group();
 		
 		backtostart = createbtn("file:src/froggertextures/backtostartbtnfrogger.png");
-		/*backtostart = new Button();
-		backtostart.setMinSize(140,50);
-		backtostart.setMaxSize(140,50);
-		Image backtostartImg = new Image("file:src/froggertextures/backtostartbtnfrogger.png");
-		backtostart.setGraphic(new ImageView(backtostartImg));*/
-		
+				
 		//add instructions text 
 		Text subheading = new Text("How To Play??");
 		subheading.setFont(Font.loadFont("file:src/froggerfonts/ChickenPie.ttf", 20));
@@ -66,13 +61,14 @@ public class InfoScreen implements ButtonGenerator{
 				"S key to move Frogger back\n" +
 				"W key to make Frogger jump\n\n" +				                                                                     
 				"RULES\n" +
-				"The goals are sending Frogger to all the 5 empty boxes on the other side. " +
-				"Purple zones are the resting zones. During the game, Frogger has to cross the road by avoiding any trucks and cars on the way. After that, Frogger has to cross the river by jumping onto Logs or Turtles.\n" +
-				"There are two types of turtles, the red turtles are the regular ones while the green turtles will submerge into the river from time to time. Red turtles will turn into Green turtles too! " +
+				"The goals are sending Frogger to all the 5 empty ENDS on the other side. " +
+				"Purple zones are the resting zones. Frogger has to avoid any trucks/cars/monsters on the way and cross the river by jumping onto Logs/Turtles.\n" +
+				"Green turtles will submerge into the river from time to time. Red turtles will turn into Green turtles too! " +
 				"When Frogger jumps onto the green turtle and the green turtle submerges, Frogger will sink into the river and die."+
-				"\n\n50points for reaching each Empty End.\n10points for each successful forward movement.\n" +
-				"MINUS 50points for getting hit by the Trucks/Cars, sinking into the River, knocking on the grass block.\n" +
-				"Game ends after ALL 5 Ends are reached.";
+				"\n\n10points for reaching each Empty End.\n5points for each successful forward movement.\n" +
+				"MINUS 10points for getting hit by the Trucks/Cars/Monsters, sinking into the River, knocking on the grass block.\n" +
+				"5 Levels in total, Level Up upon reaching all Ends at each Level.The speed of the game will increase as Frogger levels up."+
+				"Level 4 & 5 are when the Monster comes!";
 	}
 
 	@Override

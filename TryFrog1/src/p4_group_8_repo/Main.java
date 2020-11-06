@@ -75,6 +75,7 @@ public class Main extends Application {
 				//
 				primaryStage.setScene(level1scene);
 				level1.start();
+				level1.createMusic();
 				level1.setStage(primaryStage);
 				//
 				if(primaryStage == level1.getStage()) System.out.println("PrimaryStage Passed for level1 -- checked");
@@ -125,72 +126,54 @@ public class Main extends Application {
             	
             	//UPDATE SCORE OF ANIMAL AT EACH LEVEL//
             	
-            	if (level1.getcurrentlevelAnimal().changeScore() && currentlevelvalue==1) {
-            		setNumber(level1.getcurrentlevelAnimal().getPoints(), level1);
+            	if (level1.animalchangeScore() && currentlevelvalue==1) {
+            		setNumber(level1.getlevelPoints(), level1);
             	}
             	
-            	if (level2.getcurrentlevelAnimal().changeScore() && currentlevelvalue==2){
-             		setNumber(level2.getcurrentlevelAnimal().getPoints(), level2);
+            	if (level2.animalchangeScore() && currentlevelvalue==2){
+             		setNumber(level2.getlevelPoints(), level2);
                 }
             	
-            	if(level3.getcurrentlevelAnimal().changeScore() && currentlevelvalue==3){
-            	  		setNumber(level3.getcurrentlevelAnimal().getPoints(), level3);
+            	if(level3.animalchangeScore() && currentlevelvalue==3){
+            	  		setNumber(level3.getlevelPoints(), level3);
             	}
             	
-            	if(level4.getcurrentlevelAnimal().changeScore()&& currentlevelvalue==4){
-        	  		setNumber(level4.getcurrentlevelAnimal().getPoints(), level4);
+            	if(level4.animalchangeScore()&& currentlevelvalue==4){
+        	  		setNumber(level4.getlevelPoints(), level4);
             	}
             	
-            	if(level5.getcurrentlevelAnimal().changeScore()&& currentlevelvalue==5){
-        	  		setNumber(level5.getcurrentlevelAnimal().getPoints(), level5);
+            	if(level5.animalchangeScore()&& currentlevelvalue==5){
+        	  		setNumber(level5.getlevelPoints(), level5);
             	}
             	
             	
             	//LEVEL TRANSITION TILL END OF GAME//
             	
-            	if(level1.getcurrentlevelAnimal().getStop() && currentlevelvalue==1 ){
+            	if(level1.levelStop() && currentlevelvalue==1 ){
             		
             		levelUp(level1,level2,level2scene); 
-
-          		  /*Stage primaryStage = level1.getStage();
-        	 		level2.setStage(primaryStage);
-        	 		System.out.println("Level1: final points :" + level1.getcurrentlevelAnimal().getPoints());
-        	 		level2.setcurrentlevelPoints(level1.getcurrentlevelAnimal().getPoints());
-        	 		System.out.println("Level2 start points :" + level2.getcurrentlevelAnimal().getPoints());
-        	 		setNumber(level2.getcurrentlevelAnimal().getPoints(), level2);
-        	 		level1.stop();
-        	 		primaryStage.setScene(level2scene);
-        			currentlevelvalue ++;
-        	 		level2.start();*/
             	}
-            	if(level2.getcurrentlevelAnimal().getStop()  && currentlevelvalue==2){
+            	
+            	if(level2.levelStop()  && currentlevelvalue==2){
         	 		
             		levelUp(level2,level3,level3scene);
-            		
-            		/*Stage primaryStage = level2.getStage();
-        	 		level3.setStage(primaryStage);
-        	 		System.out.println("Level2: final points :" + level2.getcurrentlevelAnimal().getPoints());
-        	 		level3.setcurrentlevelPoints(level2.getcurrentlevelAnimal().getPoints());
-        	 		System.out.println("Level3: start points : " + level3.getcurrentlevelAnimal().getPoints());
-        	 		setNumber(level3.getcurrentlevelAnimal().getPoints(), level3);
-        	 		level2.stop();
-        	 		primaryStage.setScene(level3scene);
-        	 		currentlevelvalue++;
-        	 		level3.start();*/
+
             	}
         	 
-            	if(level3.getcurrentlevelAnimal().getStop()  && currentlevelvalue==3){
+            	if(level3.levelStop()  && currentlevelvalue==3){
             		
             		levelUp(level3,level4,level4scene);
             	}
-            	if(level4.getcurrentlevelAnimal().getStop() && currentlevelvalue==4) {
+            	
+            	if(level4.levelStop() && currentlevelvalue==4) {
             		
             		levelUp(level4,level5,level5scene);
             	}
-            	if(level5.getcurrentlevelAnimal().getStop() && currentlevelvalue==5) {
+            	
+            	if(level5.levelStop() && currentlevelvalue==5) {
             		
         	 		System.out.println("STOPPPP");
-        	 		level1.stopMusic();
+        	 		level5.stopMusic();
         	 		level5.stop();
         	 		stop(); //stop timer for whole game
         	 		
@@ -198,31 +181,33 @@ public class Main extends Application {
         	 		//if(highscoreflag){
         	 
         	 		//GENERATE HIGHSCORE POP UP//
-        	 		
-        	 		HighScoreController rw = new HighScoreController(username,level5.getcurrentlevelAnimal().getPoints());
-        			HighScoreView highscorepopup = new HighScoreView(level5.getcurrentlevelAnimal().getPoints());
-            		ArrayList<String> scorelist = rw.retrievingHighScore();
-            		int times=1;
-					for (String currentline : scorelist) {
-						if(times<6) {
-							highscorepopup.addscoretopopupview(times,currentline);
-							times++;
+        	 		HighScoreModel highscoremodel = new HighScoreModel(username,level5.getlevelPoints());
+        			HighScoreView highscoreview = new HighScoreView(level5.getlevelPoints());
+        	 		HighScoreController highscorecontroller = new HighScoreController(highscoremodel,highscoreview);
+        			//HighScoreController highscorecontroller = new HighScoreController(username,level5.getcurrentlevelAnimal().getPoints(), highscoreview);
+            		ArrayList<String> scorelist = highscorecontroller.retrievingHighScore();
+            		int rank=1;
+					for (String currenthighscore : scorelist) {
+						if(rank<6) {
+							//highscorepopup.addscoretopopupview(times,currentline);
+							highscorecontroller.updateView(rank,currenthighscore);
+							rank++;
 						}
 						else {
 							break;
 						}
 					}			
-					highscorepopup.updatepopupview();//finish up the HIGHSCORE view - add group()
+					highscoreview.finishup();//finish up the HIGHSCORE view - add group()
         		
-					Scene highscore = new Scene(highscorepopup.gethighscorepopup(),400,500);
+					Scene highscorescene = new Scene(highscoreview.gethighscorepopup(),400,500);
 					Stage highscorestage = new Stage();
 					highscorestage.setTitle("Game End");
 					highscorestage.initModality(Modality.APPLICATION_MODAL);
-					highscorestage.setScene(highscore);
+					highscorestage.setScene(highscorescene);
 					highscorestage.show();
 					
 						//SET HIGHSCORE POP UP BUTTON ACTIONS//
-					highscorepopup.getquitbtn().setOnMouseClicked(event -> {
+					highscoreview.getquitbtn().setOnMouseClicked(event -> {
         			highscorestage.close();
         			Platform.exit();
         		
@@ -246,55 +231,8 @@ public class Main extends Application {
             		alert.setContentText("Highest Possible Score: 800");
             		alert.show();
             		
-            		
-            		//GENERATE HIGH SCORE POP UP//
-            		//controller : set, sort, get highscores-username
-            		//highscorepopup view : define how the highscorepopup is viewed
-            		//highscoremodel : information of username and the score 
-            		
-            		HighScoreController rw = new HighScoreController(start.getusername(),animal.getPoints());
-            		HighScoreView highscorepopup = new HighScoreView(animal.getPoints());
-            		//retrieving the scores and adding it to an ArrayList
-            		ArrayList<String> scorelist = rw.retrievingHighScore(); 
-            		
-            		//to display only the Top 5 HighScores
-            		int times=1;
-					for (String currentline : scorelist) {
-						if(times<6) {
-							highscorepopup.addscoretopopupview(times,currentline);
-							times++;
-						}
-						else {
-							break;
-						}
-					}
-					
-					//finishing up highscoreview
-					highscorepopup.updatepopupview();
-            		
-					//generating HighScore Scene and Stage
-					Scene highscore = new Scene(highscorepopup.gethighscorepopup(),400,500);
-            		Stage highscorestage = new Stage();
-            		highscorestage.setTitle("Game End");
-            		highscorestage.initModality(Modality.APPLICATION_MODAL);
-            		//set the HighScore Scene to the Stage
-            		highscorestage.setScene(highscore);
-            		highscorestage.show();
-            		
-            		//set highscore quitbtn action
-            		//if quitbtn is clicked, close the popup and exit the game
-            		highscorepopup.getquitbtn().setOnMouseClicked(event -> {
-            			highscorestage.close();
-            			Platform.exit();
-            		});
-            		
-            		//set highscore popup close icon action
-            		//if highscore popup is closed, exit the game
-            		highscorestage.setOnCloseRequest(event -> {
-            			Platform.exit();
-            		});
-            		
-            	}*/
+           		*/
+            	
             }
         };
     }
@@ -302,7 +240,7 @@ public class Main extends Application {
 	
 	
 	public void start() {
-		level1.playMusic();
+		//level1.playMusic();
     	createTimer();
         timer.start();
     }
@@ -344,26 +282,23 @@ public class Main extends Application {
 
 		Stage primaryStage = currentlevel.getStage();
 		nextlevel.setStage(primaryStage);
-	 	nextlevel.setcurrentlevelPoints(currentlevel.getcurrentlevelAnimal().getPoints());
-	 	setNumber(nextlevel.getcurrentlevelAnimal().getPoints(), nextlevel);
+		System.out.println("PrimaryStage passed for" + nextlevel.getClass().getSimpleName());
+	 	nextlevel.setlevelPoints(currentlevel.getlevelPoints());
+	 	setNumber(nextlevel.getlevelPoints(), nextlevel);
 	 	
 	 	//
-	 	if(currentlevel.getcurrentlevelAnimal().getPoints()==nextlevel.getcurrentlevelAnimal().getPoints()) {
+	 	if(currentlevel.getlevelPoints()==nextlevel.getlevelPoints()) {
 	 		System.out.println(nextlevel.getClass().getSimpleName() + "start with the points as " + currentlevel.getClass().getSimpleName());
 	 		
 	 	}
 	 	//
-	 	if(currentlevel.getcurrentlevelAnimal() == level1.getcurrentlevelAnimal() && currentlevelvalue==1) {
-	 		System.out.println("Level1 up, same animal passed as argument");
-	 	}
-	 	//
-	 	if(nextlevelscene == level2scene && currentlevelvalue==1) {
-	 		System.out.println("Level1 up, nextlevelscene is the same scene as level2scene, passed as argument");
-	 	}
+	 	
+	 	currentlevel.stopMusic();
 	 	currentlevel.stop();
 	 	currentlevelvalue++;
 	 	primaryStage.setScene(nextlevelscene);
 	 	nextlevel.start();
+	 	nextlevel.createMusic();
 	 	
 	 	
 	}

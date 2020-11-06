@@ -3,12 +3,25 @@ package p4_group_8_repo;
 import javafx.scene.image.Image;
 
 public class End extends Actor{
-	boolean activated = false;
-	boolean hasCoin = false;
+	private boolean activated = false;
+	private boolean hasCoin = false;
+	private double second=0;
 	
 	@Override
 	public void act(long now) {
 		// TODO Auto-generated method st
+		if(hasCoin) {
+			if((now)%11==0) {
+				second++;
+			}
+			if(second==2) {
+				setImage(new Image("file:src/p4_group_8_repo/End.png", 60, 60, true, true));
+			}
+			if(second==4) {
+				setImage(new Image("file:src/p4_group_8_repo/EndCoin.png", 60,60,true,true));
+				second=0;
+			}
+		}
 	}
 	
 	public End(int x, int y) {
