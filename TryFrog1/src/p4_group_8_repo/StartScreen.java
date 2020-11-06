@@ -17,10 +17,11 @@ public class StartScreen implements ButtonGenerator {
 	private Button exitbtn;
 	private TextField username;
 	private VBox startscreenVBox;
+	private static StartScreen startscreen = new StartScreen("file:src/froggertextures/startscreenfrogger.png");
 	
-	StartScreen(){};
+	private StartScreen(){};
 	
-	StartScreen(String ImageLink){
+	private StartScreen(String ImageLink){
 		
 		/////////creating START SCREEN////////
 		start = new Group();
@@ -98,5 +99,10 @@ public class StartScreen implements ButtonGenerator {
 		Image btnImg = new Image(BtnImageLink);
 		btn.setGraphic(new ImageView(btnImg));
 		return btn;
+	}
+	
+	//SINGLETON DESIGN PATTERN
+	public static StartScreen getInstance() {
+		return startscreen;
 	}
 }

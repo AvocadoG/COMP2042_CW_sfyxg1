@@ -16,7 +16,11 @@ public class InfoScreen implements ButtonGenerator{
 	private Button backtostart;
 	private VBox infoscreenVBox;
 	
-	InfoScreen (String ImageLink){
+	private static InfoScreen infoscreen = new InfoScreen("file:src/froggertextures/infoscreenfrogger.png");
+	
+	private InfoScreen () {};
+	
+	private InfoScreen (String ImageLink){
 		
 		info = new Group();
 		
@@ -80,6 +84,10 @@ public class InfoScreen implements ButtonGenerator{
 		Image btnImg = new Image(BtnImageLink);
 		btn.setGraphic(new ImageView(btnImg));
 		return btn;
+	}
+	
+	public static InfoScreen getInstance() {
+		return infoscreen;
 	}
 	
 	
