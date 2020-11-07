@@ -60,7 +60,7 @@ public class StartScreen implements ButtonGenerator {
 		startscreenVBox.setTranslateY(320);
 		
 		//add start screen image (composition)
-		BackgroundImage startscreenImage = new BackgroundImage(ImageLink);
+		BackgroundImage startscreenImage = new BackgroundImage(ImageLink,613,800);
 		
 		//add components to Group start
 		start.getChildren().addAll(startscreenImage,startscreenVBox);

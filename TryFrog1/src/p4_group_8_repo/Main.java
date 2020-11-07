@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	
 	AnimationTimer timer;
-	MyStage level1, level2, level3, level4, level5;
+	LevelMaster level1, level2, level3, level4, level5;
 	Scene level1scene, level2scene, level3scene, level4scene, level5scene;
 	
 	//Animal animal;
@@ -49,16 +49,17 @@ public class Main extends Application {
 		
 		
 		//GENERATE LEVELS FOR GAME SCREEN//
-		
-	    level1 = new Level1();//create an empty stage
+		//create an animal and set it up for all levels
+		Animal animal = new Animal("file:src/froggertextures/froggerUp.png");
+	    level1 = new Level1(animal);
 	    level1scene  = new Scene(level1,gamescreenwidth,gamescreenheight);//set up the scene/screen 
-	    level2 = new Level2();
+	    level2 = new Level2(animal);
 	    level2scene = new Scene(level2,gamescreenwidth,gamescreenheight);
-	    level3 = new Level3();
+	    level3 = new Level3(animal);
 	    level3scene = new Scene(level3,gamescreenwidth,gamescreenheight);
-	    level4 = new Level4();
+	    level4 = new Level4(animal);
 	    level4scene = new Scene(level4,gamescreenwidth,gamescreenheight);
-	    level5 = new Level5();
+	    level5 = new Level5(animal);
 	    level5scene = new Scene(level5,gamescreenwidth,gamescreenheight);
 	  		
 	    
@@ -74,12 +75,11 @@ public class Main extends Application {
 				System.out.println(username + " -- Successfully get username.");
 				//
 				primaryStage.setScene(level1scene);
+				level1.setStage(primaryStage);
+				level1.activateAnimal();
+				primaryStage.setScene(level1scene);
 				level1.start();
 				level1.createMusic();
-				level1.setStage(primaryStage);
-				//
-				if(primaryStage == level1.getStage()) System.out.println("PrimaryStage Passed for level1 -- checked");
-				//
 				//start timer for level1 -activation-
 			}
 			else {
@@ -123,10 +123,57 @@ public class Main extends Application {
             @Override
             public void handle(long now) {
             	
+            	//highscorepopup yes or no?
+            	boolean highscorepop=false;
+            	
+                if(currentlevelvalue==1) {
+                	if (level1.animalchangeScore()) {
+                		setTotalScore(level1.getlevelPoints(), level1);
+                	}
+                	if(level1.levelStop()) {
+              		  levelUp(level1,level2,level2scene); 
+                	}
+                }
+                if(currentlevelvalue==2) {
+                	if (level2.animalchangeScore()){
+                		setTotalScore(level2.getlevelPoints(), level2);
+                    }
+                	 if(level2.levelStop() && currentlevelvalue==2){
+                		 levelUp(level2,level3,level3scene);
+                	 }
+                }
+                if(currentlevelvalue==3) {
+                	if(level3.animalchangeScore()){
+                		setTotalScore(level3.getlevelPoints(), level3);
+                	}
+                	if(level3.levelStop() && currentlevelvalue==3) {
+                		levelUp(level3,level4,level4scene);
+                	}
+                }
+                if(currentlevelvalue==4) {	
+                	if(level4.animalchangeScore()){
+                		setTotalScore(level4.getlevelPoints(), level4);
+                	}
+                	if(level4.levelStop() && currentlevelvalue==4){
+               		 	levelUp(level4,level5,level5scene);
+               	 	}
+                }
+                if(currentlevelvalue==5) {
+                	if(level5.animalchangeScore()){
+                		setTotalScore(level5.getlevelPoints(), level5);
+                	}
+                	if(level5.levelStop() && currentlevelvalue==5) {
+            	 		System.out.println("STOPPPP");
+            	 		level5.stopMusic();
+            	 		level5.stop();
+            	 		stop(); 
+            	 		highscorepop=true;
+                	}
+                }
             	
             	//UPDATE SCORE OF ANIMAL AT EACH LEVEL//
             	
-            	if (level1.animalchangeScore() && currentlevelvalue==1) {
+            	/*if (level1.animalchangeScore() && currentlevelvalue==1) {
             		setNumber(level1.getlevelPoints(), level1);
             	}
             	
@@ -176,10 +223,12 @@ public class Main extends Application {
         	 		level5.stopMusic();
         	 		level5.stop();
         	 		stop(); //stop timer for whole game
-        	 		
+            	*/	
         	 		//highscoreflag=true; }
         	 		//if(highscoreflag){
         	 
+                if(highscorepop==true) {
+                	
         	 		//GENERATE HIGHSCORE POP UP//
         	 		HighScoreModel highscoremodel = new HighScoreModel(username,level5.getlevelPoints());
         			HighScoreView highscoreview = new HighScoreView(level5.getlevelPoints());
@@ -217,22 +266,7 @@ public class Main extends Application {
             		Platform.exit();
 					});
 					
-            	}
-        	 
-            	/*if (animal.getStop()) {
-            		System.out.print("STOPP:");
-            		background.stopMusic();
-            		stop();
-            		background.stop();
-            		
-            		Alert alert = new Alert(AlertType.INFORMATION);
-            		alert.setTitle("You Have Won The Game!");
-            		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
-            		alert.setContentText("Highest Possible Score: 800");
-            		alert.show();
-            		
-           		*/
-            	
+            	}            	
             }
         };
     }
@@ -240,7 +274,6 @@ public class Main extends Application {
 	
 	
 	public void start() {
-		//level1.playMusic();
     	createTimer();
         timer.start();
     }
@@ -251,7 +284,7 @@ public class Main extends Application {
     
     
     //set points display on game screen
-    public void setNumber(int n, MyStage currentlevel) {
+    public void setTotalScore(int n, LevelMaster currentlevel) {
     	int shift = 0;
     	
     	if(n<100) {//if points has 2 digits
@@ -277,29 +310,21 @@ public class Main extends Application {
     	
     }
     
-    public void levelUp(MyStage currentlevel, MyStage nextlevel, Scene nextlevelscene) {
+    public void levelUp(LevelMaster currentlevel, LevelMaster nextlevel, Scene nextlevelscene) {
 		// TODO Auto-generated method stub
 
 		Stage primaryStage = currentlevel.getStage();
 		nextlevel.setStage(primaryStage);
-		System.out.println("PrimaryStage passed for" + nextlevel.getClass().getSimpleName());
-	 	nextlevel.setlevelPoints(currentlevel.getlevelPoints());
-	 	setNumber(nextlevel.getlevelPoints(), nextlevel);
-	 	
-	 	//
-	 	if(currentlevel.getlevelPoints()==nextlevel.getlevelPoints()) {
-	 		System.out.println(nextlevel.getClass().getSimpleName() + "start with the points as " + currentlevel.getClass().getSimpleName());
-	 		
-	 	}
-	 	//
-	 	
+		//System.out.println("PrimaryStage passed for" + nextlevel.getClass().getSimpleName());
+	 	//nextlevel.setlevelPoints(currentlevel.getlevelPoints());
 	 	currentlevel.stopMusic();
 	 	currentlevel.stop();
+	 	nextlevel.activateAnimal();
+	 	setTotalScore(nextlevel.getlevelPoints(), nextlevel);
 	 	currentlevelvalue++;
 	 	primaryStage.setScene(nextlevelscene);
 	 	nextlevel.start();
-	 	nextlevel.createMusic();
-	 	
+	 	nextlevel.createMusic();//playmusic right away
 	 	
 	}
     

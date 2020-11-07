@@ -19,9 +19,9 @@ public class HighScoreController {
 	HighScoreController(){};
 	
 	HighScoreController(HighScoreModel model, HighScoreView view){
-		this.model=model;
-		this.view=view;
-		writingHighScore(model.getusername(),model.getpoints());
+		setModel(model);
+		setView(view);
+		writingHighScore(getModel().getusername(),getModel().getpoints());
 		sortingHighScore();
 		
 	}
@@ -183,6 +183,21 @@ public class HighScoreController {
 	}
 	
 	public void updateView(int rank, String currenthighscore) {
-		this.view.addscoretopopupview(rank,currenthighscore);
+		getView().addscoretopopupview(rank,currenthighscore);
+	}
+
+	public void setModel(HighScoreModel model) {
+		this.model = model;
+	}
+	public HighScoreModel getModel() {
+		return this.model;
+	}
+	
+	public HighScoreView getView() {
+		return view;
+	}
+
+	public void setView(HighScoreView view) {
+		this.view = view;
 	}
 }

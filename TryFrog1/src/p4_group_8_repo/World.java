@@ -68,7 +68,7 @@ public abstract class World extends Pane {
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                act(now);
+                //act(now);
                 List<Actor> actors = getObjects(Actor.class);
                 
                 for (Actor anActor: actors) {
@@ -88,23 +88,28 @@ public abstract class World extends Pane {
         timer.stop();
     }
     
-    public void add(Actor actor) {
+   /* public void add(Actor actor) {
         getChildren().add(actor);
+    }*/
+    
+    public void add(Node node) {
+        getChildren().add(node);
     }
 
-    public void remove(Actor actor) {
+   /*	NOT IN USE
+    *  public void remove(Actor actor) {
         getChildren().remove(actor);
-    }
+    }*/
 
     public <A extends Actor> List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
         for (Node n: getChildren()) {
             if (cls.isInstance(n)) {
-                someArray.add((A)n);
+                someArray.add((A) n);
             }
         }
         return someArray;
     }
 
-    public abstract void act(long now);
+   // public abstract void act(long now);
 }

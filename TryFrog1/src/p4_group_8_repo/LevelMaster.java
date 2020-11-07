@@ -3,10 +3,13 @@ package p4_group_8_repo;
 import java.io.File;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
-public abstract class MyStage extends World{
+public abstract class LevelMaster extends World{
 	MediaPlayer mediaPlayer;
 	
 	private Stage stage;
@@ -16,19 +19,11 @@ public abstract class MyStage extends World{
 		
 	}*/
 	
-	public MyStage() {
-
-//		mediaPlayer.play();
-//		mediaPlayer.setOnEndOfMedia(new Runnable() {
-//
-//			@Override
-//			public void run() {
-//				mediaPlayer.seek(Duration.ZERO);
-//				
-//			}
-//			
-//		});
-//		mediaPlayer.play();
+	public LevelMaster() {		
+		
+		BackgroundImage levelbackground = new BackgroundImage("file:src/froggertextures/iKogsKW.png",613,800);
+		add(levelbackground);
+			
 	}
 	
 	public void playMusic(String musicFile) {
@@ -43,6 +38,15 @@ public abstract class MyStage extends World{
 		mediaPlayer.stop();
 	}
 	
+	public void displaylevel(int level) {
+		// TODO Auto-generated method stub
+		Text leveldisplay = new Text("Level " + level);
+		leveldisplay.setFont(Font.loadFont("file:src/froggerfonts/ChickenPie.ttf", 25));
+		leveldisplay.setFill(Color.WHITE);
+		leveldisplay.setX(510);
+		leveldisplay.setY(470);
+		add(leveldisplay);
+	}
 	
 	//bring the primaryStage around
 	public void setStage(Stage primaryStage) {
@@ -56,12 +60,9 @@ public abstract class MyStage extends World{
 	
 	//TEMPLATE METHOD DESIGN PATTERN
 	protected abstract void createArena();//different arena for each level
-	protected abstract void createMusic();
-	protected abstract void setlevelPoints(int points);//set different start points of each level
+	protected abstract void createMusic();//different music for each level
 	protected abstract int getlevelPoints();
-	//protected abstract Animal getlevelAnimal();
-	//protected abstract int getcurrentLevel();
 	protected abstract boolean levelStop();//check if the level is stopped
 	protected abstract boolean animalchangeScore();//check if the level animal changescore
-	
+	protected abstract void activateAnimal();
 }

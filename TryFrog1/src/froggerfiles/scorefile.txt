@@ -1,4 +1,7 @@
 tetststs----600
+test high score----580
+test image interface----505
+asj----500
 testing9876----380
 asheole----380
 testing 7.0----340

@@ -2,30 +2,25 @@ package p4_group_8_repo;
 
 //level 2 - speed up *1.3
 
-public class Level2 extends MyStage{
+public class Level2 extends LevelMaster{
 
 	//private Stage level1stage;
 	private Animal animallevel2;
 	private int currentlevel=2;
 	
-	Level2(){
+	Level2(Animal animal){
+		setlevelAnimal(animal);
 		createArena();
+		super.displaylevel(getcurrentLevel());
+
 	}
 
 	@Override
 	public void createArena() {
 		// TODO Auto-generated method stub
 		
-	//changes on the image link
-    //composition relationship
-	    BackgroundImage froggerback = new BackgroundImage("file:src/froggertextures/iKogsKW.png");//
-	    //add background image to the background stage
-		add(froggerback);
-
-
 		//add images of logs, turtles, cars(obstacles) and end boxes///
 						
-		//HOW TO REMOVE
 		add(new Log("file:src/froggertextures/log3.png", 150, 0, 166, 0.75));
 		add(new Log("file:src/froggertextures/log3.png", 150, 220, 166, 0.75));
 		add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75));
@@ -45,16 +40,16 @@ public class Level2 extends MyStage{
 		add(new WetTurtle(400, 217, -1, 130, 130));
 		add(new WetTurtle(200, 217, -1, 130, 130));
 
-		add(new End(13,96));
-		add(new End(141,96));
-		add(new End(141 + 141-13,96));
-		add(new End(141 + 141-13+141-13+1,96));
-		add(new End(141 + 141-13+141-13+141-13+3,96));
+		add(new End(13,96,false));
+		add(new End(141,96,false));
+		add(new End(141 + 141-13,96,false));
+		add(new End(141 + 141-13+141-13+1,96,false));
+		add(new End(141 + 141-13+141-13+141-13+3,96,false));
 		
-		animallevel2 = new Animal("file:src/froggertextures/froggerUp.png");
+		/*animallevel2 = new Animal("file:src/froggertextures/froggerUp.png");
 		animallevel2.setmovementX(10.666666*2);
 		animallevel2.setLevel(getcurrentLevel());
-		add(animallevel2);
+		add(animallevel2);*/
 		
 		
 		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 0, 649, 1, 120, 120));
@@ -73,11 +68,15 @@ public class Level2 extends MyStage{
 	//changes on the score position 550
 		add(new Digit(0, 30, 550, 25));
 		
-		add(new Digit(getcurrentLevel(),30,550,450));
+		//add(new Digit(getcurrentLevel(),30,550,450));
 
 
 	}
 
+	public void setlevelAnimal(Animal animal) {
+		// TODO Auto-generated method stub
+		this.animallevel2=animal;
+	}
 
 	private Animal getlevelAnimal() {
 		// TODO Auto-generated method stub
@@ -89,13 +88,7 @@ public class Level2 extends MyStage{
 		return this.currentlevel;
 	}
 	
-	
-	//initialize points for the level
-	@Override
-	public void setlevelPoints(int points) {
-		// TODO Auto-generated method stub
-		getlevelAnimal().setPoints(points);
-	}
+
 
 	@Override
 	public int getlevelPoints() {
@@ -120,6 +113,15 @@ public class Level2 extends MyStage{
 		// TODO Auto-generated method stub
 		String musicFile = "src/p4_group_8_repo/Frogger Main Song Theme (loop).mp3";
 		super.playMusic(musicFile);
+	}
+
+	@Override
+	public void activateAnimal() {
+		getlevelAnimal().setmovementX(10.666666*2);
+		animallevel2.setLevel(getcurrentLevel());
+		animallevel2.setEnd(0);
+		add(animallevel2);
+
 	}
 	
 

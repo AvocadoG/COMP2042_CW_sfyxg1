@@ -40,7 +40,7 @@ public class InfoScreen implements ButtonGenerator{
 	    infoscreenVBox.setMaxSize(600, 800);
 	    infoscreenVBox.setAlignment(Pos.CENTER);
 	    
-	    BackgroundImage infobackground = new BackgroundImage(ImageLink);
+	    BackgroundImage infobackground = new BackgroundImage(ImageLink,613,800);
 	    
 	    //append to Group info
 		info.getChildren().addAll(infobackground,infoscreenVBox);
@@ -66,7 +66,7 @@ public class InfoScreen implements ButtonGenerator{
 				"Green turtles will submerge into the river from time to time. Red turtles will turn into Green turtles too! " +
 				"When Frogger jumps onto the green turtle and the green turtle submerges, Frogger will sink into the river and die."+
 				"\n\n10points for reaching each Empty End.\n5points for each successful forward movement.\n" +
-				"MINUS 10points for getting hit by the Trucks/Cars/Monsters, sinking into the River, knocking on the grass block.\n" +
+				"MINUS 10points for getting hit by the Trucks/Cars/Monsters and sinking into the River. MINUS 5points for bumping into the grass block.\n" +
 				"5 Levels in total, Level Up upon reaching all Ends at each Level.The speed of the game will increase as Frogger levels up."+
 				"Level 4 & 5 are when the Monster comes!";
 	}

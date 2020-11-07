@@ -11,8 +11,8 @@ public class BackgroundImage extends ImageView{
 		
 	}*/
 	
-	public BackgroundImage(String imageLink) {
-		setImage(new Image(imageLink, 613, 800, false, true));
+	public BackgroundImage(String imageLink, int width, int height) {
+		setImage(new Image(imageLink, width, height, false, true));
 		
 	}
 

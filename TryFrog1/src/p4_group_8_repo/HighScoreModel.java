@@ -16,4 +16,12 @@ public class HighScoreModel {
 	public int getpoints() {
 		return this.points;
 	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
 }

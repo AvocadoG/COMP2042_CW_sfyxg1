@@ -2,8 +2,12 @@ package p4_group_8_repo;
 
 import javafx.scene.image.Image;
 
-public class Obstacle extends Actor {
+public class Obstacle extends Actor{
+	
 	private double speed;
+	private Image obstacleImg;
+	private int imgwidth,imgheight;
+	
 	@Override
 	public void act(long now) {
 		move(speed , 0);
@@ -14,10 +18,24 @@ public class Obstacle extends Actor {
 	}
 	
 	public Obstacle(String imageLink, int xpos, int ypos, double s, int w, int h) {
-		setImage(new Image(imageLink, w,h, true, true));
+		
+		this.imgheight=h;
+		this.imgwidth=w;
+		obstacleImg = createImage(imageLink);
+		//obstacleImg = createImage("");
+		//this.w=w;this.h=h;
+		//setImage(obstacleImg);
+		setImage(obstacleImg);
 		setX(xpos);
 		setY(ypos);
 		speed = s;
+	}
+
+	@Override
+	public Image createImage(String ImageLink) {
+		// TODO Auto-generated method stub
+		Image img = new Image(ImageLink, this.imgwidth,this.imgheight,true,true);
+		return img;
 	}
 
 }

@@ -17,11 +17,11 @@ public class HighScoreView implements ButtonGenerator{
 	private Group highscore;
 	private VBox highscoreVBox;
 	
-	HighScoreView(){ };
-	HighScoreView(int points){
+	//HighScoreView(){ };
+	HighScoreView(int currentplayerpoints){
 		
 		highscore = new Group();
-		Text currentplayerscore = new Text ("YOU WIN!\nYour Score: "+ points);
+		Text currentplayerscore = new Text ("YOU WIN!\nYour Score: "+ currentplayerpoints);
 		currentplayerscore.setTextAlignment(TextAlignment.CENTER);
 		currentplayerscore.setFont(Font.loadFont("file:src/froggerfonts/ChickenPie.ttf", 20));
 		Text header = new Text ("High Score Display:");
@@ -33,15 +33,15 @@ public class HighScoreView implements ButtonGenerator{
 		highscoreVBox.setAlignment(Pos.CENTER);
 		highscoreVBox.setMinSize(400, 500);//scene size 400x500
 		
-		Image highscoreimg = new Image("file:src/froggertextures/highscorepopupfrogger.png");
-		ImageView highscoreimgView = new ImageView();
-		highscoreimgView.setImage(highscoreimg);
-		highscoreimgView.setFitWidth(400);
+		BackgroundImage highscorebackground = new BackgroundImage("file:src/froggertextures/highscorepopupfrogger.png",400,500);
+		//ImageView highscoreimgView = new ImageView();
+		//highscoreimgView.setImage(highscoreimg);
+		/*highscoreimgView.setFitWidth(400);
 		highscoreimgView.setFitHeight(500);
 		highscoreimgView.setPreserveRatio(false);
-		highscoreimgView.setSmooth(true);
+		highscoreimgView.setSmooth(true);*/
 		//group
-		highscore.getChildren().add(highscoreimgView);
+		highscore.getChildren().add(highscorebackground);
 	}
 	
 	public Group gethighscorepopup() {

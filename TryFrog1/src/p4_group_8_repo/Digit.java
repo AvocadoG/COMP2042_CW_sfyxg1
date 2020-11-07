@@ -4,20 +4,17 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Digit extends ImageView{
-	int dim;
-	Image im1;
-	
+		
 	/*@Override
 	public void act(long now) {
 		// TODO Auto-generated method stub
 		
 	}*/
 	
-	public Digit(int n, int dim, int x, int y) {
-		im1 = new Image("file:src/froggertextures/"+n+".png", dim, dim, true, true);
-		setImage(im1);
-		setX(x);
-		setY(y);
+	public Digit(int number, int dimension, int xpos, int ypos) {
+		setImage( new Image("file:src/froggertextures/"+number+".png", dimension, dimension, true, true));
+		setX(xpos);
+		setY(ypos);
 	}
 	
 }
