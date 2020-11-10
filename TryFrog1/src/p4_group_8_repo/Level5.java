@@ -79,7 +79,7 @@ public class Level5 extends LevelMaster{
 		this.animallevel5=animal;
 	}
 
-	private Animal getlevelAnimal() {
+	public Animal getlevelAnimal() {
 		// TODO Auto-generated method stub
 		return animallevel5;
 	}

@@ -79,7 +79,7 @@ public class Level4 extends LevelMaster{
 	}
 
 	
-	private Animal getlevelAnimal() {
+	public Animal getlevelAnimal() {
 		// TODO Auto-generated method stub
 		return animallevel4;
 	}

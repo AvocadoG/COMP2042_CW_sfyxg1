@@ -1,9 +1,5 @@
 package p4_group_8_repo;
 
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 
 //change scoring system, move up +5 points
 //reach empty END +10 points
@@ -112,7 +108,7 @@ public class Level1 extends LevelMaster{
 		this.animallevel1=animal;
 	}
 
-	private Animal getlevelAnimal() {
+	public Animal getlevelAnimal() {
 		// TODO Auto-generated method stub
 		return this.animallevel1;
 	}

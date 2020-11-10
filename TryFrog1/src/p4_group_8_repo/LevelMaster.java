@@ -38,7 +38,8 @@ public abstract class LevelMaster extends World{
 		mediaPlayer.stop();
 	}
 	
-	public void displaylevel(int level) {
+	//
+	protected void displaylevel(int level) {
 		// TODO Auto-generated method stub
 		Text leveldisplay = new Text("Level " + level);
 		leveldisplay.setFont(Font.loadFont("file:src/froggerfonts/ChickenPie.ttf", 25));
