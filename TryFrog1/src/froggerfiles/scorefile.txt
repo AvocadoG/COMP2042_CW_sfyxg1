@@ -1,4 +1,5 @@
 tetststs----600
+xinyeegoh----590
 test high score----580
 test image interface----505
 asj----500

@@ -6,8 +6,8 @@ import javafx.scene.input.InputEvent;
 import java.util.ArrayList;
 
 /**
- * <h2>Actor Class is the base class for all the interactive objects in the Frogger Game.</h2>
- * <h3>Each interactive game object is known as an Actor.</h3>
+ * Actor Class is the base class for all the interactive objects in the Frogger Game.<br>
+ * Each interactive game object is known as an Actor.
  * 
  * 
  * @author User
@@ -28,9 +28,9 @@ public abstract class Actor extends ImageView implements ImageGenerator{
 
     
     /**
-     * Allows the access to the Main Game World
-     * @see p4_group_8_repo.World
-     * @return World the Main Game World 
+     * Allows the access to the Actor's parent {@link p4_group_8_repo.World} class.<br>
+     * {@link p4_group_8_repo.World} is the main Game Arena
+     * @return World the Main Game Arena 
      */
     //to access the World class (Pane)
     public World getWorld() {
@@ -48,7 +48,7 @@ public abstract class Actor extends ImageView implements ImageGenerator{
 
     
     /**
-     * Retrieves a list of game objects from the {@link p4_group_8_repo.World} that collide with the {@link p4_group_8_repo.Actor}.
+     * Retrieves a list of game objects from the {@link p4_group_8_repo.World} that collide with the {@link p4_group_8_repo.Actor}.<br>
      * The game objects must match the targeted {@code cls} class type. 
      * 
      * @param <A> a class type that is a subclass of {@link p4_group_8_repo.Actor} class
@@ -100,8 +100,8 @@ public abstract class Actor extends ImageView implements ImageGenerator{
 
     
     /**
-     * <p>defines how Actor would act in the Game once per frame.</p> 
-     * It will be called every once per frame while the Actor and the Game are active
+     * defines how Actor would act in the Game.<br>
+     * It will be called every once per frame while the Actor and the Game are active.
      * @param now in nanoseconds format and it represents the timestamp of the current frame.
      */
     //USED BY EVERY SUBCLASS

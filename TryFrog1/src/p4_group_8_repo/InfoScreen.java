@@ -16,7 +16,7 @@ public class InfoScreen implements ButtonGenerator{
 	private Button backtostart;
 	private VBox infoscreenVBox;
 	
-	private static InfoScreen infoscreen = new InfoScreen("file:src/froggertextures/infoscreenfrogger.png");
+	private static InfoScreen infoscreen;
 	
 	private InfoScreen () {};
 	
@@ -83,6 +83,10 @@ public class InfoScreen implements ButtonGenerator{
 	}
 	
 	public static InfoScreen getInstance() {
+		
+		if(infoscreen==null) {
+			infoscreen = new InfoScreen("file:src/froggertextures/infoscreenfrogger.png");
+		}
 		return infoscreen;
 	}
 	

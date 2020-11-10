@@ -17,7 +17,7 @@ public class StartScreen implements ButtonGenerator {
 	private Button exitbtn;
 	private TextField username;
 	private VBox startscreenVBox;
-	private static StartScreen startscreen = new StartScreen("file:src/froggertextures/startscreenfrogger.png");
+	private static StartScreen startscreen;
 	
 	private StartScreen(){};
 	
@@ -103,6 +103,9 @@ public class StartScreen implements ButtonGenerator {
 	
 	//SINGLETON DESIGN PATTERN
 	public static StartScreen getInstance() {
+		if(startscreen == null) {
+			startscreen  = new StartScreen("file:src/froggertextures/startscreenfrogger.png");
+		}
 		return startscreen;
 	}
 }

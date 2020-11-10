@@ -51,15 +51,21 @@ public class Main extends Application {
 		//GENERATE LEVELS FOR GAME SCREEN//
 		//create an animal and set it up for all levels
 		Animal animal = new Animal("file:src/froggertextures/froggerUp.png");
-	    level1 = new Level1(animal);
+		LevelFactory levelfactory = new LevelFactory();
+		level1 = levelfactory.getLevel("Level1", animal);
+	    //level1 = new Level1(animal);
 	    level1scene  = new Scene(level1,gamescreenwidth,gamescreenheight);//set up the scene/screen 
-	    level2 = new Level2(animal);
+		level2 = levelfactory.getLevel("Level2", animal);
+	    //level2 = new Level2(animal);
 	    level2scene = new Scene(level2,gamescreenwidth,gamescreenheight);
-	    level3 = new Level3(animal);
+		level3 = levelfactory.getLevel("Level3", animal);
+	    //level3 = new Level3(animal);
 	    level3scene = new Scene(level3,gamescreenwidth,gamescreenheight);
-	    level4 = new Level4(animal);
+		level4 = levelfactory.getLevel("Level4", animal);
+	    //level4 = new Level4(animal);
 	    level4scene = new Scene(level4,gamescreenwidth,gamescreenheight);
-	    level5 = new Level5(animal);
+		level5 = levelfactory.getLevel("Level5", animal);
+		//level5 = new Level5(animal);
 	    level5scene = new Scene(level5,gamescreenwidth,gamescreenheight);
 	  		
 	    

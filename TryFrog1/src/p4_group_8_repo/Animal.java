@@ -6,41 +6,101 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-
+/**
+ * <p>Animal is the player's Avatar in the game, which in this case is the Frog.</p>
+ * Animal is also an Actor.
+ * <p>It can move. It might get hit by the obstacles on the road or drown in the river and die.</p>
+ * <p>Its goal is to reach the empty {@link p4_group_8_repo.Ends} on the other side.</p>
+ * 
+ * @author User
+ *
+ */
 public class Animal extends Actor {
 	
+	//The first version of animations for Frog moving up, left, right, down
 	private Image imgW1,imgA1, imgS1, imgD1;
+	//The second version of animations for Frog moving up, left, right, down
 	private Image imgW2,imgA2, imgS2, imgD2;
-	private Image hitImg1,hitImg2,hitImg3;
-	private Image drownImg1,drownImg2,drownImg3,drownImg4;
-	private int imgSize = 40;//size of frog animation images
-
-	private boolean secondAnimation = false;//check if second frog animation image is used
 	
-	private int level;//level of animal --- done setter
-	private int points = 0;//initial points --- done setter getter
-	private int end = 0;//how many ends have been reached
+	//The animations for when Frog got hit by the Car/Trucks or by the Monster
+	private Image hitImg1,hitImg2,hitImg3;
+	//The animations for when Frog drown into the river
+	private Image drownImg1,drownImg2,drownImg3,drownImg4;
+	
+	//The standard image size for all Frog animations
+	private int imgSize = 40;
+	
+	//To check if the second version of Frog animations are used during the last time frame.
+	private boolean secondAnimation = false;
+	
+	/**
+	 * which game level the Animal is in
+	 */
+	private int level;//game level of Frog  --- done setter
+	
+	/**
+	 * Animal's game points
+	 */
+	private int points = 0;//initial points of Frog --- done setter getter
+	
+	/**
+	 * amount of {@code End} Animal has reached
+	 */
+	private int end = 0;//how many ends have been reached by Frog
 
-	private boolean noMove = false;//check if frog should move
-	private double movement = 13.3333333*2;//set vertical movement
+	private boolean noMove = false;//check if Frog should move
+	
+	/**
+	 * vertical moving speed of Animal at a single move
+	 */
+	private double movement = 13.3333333*2;//vertical movement of Frog
+	
+	/**
+	 * horizontal moving speed of Animal at a single move
+	 */
 	private double movementX;//set horizontal movement --- done setter
 	
-	//check if following deaths happen on frog
-	//check death methods created
+
+	/**
+	 * determine Animal's car death.<br>
+	 * <b>true</b> when Animal gets hit by the Trucks and Cars on the road.
+	 */
 	private boolean carDeath = false;
+	/**
+	 * determine Animal's water death<br>
+	 * <b>true</b> when Animal die-drowning in the river.
+	 */
 	private boolean waterDeath = false;
+	/**
+	 * determine Animal's monster death<br>
+	 * <b>true</b> when Animal gets eaten by the game {@link p4_group_8_repo.Monster}.
+	 */
 	private boolean monsterDeath = false;
-	private int carD = 0; //for animation 
+	
+	//for animations display during Frog death
+	private int carD = 0; 
 	private int waterD = 0;
 	private int monsterD = 0;
 	
 	//boolean stop = false;
-	private boolean changeScore = false;//check if frog updates scores
 	
-	//for recording latest previous y position of frog
+	private boolean changeScore = false;//check if Frog score has to be updated
+	
+	//the previous y position of frog
 	private double initialYposition = 800;
 	
 	
+	/**
+	 * This constructor will create an Animal with a look. Its initial position in the game is set.<br>
+	 * The Animal can now move up (W key) down (S key) left (A key) and right (D key) with different animations.
+	 * This is done by implementing 
+	 * <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Node.html#setOnKeyPressed-javafx.event.EventHandler-">{@code setOnKeyPressed}</a>
+	 *  and 
+	 *  <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Node.html#setOnKeyReleased-javafx.event.EventHandler-">{@code setOnKeyReleased}</a>
+	 *  to detect and handle the keyboard inputs.
+	 *  
+	 * @param imageLink The initial look of the Animal
+	 */
 	public Animal(String imageLink) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
 		setX(300);
@@ -56,21 +116,9 @@ public class Animal extends Actor {
 		imgS2 = new Image("file:src/froggertextures/froggerDownJump.png", imgSize, imgSize, true, true);
 		imgD2 = new Image("file:src/froggertextures/froggerRightJump.png", imgSize, imgSize, true, true);*/
 		
-		imgW1 = createImage("file:src/froggertextures/froggerUp.png");
-		imgA1 = createImage("file:src/froggertextures/froggerLeft.png");
-		imgS1 = createImage("file:src/froggertextures/froggerDown.png");
-		imgD1 = createImage("file:src/froggertextures/froggerRight.png");
-		imgW2 = createImage("file:src/froggertextures/froggerUpJump.png");
-		imgA2 = createImage("file:src/froggertextures/froggerLeftJump.png");
-		imgS2 = createImage("file:src/froggertextures/froggerDownJump.png");
-		imgD2 = createImage("file:src/froggertextures/froggerRightJump.png");
-		hitImg1 = createImage("file:src/froggertextures/cardeath1.png");
-		hitImg2 = createImage("file:src/froggertextures/cardeath2.png");
-		hitImg2 = createImage("file:src/froggertextures/cardeath3.png");
-		drownImg1 = createImage("file:src/froggertextures/waterdeath1.png");
-		drownImg2 = createImage("file:src/froggertextures/waterdeath2.png");
-		drownImg3 = createImage("file:src/froggertextures/waterdeath3.png");
-		drownImg4 = createImage("file:src/froggertextures/waterdeath4.png");
+		animalAnimationSetUp();
+		
+		
 		
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
@@ -166,6 +214,41 @@ public class Animal extends Actor {
 		});
 	}
 	
+	
+	/**
+	 * Sets up all the necessary animations and looks for the Animal.<br>
+	 * Images for the animations are set up by calling {@link Animal#createImage(String)} method
+	 */
+	public void animalAnimationSetUp() {
+		// TODO Auto-generated method stub
+		imgW1 = createImage("file:src/froggertextures/froggerUp.png");
+		imgA1 = createImage("file:src/froggertextures/froggerLeft.png");
+		imgS1 = createImage("file:src/froggertextures/froggerDown.png");
+		imgD1 = createImage("file:src/froggertextures/froggerRight.png");
+		imgW2 = createImage("file:src/froggertextures/froggerUpJump.png");
+		imgA2 = createImage("file:src/froggertextures/froggerLeftJump.png");
+		imgS2 = createImage("file:src/froggertextures/froggerDownJump.png");
+		imgD2 = createImage("file:src/froggertextures/froggerRightJump.png");
+		hitImg1 = createImage("file:src/froggertextures/cardeath1.png");
+		hitImg2 = createImage("file:src/froggertextures/cardeath2.png");
+		hitImg2 = createImage("file:src/froggertextures/cardeath3.png");
+		drownImg1 = createImage("file:src/froggertextures/waterdeath1.png");
+		drownImg2 = createImage("file:src/froggertextures/waterdeath2.png");
+		drownImg3 = createImage("file:src/froggertextures/waterdeath3.png");
+		drownImg4 = createImage("file:src/froggertextures/waterdeath4.png");
+	}
+
+	
+	/**
+	 * {@inheritDoc}<br>
+	 * Defines how Animal will behave in the game.<br>
+	 * Animal can collide with other game objects and move along with them.
+	 * Should the Animal experience any car death, water death or monster death. Animal will perform relevant actions upon its death.<br>
+	 * Deaths are determined upon calling methods :{@link Animal#checkcarDeath(boolean, long)} {@link Animal#checkwaterDeath(boolean, long)}, {@link Animal#checkmonsterDeath(boolean, long)}<br>
+	 * Should the Animal successfully reach the destinations, Animal will get points.
+	 * <br>
+	 * If Animal is moves out of the game scene, Animal will be moved back.
+	 */
 	public void act(long now) {
 		
 		//to make sure frog doesn't get out of screen
@@ -251,8 +334,14 @@ public class Animal extends Actor {
 }
 	
 	
+	/**
+	 * Checks if Animal gets eaten by the {@link p4_group_8_repo.Monster} and performs relevant actions.<br>
+	 * Should the Animal experience a <i>monster death</i>, Animal will be deducted 10points.
+	 * @param mD {@link Animal#monsterDeath}
+	 * @param now current time frame in nanoseconds
+	 */
 	//private checking, methods should only be called within the animal act 
-	private void checkmonsterDeath(boolean mD, long now) {
+	public void checkmonsterDeath(boolean mD, long now) {
 		// TODO Auto-generated method stub
 		if (mD) {
 			noMove = true;
@@ -290,7 +379,14 @@ public class Animal extends Actor {
 		}
 	}
 
-	private void checkwaterDeath(boolean wD, long now) {
+	
+	/**
+	 * Checks if Animal gets drown into the river and performs relevant game actions<br>
+	 * Should the Animal experience a <i>water death</i>, Animal will be deducted 10points.
+	 * @param wD {@link Animal#waterDeath}
+	 * @param now current time frame in nanoseconds
+	 */
+	public void checkwaterDeath(boolean wD, long now) {
 		// TODO Auto-generated method stub
 		if (wD) {
 			noMove = true;
@@ -333,7 +429,14 @@ public class Animal extends Actor {
 		}
 	}
 
-	private void checkcarDeath(boolean cD, long now) {
+	
+	/**
+	 * Checks if Animal gets hit by a Car/Truck(See : {@link p4_group_8_repo.Obstacle}) and perform relevant actions.<br>
+	 * Should the Animal experience a <i>car/truck death</i>, Animal will be deducted 10points.
+	 * @param cD {@link Animal#carDeath}
+	 * @param now current time frame in nanoseconds
+	 */
+	public void checkcarDeath(boolean cD, long now) {
 		// TODO Auto-generated method stub
 		if (cD) {
 			noMove = true;
@@ -372,12 +475,23 @@ public class Animal extends Actor {
 		
 	}
 
+	
+	/**
+	 * Checks if Animal is stopped in the game.<br>
+	 * If Animal has reached all the 5 Empty Ends of a single level, Animal will get stopped at the level.
+	 * 
+	 * @return true if Animal has reached 5 {@link Animal#end}
+	 */
 	public boolean getStop() {
 		return end==2;
 	}
 	
 	
-	
+	/**
+	 * Checks if Animal' score has changed.<br>
+	 * 
+	 * @return true if there is a change in the Animal's score
+	 */
 	public boolean changeScore() {
 		if (changeScore) {
 			changeScore = false;
@@ -387,28 +501,55 @@ public class Animal extends Actor {
 		
 	}
 	
+	/**
+	 * Sets the game {@link Animal#points} of Animal.
+	 * @param points the points to be assigned to the Animal
+	 */
 	//points for animals
 	public void setPoints(int points) {
 		this.points=points;
 	}
+	
+	/**
+	 * Gets the game {@link Animal#points} of Animal.
+	 * @return the current {@link Animal#points} of Animal
+	 */
 	public int getPoints() {
 		return points;
 	}
 	
+	/**
+	 * Sets the {@link Animal#level} of the Animal currently at.
+	 * @param level one of the game levels
+	 */
 	//level for movement along logs and turtles used
 	public void setLevel(int level) {
 		this.level=level;
 	}
 	
+	/**
+	 * Sets the {@link Animal#movementX} of Animal at each move.<br>
+	 * {@link Animal#movementX} differs between game levels.
+	 * @param mX the value for {@link Animal#movementX} to be assigned with
+	 */
 	public void setmovementX(double mX) {
 		this.movementX=mX;
 	}
 
+	
+	/**
+	 * Sets the number of {@link Animal#end} Animal has reached.
+	 * @param end value for {@link Animal#end}
+	 */
 	public void setEnd(int end) {
 		// TODO Auto-generated method stub
 		this.end=end;
 	}
 
+	/**
+	 * {@inheritDoc}<br>
+	 * To generate images for Animal's animations.
+	 */
 	@Override
 	public Image createImage(String ImageLink) {
 		// TODO Auto-generated method stub
