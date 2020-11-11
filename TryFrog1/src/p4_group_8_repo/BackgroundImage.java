@@ -19,7 +19,7 @@ public class BackgroundImage extends ImageView{
 	}*/
 	
 	/**
-	 * This constructor will create a Background Image for a game scene or a game screen.<br>
+	 * This constructor will create a Background Image object for a game scene or a game screen.<br>
 	 * The background image <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/image/ImageView.html#preserveRatioProperty">{@code preserveRatioProperty}</a> is set to false 
 	 *  and <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/image/ImageView.html#smoothProperty">{@code smoothProperty}</a> is set to true.<br>
 	 * @param imageLink The link to the background image to be created

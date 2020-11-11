@@ -17,7 +17,7 @@ public class Digit extends ImageView{
 	}*/
 	
 	/**
-	 * This constructor will create Digits for the Animal's game points.
+	 * This constructor will create a Digit object for the Animal's game points.
 	 * @param number the {@code Digit} to be created
 	 * @param dimension the size of the {@code Digit} to be displayed in the game scene
 	 * @param xpos the x position of the {@code Digit} in the game scene

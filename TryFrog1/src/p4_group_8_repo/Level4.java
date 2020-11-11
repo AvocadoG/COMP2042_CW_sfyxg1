@@ -96,6 +96,10 @@ public class Level4 extends LevelMaster{
 		return getlevelAnimal().getPoints();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * @return true if Animal has completed Level 4
+	 */
 	@Override
 	public boolean levelStop() {
 		// TODO Auto-generated method stub
@@ -114,7 +118,12 @@ public class Level4 extends LevelMaster{
 		String musicFile = "src/p4_group_8_repo/Frogger Main Song Theme (loop).mp3";
 		super.playMusic(musicFile);
 	}
-
+	
+	
+	/**
+	 * {@inheritDoc}, Level 4.
+	 * Animal will be added into Level 4 game Arena
+	 */
 	@Override
 	public void activateAnimal() {
 		getlevelAnimal().setmovementX(10.666666*2);

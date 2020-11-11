@@ -97,6 +97,10 @@ public class Level5 extends LevelMaster{
 		return getlevelAnimal().getPoints();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * @return true if Animal has completed Level 5
+	 */
 	@Override
 	public boolean levelStop() {
 		// TODO Auto-generated method stub
@@ -116,6 +120,10 @@ public class Level5 extends LevelMaster{
 		super.playMusic(musicFile);
 	}
 	
+	/**
+	 * {@inheritDoc}, Level 5.
+	 * Animal will be added into Level 5 game Arena
+	 */
 	@Override
 	public void activateAnimal() {
 		getlevelAnimal().setLevel(getcurrentLevel());

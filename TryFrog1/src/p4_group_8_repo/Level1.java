@@ -14,19 +14,31 @@ package p4_group_8_repo;
 
 //add Level display on screen
 
-
+/**
+ * Level 1 of the Frogger Game. The game speed of this level is rather slow to give the Player an easier start.
+ * @author User
+ *
+ */
 public class Level1 extends LevelMaster{
 
 	//private Stage level1stage;
 	private Animal animallevel1;
 	private int currentlevel=1;
 	
+	/**
+	 * Create a Level1 object for the game with an Animal ready but not yet activated
+	 * @param animal the Animal to be inserted into the Level 1
+	 */
 	Level1(Animal animal){
 		setlevelAnimal(animal);
 		createArena();
 		super.displaylevel(getcurrentLevel());
 	}
 
+	/**
+	 * {@inheritDoc}, Level 1.<br>
+	 * relevant Actor class objects such as {@link p4_group_8_repo.Obstacle}, {@link p4_group_8_repo.Turtle},  {@link p4_group_8_repo.WetTurtle},  {@link p4_group_8_repo.Log} ,  {@link p4_group_8_repo.End} will be added to the Level1 Game Arena
+	 */
 	@Override
 	protected void createArena() {
 		// TODO Auto-generated method stub
@@ -103,40 +115,67 @@ public class Level1 extends LevelMaster{
 	}
 
 
+	/**
+	 * setter for {@link Level1#animallevel1}
+	 * @param animal Animal to be set for Level 1
+	 */
 	public void setlevelAnimal(Animal animal) {
 		// TODO Auto-generated method stub
 		this.animallevel1=animal;
 	}
 
+	/**
+	 * 
+	 * @return animal of Level1
+	 */
 	public Animal getlevelAnimal() {
 		// TODO Auto-generated method stub
 		return this.animallevel1;
 	}
 
+	/**
+	 * getter for {@link Level1#currentlevel}
+	 * @return current level index
+	 */
 	public int getcurrentLevel() {
 		// TODO Auto-generated method stub
 		return this.currentlevel;
 	}
 	
 
+	/**
+	 * {@inheritDoc}, Level 1
+	 * 
+	 */
 	@Override
 	public int getlevelPoints() {
 		// TODO Auto-generated method stub
 		return getlevelAnimal().getPoints();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * @return true if Animal has completed Level 1
+	 */
 	@Override
 	public boolean levelStop() {
 		// TODO Auto-generated method stub
 		return getlevelAnimal().getStop();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * @return true if Animal's score is changed, at Level 1
+	 */
 	@Override
 	public boolean animalchangeScore() {
 		// TODO Auto-generated method stub
 		return getlevelAnimal().changeScore();
 	}
 
+	/**
+	 * {@inheritDoc}, Level 1
+	 */
 	@Override
 	public void createMusic() {
 		// TODO Auto-generated method stub
@@ -144,9 +183,13 @@ public class Level1 extends LevelMaster{
 		super.playMusic(musicFile);
 	}
 
+	/**
+	 * {@inheritDoc}, Level 1.
+	 * Animal will be added into Level 1 game Arena
+	 */
 	@Override
 	public void activateAnimal() {
-		getlevelAnimal().setmovementX(10.666666*2);
+		getlevelAnimal().setmovementX(14.222333);
 		animallevel1.setLevel(getcurrentLevel());
 		animallevel1.setEnd(0);
 		add(animallevel1);

@@ -1,8 +1,21 @@
 package p4_group_8_repo;
 
 //FACTORY METHOD
+
+/**
+ * This is a Level Factory to retrieve the game levels.
+ * Factory Method Design Pattern is applied.
+ * @author User
+ *
+ */
 public class LevelFactory {
 
+	/**
+	 * generate the required game level with an Animal ready in that level. All levels are subclasses of LevelMaster.
+	 * @param level the game level to be created (example: level1, level2 etc) 
+	 * @param animal the Animal to be put into the level
+	 * @return the generated game level
+	 */
 	public LevelMaster getLevel(String level, Animal animal) {
 		
 		if(level.equalsIgnoreCase("Level1")) {

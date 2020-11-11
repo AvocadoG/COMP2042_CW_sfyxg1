@@ -28,7 +28,7 @@ public class End extends Actor{
 	
 	
 	/**
-	 * {@inheritDoc}<br>
+	 * 
 	 * Defines the behavior of End in the game.The End with a coin will flash during the game. For animation purpose.
 	 */
 	@Override
@@ -52,7 +52,7 @@ public class End extends Actor{
 	
 
 	/**
-	 * This constructor will create an End. 
+	 * This constructor will create an End object. 
 	 * @param x the x position of the {@code End} in the game scene
 	 * @param y the y position of the {@code End} in the game scene
 	 * @param coin if the {@code End} should have a coin
@@ -90,7 +90,7 @@ public class End extends Actor{
 	 * Called to check if the {@code End} has previously been reached by the Animal.
 	 * 
 	 * @return <b>true</b> if it has been reached by the Animal
-	 * @see {@link End#activated}
+	 * See also : {@link End#activated}
 	 */
 	public boolean isActivated() {
 		return activated;
@@ -101,7 +101,7 @@ public class End extends Actor{
 	 * Called to check if the {@code End} comes with a coin.
 	 * 
 	 * @return <b>true</b> if the {@code End} has a coin
-	 * @see {@link End#hasCoin}
+	 * See also : {@link End#hasCoin}
 	 */
 	public boolean hasCoin() {
 		return hasCoin;
@@ -109,7 +109,7 @@ public class End extends Actor{
 
 
 	/**
-	 * {@inheritDoc} for different types of {@code End}
+	 * {@inheritDoc} for different types of {@code End} objects
 	 */
 	@Override
 	public Image createImage(String ImageLink) {

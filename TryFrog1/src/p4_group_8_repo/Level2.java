@@ -2,12 +2,21 @@ package p4_group_8_repo;
 
 //level 2 - speed up *1.3
 
+/**
+ * Level 2 of the Frogger Game. The game speed increases at this level.
+ * @author User
+ *
+ */
 public class Level2 extends LevelMaster{
 
 	//private Stage level1stage;
 	private Animal animallevel2;
 	private int currentlevel=2;
 	
+	/**
+	 * Create a Level2 object for the game with an Animal ready but not yet activated.
+	 * @param animal the Animal to be inserted into Level 2
+	 */
 	Level2(Animal animal){
 		setlevelAnimal(animal);
 		createArena();
@@ -15,6 +24,10 @@ public class Level2 extends LevelMaster{
 
 	}
 
+	/**
+	 * {@inheritDoc}, Level 2.<br>
+	 * relevant Actor class objects such as {@link p4_group_8_repo.Obstacle}, {@link p4_group_8_repo.Turtle},  {@link p4_group_8_repo.WetTurtle},  {@link p4_group_8_repo.Log} ,  {@link p4_group_8_repo.End} will be added to the Level 2 Game Arena with a faster moving speed than Level 1.
+	 */
 	@Override
 	public void createArena() {
 		// TODO Auto-generated method stub
@@ -96,18 +109,28 @@ public class Level2 extends LevelMaster{
 		return getlevelAnimal().getPoints();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * @return true if Animal has completed Level 2
+	 */
 	@Override
 	public boolean levelStop() {
 		// TODO Auto-generated method stub
 		return getlevelAnimal().getStop();
 	}
 
+	/**
+	 * {@inheritDoc}, Level 2.
+	 * @return true if Animal's score is changed, at Level 2
+	 */
 	@Override
 	public boolean animalchangeScore() {
 		// TODO Auto-generated method stub
 		return getlevelAnimal().changeScore();
 	}
-	
+	/**
+	 * {@inheritDoc}, Level 2
+	 */
 	@Override
 	public void createMusic() {
 		// TODO Auto-generated method stub
@@ -115,6 +138,10 @@ public class Level2 extends LevelMaster{
 		super.playMusic(musicFile);
 	}
 
+	/**
+	 * {@inheritDoc}, Level 2.
+	 * Animal will be added into Level 2 game Arena
+	 */
 	@Override
 	public void activateAnimal() {
 		getlevelAnimal().setmovementX(10.666666*2);

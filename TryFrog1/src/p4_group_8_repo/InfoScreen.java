@@ -10,19 +10,33 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
+/**
+ * Represents the Information Screen of the game.<br>
+ * Singleton Design Pattern is applied to this class, so there is only 1 InfoScreen instance throughout the game.
+ * @author User
+ *
+ */
 public class InfoScreen implements ButtonGenerator{
 
-	private Group info;
+	private Group infogroup;
 	private Button backtostart;
 	private VBox infoscreenVBox;
 	
 	private static InfoScreen infoscreen;
 	
+	/**
+	 * private default constructor
+	 */
 	private InfoScreen () {};
 	
+	/**
+	 * This constructor will create an InfoScreen object. It will display instructions to play the game.<br>
+	 * The constructor is declared private to ensure that no other classes can create another InfoScreen instance.
+	 * @param ImageLink The link of the background image of InfoScreen
+	 */
 	private InfoScreen (String ImageLink){
 		
-		info = new Group();
+		infogroup = new Group();
 		
 		backtostart = createbtn("file:src/froggertextures/backtostartbtnfrogger.png");
 				
@@ -43,19 +57,31 @@ public class InfoScreen implements ButtonGenerator{
 	    BackgroundImage infobackground = new BackgroundImage(ImageLink,613,800);
 	    
 	    //append to Group info
-		info.getChildren().addAll(infobackground,infoscreenVBox);
+		infogroup.getChildren().addAll(infobackground,infoscreenVBox);
 	}
 	
+	/**
+	 * access the parent {@code Group} element of InfoScreen 
+	 * @return the Group element
+	 */
 	public Group getInfoScreen() {
-		return info;
+		return infogroup;
 	}
 	
+	/**
+	 * access the back-to-start button on InfoScreen
+	 * @return the back-to-start Button element
+	 */
 	public Button getbacktostartbtn() {
-		VBox vbox = (VBox) info.getChildren().get(1);
+		VBox vbox = (VBox) getInfoScreen().getChildren().get(1);
 		return (Button) vbox.getChildren().get(2);
 	}
 	
-	String setinstructions() {
+	/**
+	 * Writes game instructions
+	 * @return the game instructions
+	 */
+	public String setinstructions() {
 		return  "A key to move Frogger to the left\n" +
 				"D key to move Frogger to the right\n" +
 				"S key to move Frogger back\n" +
@@ -71,6 +97,9 @@ public class InfoScreen implements ButtonGenerator{
 				"Level 4 & 5 are when the Monster comes!";
 	}
 
+	/**
+	 * {@inheritDoc} for InfoScreen
+	 */
 	@Override
 	public Button createbtn(String BtnImageLink) {
 		// TODO Auto-generated method stub
@@ -82,6 +111,10 @@ public class InfoScreen implements ButtonGenerator{
 		return btn;
 	}
 	
+	/**
+	 * to retrieve the InfoScreen instance
+	 * @return InfoScreen instance
+	 */
 	public static InfoScreen getInstance() {
 		
 		if(infoscreen==null) {

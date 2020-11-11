@@ -10,7 +10,7 @@ import javafx.scene.input.KeyEvent;
  * <p>Animal is the player's Avatar in the game, which in this case is the Frog.</p>
  * Animal is also an Actor.
  * <p>It can move. It might get hit by the obstacles on the road or drown in the river and die.</p>
- * <p>Its goal is to reach the empty {@link p4_group_8_repo.Ends} on the other side.</p>
+ * <p>Its goal is to reach the empty {@link p4_group_8_repo.End} on the other side.</p>
  * 
  * @author User
  *
@@ -91,7 +91,7 @@ public class Animal extends Actor {
 	
 	
 	/**
-	 * This constructor will create an Animal with a look. Its initial position in the game is set.<br>
+	 * This constructor will create an Animal object. Its initial position in the game is set.<br>
 	 * The Animal can now move up (W key) down (S key) left (A key) and right (D key) with different animations.
 	 * This is done by implementing 
 	 * <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Node.html#setOnKeyPressed-javafx.event.EventHandler-">{@code setOnKeyPressed}</a>
@@ -99,7 +99,7 @@ public class Animal extends Actor {
 	 *  <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Node.html#setOnKeyReleased-javafx.event.EventHandler-">{@code setOnKeyReleased}</a>
 	 *  to detect and handle the keyboard inputs.
 	 *  
-	 * @param imageLink The initial look of the Animal
+	 * @param imageLink The image link for how the Animal is displayed in the game
 	 */
 	public Animal(String imageLink) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
@@ -117,8 +117,6 @@ public class Animal extends Actor {
 		imgD2 = new Image("file:src/froggertextures/froggerRightJump.png", imgSize, imgSize, true, true);*/
 		
 		animalAnimationSetUp();
-		
-		
 		
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){

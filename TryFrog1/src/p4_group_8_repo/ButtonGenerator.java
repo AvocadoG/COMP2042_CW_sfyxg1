@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 public interface ButtonGenerator {
 
 	/**
-	 * create buttons for the game
+	 * create buttons
 	 * @param BtnImageLink The look of the Button
 	 * @return a Button
 	 */
