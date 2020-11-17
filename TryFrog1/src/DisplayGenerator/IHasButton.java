@@ -1,4 +1,4 @@
-package p4_group_8_repo;
+package DisplayGenerator;
 
 import javafx.scene.control.Button;
 
@@ -7,12 +7,12 @@ import javafx.scene.control.Button;
  * @author User
  *
  */
-public interface ButtonGenerator {
+public interface IHasButton {
 
 	/**
-	 * create buttons
-	 * @param BtnImageLink The look of the Button
-	 * @return a Button
+	 * create button
+	 * @param BtnImageLink The look of the button
+	 * @return a {@code Button}
 	 */
 	public Button createbtn(String BtnImageLink);
 }
