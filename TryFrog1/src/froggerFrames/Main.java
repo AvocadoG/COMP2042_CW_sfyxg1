@@ -31,16 +31,16 @@ public class Main extends Application {
 	
 	AnimationTimer timer;
 	Level level1, level2, level3, level4, level5;
+	Level level6, level7, level8, level9;
 	Scene level1scene, level2scene, level3scene, level4scene, level5scene;
-	//int finallevel=5;
-	//boolean stop=false;
-	
-	//Animal animal;
+	Scene level6scene, level7scene, level8scene, level9scene;
+
 	
 	public String username;
-	public static int currentlevelvalue=1;
+	public static int currentlevelvalue;
 	public int gamescreenwidth=600;
 	public int gamescreenheight=800;
+	
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -86,6 +86,18 @@ public class Main extends Application {
 		level5 = levelfactory.getLevel("Level5", animal);
 		//level5 = new Level5(animal);
 	    level5scene = new Scene(level5,gamescreenwidth,gamescreenheight);
+	    
+	    level6 = levelfactory.getLevel("Level6", animal);
+	    level6scene  = new Scene(level6,gamescreenwidth,gamescreenheight);
+	    
+		level7 = levelfactory.getLevel("Level7", animal);
+	    level7scene = new Scene(level7,gamescreenwidth,gamescreenheight);
+	    
+		level8 = levelfactory.getLevel("Level8", animal);
+	    level8scene = new Scene(level8,gamescreenwidth,gamescreenheight);
+	    
+		level9 = levelfactory.getLevel("Level9", animal);
+	    level9scene = new Scene(level9,gamescreenwidth,gamescreenheight);
 	  		
 	    
 	    
@@ -105,6 +117,7 @@ public class Main extends Application {
 				level1.activateAnimal();
 				level1.start();
 				level1.playMusic();
+				currentlevelvalue=1;
 				//start timer for level1 -activation-
 			}
 			else {
@@ -225,7 +238,7 @@ public class Main extends Application {
                 }
                 if(currentlevelvalue==5) {
                 	
-                	checkGameAction(level5,level5,level5scene);
+                	checkGameAction(level5,level6,level6scene);
                 	
                 /*	if(level5.animalchangeScore()){
                 		level5.updateScore(level5.getlevelPoints());
@@ -240,6 +253,22 @@ public class Main extends Application {
                 	if(level5.levelComplete()) {
                 		winGame(level5);
                 	}*/
+                }
+                if(currentlevelvalue==6) {
+                	
+                	checkGameAction(level6,level7,level7scene);
+                }
+                if(currentlevelvalue==7) {
+                	
+                	checkGameAction(level7,level8,level8scene);
+                }
+                if(currentlevelvalue==8) {
+                	
+                	checkGameAction(level8,level9,level9scene);
+                }
+                if(currentlevelvalue==9) {
+                	
+                	checkGameAction(level9,level9,level9scene);
                 }
             	
                 
@@ -330,6 +359,16 @@ public class Main extends Application {
     	//popHighScore(level,"WIN");
     }
     
+	public void loseGame(Level level){
+	  	System.out.println("LOSEEE");
+	  	level.stopMusic();
+	 	level.stop();
+	  	stop();
+	 	//popHighScore(level,"LOSE");//username
+	
+	}
+	
+    
     public void endGame(Level level) {
     	System.out.println("GAME END");
     	level.stopMusic();
@@ -410,14 +449,7 @@ public class Main extends Application {
 	
 	*/
 	
-	public void loseGame(Level level){
-	  	System.out.println("LOSEEE");
-	  	level.stopMusic();
-	 	level.stop();
-	  	stop();
-	 	//popHighScore(level,"LOSE");//username
-	
-	}
+
 	 
 	
 	

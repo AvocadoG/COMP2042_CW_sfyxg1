@@ -18,11 +18,11 @@ import javafx.stage.Stage;
 
 
 /*
- * Level1 - 0.6 speed, original , car -3
- * Level2 - original speed, original, car -5
- * Level3 - original speed, add Coin function, car -5
- * Level4 - 1.3 speed, original, car -7
- * Level5 - 1.3 speed, add Coin function, car-7
+ * Level1 - 0.7 speed, original , //car -3
+ * Level2 - original speed, original, //car -5
+ * Level3 - original speed, add Coin function, //car -5
+ * Level4 - 1.3 speed, original, //car -7
+ * Level5 - 1.3 speed, add Coin function, //car-7
  * 
  * Level6 - original speed, add Monster(2), car -5
  * Level7 - original speed, add Monster(3), all Wet Turtles, car -5
@@ -45,6 +45,7 @@ public abstract class Level extends World{
 	
 	private MediaPlayer mediaPlayer;
 	protected String musicFile;
+	private Button pausebtn;
 	private Stage stage;
 	
 	/**determine if a game level is paused*/
@@ -67,26 +68,14 @@ public abstract class Level extends World{
 		
 		//add a pause button to the game level
 		//all game levels will have a pause button
-		Button pausebtn = createbtn("file:src/froggertextures/pausebtnfrogger.png",40,40);
+		pausebtn = createbtn("file:src/froggertextures/pausebtnfrogger.png",40,40);
 		pausebtn.setLayoutX(550);
 		pausebtn.setLayoutY(60);
 		add(pausebtn);
 		
-		//set pause button on-clicked action
-		//if pause button is clicked, game is paused and music is stopped
-		//clicked again, game and music are resumed
-		pausebtn.setOnMouseClicked(event -> {
-			if(pause) {
-				this.pause(pause);
-				this.stopMusic();
-				pause=false;
-			}
-			else {
-				this.pause(pause);
-				this.playMusic();
-				pause=true;
-			}
-		});
+		setbuttonAction();
+		
+		
 			
 	}
 	
@@ -116,7 +105,7 @@ public abstract class Level extends World{
 	 * Example: Game Level 1, # = 1
 	 * @param level the # of the game level 
 	 */
-	//called by its subclasses only
+	//called in its subclasses only
 	protected void displaylevel(int level) {
 		// TODO Auto-generated method stub
 		Text leveldisplay = new Text("Level "+level);
@@ -134,6 +123,27 @@ public abstract class Level extends World{
 		btn.setMaxSize(width, height);
 		btn.setGraphic(new ImageView(new Image(imagelink)));
 		return btn;
+	}
+	
+	private void setbuttonAction() {
+		
+		//set pause button on-clicked action
+		//if pause button is clicked, game is paused and music is stopped
+		//clicked again, game and music are resumed
+		pausebtn.setOnMouseClicked(event -> {
+			if(pause) {
+				this.pause(pause);
+				this.stopMusic();
+				pause=false;
+			}
+			else {
+				this.pause(pause);
+				this.playMusic();
+				pause=true;
+			}
+		});
+		
+		
 	}
 	
 

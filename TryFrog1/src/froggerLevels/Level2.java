@@ -55,11 +55,12 @@ public class Level2 extends Level{
 	
 		add(new Turtle(500, 376, -1, 130, 130));
 		add(new Turtle(300, 376, -1, 130, 130));
-		add(new WetTurtle(700, 376, -1, 130, 130));
+		add(new Turtle(700, 376, -1, 130, 130));
 		add(new WetTurtle(600, 217, -1, 130, 130));
 		add(new WetTurtle(400, 217, -1, 130, 130));
 		add(new WetTurtle(200, 217, -1, 130, 130));
 
+		//no coin End
 		add(new End(13,96,false));
 		add(new End(141,96,false));
 		add(new End(141 + 141-13,96,false));

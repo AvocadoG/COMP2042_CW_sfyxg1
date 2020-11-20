@@ -12,9 +12,6 @@ public class Log extends Actor {
 	private Image logImg;
 	private int imagewidth,imageheight;
 	
-	public double getSpeed() {
-		return speed;
-	}
 	/**
 	 * Defines how {@code Log} object will behave in the game.<br>
 	 * {@code Log} object will move non-stop in the game, either from left to right or right to left.
@@ -58,6 +55,9 @@ public class Log extends Actor {
 	}
 
 	
+	public double getSpeed() {
+		return speed;
+	}
 	private Image createImage(String ImageLink) {
 		// TODO Auto-generated method stub
 		Image img = new Image(ImageLink, this.imagewidth,this.imageheight,true,true);

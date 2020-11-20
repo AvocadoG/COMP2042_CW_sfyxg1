@@ -18,6 +18,7 @@ import javafx.scene.text.Text;
 //level5 - speed up *1.3, all WT, monster speed up too (3 speed)
 
 //add Level display on screen
+//speed scale down by 0.7
 
 /**
  * Level 1 of Frogger Game. 
@@ -59,30 +60,30 @@ public class Level1 extends Level{
 						
 		//1st row 166, 2nd 276, 3rd 329
 		//change speed 0.75 to 0.5
-		add(new Log("file:src/froggertextures/log3.png", 150, 0, 166, 0.5));///
-		add(new Log("file:src/froggertextures/log3.png", 150, 220, 166, 0.5));
-		add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.5));
+		add(new Log("file:src/froggertextures/log3.png", 150, 0, 166, 0.75*0.7));///
+		add(new Log("file:src/froggertextures/log3.png", 150, 220, 166, 0.75*0.7));
+		add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75*0.7));
 		
 		
 		//0.75 to 0.5, -2 to -1
-		add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -1));//-2
-		add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -1));
-		add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.5));
-		add(new Log("file:src/froggertextures/log3.png", 150, 270, 329, 0.5));
-		add(new Log("file:src/froggertextures/log3.png", 150, 490, 329, 0.5));
+		add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2*0.7));//-2
+		add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2*0.7));
+		add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.75*0.7));
+		add(new Log("file:src/froggertextures/log3.png", 150, 270, 329, 0.75*0.7));
+		add(new Log("file:src/froggertextures/log3.png", 150, 490, 329, 0.75*0.7));
 	
 		//turtle pos
 		//nearer to the resting zone is 376
 		//nearer to the end is 217
 		//-1 to -0.5
-		add(new Turtle(500, 376, -0.5, 130, 130));
-		add(new Turtle(300, 376, -0.5, 130, 130));
-		add(new WetTurtle(700, 376, -0.5, 130, 130));
-		add(new WetTurtle(600, 217, -0.5, 130, 130));
-		add(new WetTurtle(400, 217, -0.5, 130, 130));
-		add(new WetTurtle(200, 217, -0.5, 130, 130));
+		add(new Turtle(500, 376, -1*0.7, 130, 130));
+		add(new Turtle(300, 376, -1*0.7, 130, 130));
+		add(new Turtle(700, 376, -1*0.7, 130, 130));
+		add(new WetTurtle(600, 217, -1*0.7, 130, 130));
+		add(new WetTurtle(400, 217, -1*0.7, 130, 130));
+		add(new WetTurtle(200, 217, -1*0.7, 130, 130));
 		
-	
+		//no coin End
 		add(new End(13,96,false));
 		add(new End(141,96,false));
 		add(new End(141 + 141-13,96,false));
@@ -102,17 +103,17 @@ public class Level1 extends Level{
 		//CarTrucks pos
 		//cloesest to the start 649
 		//1 to 0.75
-		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 0, 649, 0.75, 120, 120));
-		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 300, 649, 0.75, 120, 120));
-		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 600, 649, 0.75, 120, 120));
-		add(new Obstacle("file:src/froggertextures/car1Left.png", 100, 597, -0.75, 50, 50));
-		add(new Obstacle("file:src/froggertextures/car1Left.png", 250, 597, -0.75, 50, 50));
-		add(new Obstacle("file:src/froggertextures/car1Left.png", 400, 597, -0.75, 50, 50));
-		add(new Obstacle("file:src/froggertextures/car1Left.png", 550, 597, -0.75, 50, 50));
-		add(new Obstacle("file:src/froggertextures/truck2Right.png", 0, 540, 0.75, 200, 200));
-		add(new Obstacle("file:src/froggertextures/truck2Right.png", 500, 540, 0.75, 200, 200));
+		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 0, 649, 1*0.7, 120, 120));
+		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 300, 649, 1*0.7, 120, 120));
+		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 600, 649, 1*0.7, 120, 120));
+		add(new Obstacle("file:src/froggertextures/car1Left.png", 100, 597, -1*0.7, 50, 50));
+		add(new Obstacle("file:src/froggertextures/car1Left.png", 250, 597, -1*0.7, 50, 50));
+		add(new Obstacle("file:src/froggertextures/car1Left.png", 400, 597, -1*0.7, 50, 50));
+		add(new Obstacle("file:src/froggertextures/car1Left.png", 550, 597, -1*0.7, 50, 50));
+		add(new Obstacle("file:src/froggertextures/truck2Right.png", 0, 540, 1*0.7, 200, 200));
+		add(new Obstacle("file:src/froggertextures/truck2Right.png", 500, 540, 1*0.7, 200, 200));
 		//car closest to the resting zone
-		add(new Obstacle("file:src/froggertextures/car1Left.png", 500, 490, -3, 50, 50));//-5
+		add(new Obstacle("file:src/froggertextures/car1Left.png", 500, 490, -5*0.7, 50, 50));//-5
 
 	
 	//changes on the score position 550
@@ -181,7 +182,7 @@ public class Level1 extends Level{
 	 */
 	@Override
 	public void activateAnimal() {
-		getlevelAnimal().setmovementX(14.222333);
+		getlevelAnimal().setmovementX(10.666666*2*0.7);
 		animallevel1.setLevel(getcurrentLevel());
 		animallevel1.setEnd(0);
 		animallevel1.setLife(5);

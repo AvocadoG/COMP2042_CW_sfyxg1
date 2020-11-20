@@ -315,11 +315,12 @@ public class Animal extends Actor {
 			}
 			else if (getIntersectingObjects(End.class).get(0).hasCoin()) {
 				coin++;//coin chain
-				points+=10;//
+				//points+=10;//
 			}
 			else {
 				coin=0;//coin chain break
 			}
+			System.out.println("Coin chain has " + coin + " coins");
 			points+=10;
 			changeScore = true;
 			initialYposition=800;
@@ -328,8 +329,11 @@ public class Animal extends Actor {
 			setX(300);
 			setY(679.8+movementY);
 			
+			//if get coin End continuously for 3 times
 			if(coin==3) {
-				end=5;
+				System.out.println("3 coins in a row");
+				points+=50;
+				end=5;//level up right away
 			}
 		}
 		
