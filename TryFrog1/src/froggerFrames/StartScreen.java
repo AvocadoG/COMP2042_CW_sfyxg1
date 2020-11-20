@@ -1,5 +1,7 @@
 package froggerFrames;
 
+import java.io.File;
+
 import froggerElements.BackgroundImage;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -9,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
@@ -27,6 +31,7 @@ public class StartScreen {
 	private Button exitbtn;
 	private TextField username;
 	private VBox startscreenVBox;
+	private MediaPlayer mediaPlayer;
 	private static StartScreen startscreen;
 	
 	
@@ -81,6 +86,19 @@ public class StartScreen {
 			startscreen  = new StartScreen("file:src/froggertextures/startscreenfrogger.png");
 		}
 		return startscreen;
+	}
+	
+	public void playMusic() {
+		
+		Media sound = new Media(new File("src/froggermusic/StartScreenMusic_KomikuQuietSaturday.mp3").toURI().toString());
+		mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+	    mediaPlayer.play();
+	}
+	
+
+	public void stopMusic() {
+		mediaPlayer.stop();
 	}
 	
 	

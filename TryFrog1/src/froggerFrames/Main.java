@@ -112,6 +112,7 @@ public class Main extends Application {
 				//
 				System.out.println(username + " -- Successfully get username.");
 				//
+				start.stopMusic();
 				primaryStage.setScene(level1scene);
 				level1.setStage(primaryStage);
 				level1.activateAnimal();
@@ -151,6 +152,7 @@ public class Main extends Application {
 	  	primaryStage.setScene(startscreen);
 	  	primaryStage.show();
 	  	start();  //start timer for the whole application
+	  	start.playMusic();//start music for startscreen
 	  		
 }
 	

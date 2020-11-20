@@ -13,7 +13,7 @@ public class Level6 extends Level{
 	public Level6(Animal animal){
 		setlevelAnimal(animal);
 		createArena();
-		createMusic("src/froggermusic/FroggerLevel1.mp3");
+		createMusic("src/froggermusic/Level456.mp3");
 		super.displaylevel(getcurrentLevel());
 
 
@@ -119,6 +119,7 @@ public class Level6 extends Level{
 		animallevel6.setmovementX(10.666666*2);
 		animallevel6.setEnd(0);
 		animallevel6.setLife(5);
+		animallevel6.setCoin(0);
 		add(animallevel6);
 	}
 

@@ -42,7 +42,8 @@ public class Level1 extends Level{
 		//super() set up background image + pause button
 		setlevelAnimal(animal);
 		createArena();
-		createMusic("src/froggermusic/FroggerLevel1.mp3");
+		//createMusic("src/froggermusic/try.mp3");
+		createMusic("src/froggermusic/Level123_KomikuTraveltotheHorizon.mp3");
 		super.displaylevel(getcurrentLevel());
 		
 	}
@@ -186,6 +187,7 @@ public class Level1 extends Level{
 		animallevel1.setLevel(getcurrentLevel());
 		animallevel1.setEnd(0);
 		animallevel1.setLife(5);
+		animallevel1.setCoin(0);
 		add(animallevel1);
 
 	}

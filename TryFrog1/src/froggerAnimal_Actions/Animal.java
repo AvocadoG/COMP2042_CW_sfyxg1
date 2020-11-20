@@ -574,6 +574,10 @@ public class Animal extends Actor {
 	public int getLife() {
 		return life;
 	}
+	
+	public void setCoin(int coin) {
+		this.coin=coin;
+	}
 
 	
 
