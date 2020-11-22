@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * HighScoreController can retrieve {@link p4_group_8_repo.HighScoreModel} information, 
- * record the information into file in descending order and update to {@link p4_group_8_repo.HighScoreView}.
+ * HighScoreController can retrieve {@link froggerHighScore.HighScoreModel} information, 
+ * record the information into file in descending order and update to {@link froggerHighScore.HighScoreView}.
  */
 
 public class HighScoreController {
@@ -19,9 +19,10 @@ public class HighScoreController {
 	
 		
 	/**
-	 * This constructor will create a {@code HighScoreController} object that will retrieve and record the {@link p4_group_8_repo.HighScoreModel} information into the file and arrange the records in descending order. 
-	 * @param model the {@link p4_group_8_repo.HighScoreModel} record to be written into file
-	 * @param view the target {@link p4_group_8_repo.HighScoreView} to update to
+	 * This constructor will create a {@code HighScoreController} object that sets up its target {@link froggerHighScore.HighScoreModel} and {@link froggerHighScore.HighScoreView} .<br>
+	 * It will then record the {@link froggerHighScore.HighScoreModel} information into the {@link HighScoreController#scorefile}. The records will be arranged in descending order. 
+	 * @param model the target {@link froggerHighScore.HighScoreModel} 
+	 * @param view the target {@link froggerHighScore.HighScoreView} to update to
 	 */
 	public HighScoreController(HighScoreModel model, HighScoreView view){
 		setModel(model);
@@ -31,6 +32,7 @@ public class HighScoreController {
 		
 	}
 
+	
 	/**
 	 * Write high score record into file (append mode)
 	 * @param name the player's username
@@ -86,7 +88,7 @@ public class HighScoreController {
 	 * Sort and arrange the high score records in the file in <b>descending order</b>, from highest score to lowest score.<br>
 	 * Sorting done by calling 
 	 * <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#sort(java.util.List,%20java.util.Comparator)">{@code Collections.sort}</a> function 
-	 * and sort according to {@link p4_group_8_repo.HighScoreComparator#compare(HighScoreModel, HighScoreModel)}.
+	 * and sort according to {@link froggerHighScore.HighScoreComparator#compare(HighScoreModel, HighScoreModel)}.
 	 */
 	public void sortingHighScore() {
 		
@@ -212,42 +214,45 @@ public class HighScoreController {
 	
 	
 	/**
-	 * update to the {@link p4_group_8_repo.HighScoreView}
+	 * update the high score records to the target {@link froggerHighScore.HighScoreView}
 	 * @param rank the ranking of the high score record
-	 * @param currenthighscore the high score record to be updated to the {@link p4_group_8_repo.HighScoreView}
+	 * @param currenthighscore the high score record to be updated to the {@link froggerHighScore.HighScoreView}
 	 */
 	public void updateView(int rank, String currenthighscore) {
 		getView().addscoretopopupview(rank,currenthighscore);
 	}
 
+	
+	
 	/**
-	 * setter method for the {@link p4_group_8_repo.HighScoreModel} in {@code HighScoreController} 
-	 * @param model the {@link p4_group_8_repo.HighScoreModel} to be set
+	 * setter method for the {@link HighScoreController#model} in {@code HighScoreController} 
+	 * @param model the {@link froggerHighScore.HighScoreModel} to be set
 	 */
 	public void setModel(HighScoreModel model) {
 		this.model = model;
 	}
 	/**
-	 * getter method for the {@link p4_group_8_repo.HighScoreModel} in {@code HighScoreController}
-	 * @return a HighScoreModel 
+	 * getter method for the {@link HighScoreController#model} in {@code HighScoreController}
+	 * @return a {@link froggerHighScore.HighScoreModel} 
 	 */
 	public HighScoreModel getModel() {
 		return this.model;
 	}
 	
 	/**
-	 * getter method for {@link p4_group_8_repo.HighScoreView} in the {@code HighScoreController}
-	 * @return a {@link p4_group_8_repo.HighScoreView}
-	 */
-	public HighScoreView getView() {
-		return view;
-	}
-
-	/**
-	 * setter method for the {@link p4_group_8_repo.HighScoreView} in the {@code HighScoreController}
-	 * @param view the {@link p4_group_8_repo.HighScoreView} to be set
+	 * setter method for the {@link HighScoreController#view} in the {@code HighScoreController}
+	 * @param view the {@link froggerHighScore.HighScoreView} to be set
 	 */
 	public void setView(HighScoreView view) {
 		this.view = view;
+	}
+
+
+	/**
+	 * getter method for {@link HighScoreController#view} in the {@code HighScoreController}
+	 * @return a {@link froggerHighScore.HighScoreView}
+	 */
+	public HighScoreView getView() {
+		return view;
 	}
 }

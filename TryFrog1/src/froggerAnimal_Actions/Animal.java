@@ -9,57 +9,56 @@ import javafx.scene.input.KeyEvent;
 
 
 /**
- * {@code Animal} is the player's avatar in the game, which in this Frogger Game, is a frog.
+ * Represents the player's avatar in the game, which in this Frogger Game, is the Frog.<br>
  * It can move. It might get hit by the obstacles on the road or drown in the river and die.
- * Its goal is to reach the empty {@link p4_group_8_repo.End} on the other side.
+ * Its goal is to reach the empty {@link froggerActors.End} on the other side.<br>
+ * {@code Animal} is also an {@link froggerActors.Actor}.
  */
 public class Animal extends Actor {
 	
-	//The first version of animations for Frog moving up, left, right, down
-	 Image imgW1,imgA1, imgS1, imgD1;
-	//The second version of animations for Frog moving up, left, right, down
-	 Image imgW2,imgA2, imgS2, imgD2;
+	/**Animation for moving upwards*/Image imgW1,imgW2;
+	/**Animation for moving to the left*/ Image imgA1, imgA2;
+	/**Animation for moving backwards*/ Image imgS1, imgS2;
+	/**Animation for moving to the right*/ Image imgD1, imgD2;
 	
-	//The animations for when Frog got hit by the Car/Trucks or by the Monster
+	/**Animations for when Animal got hit by the Car/Trucks or eaten by the Monster*/
 	 Image hitImg1,hitImg2,hitImg3;
-	//The animations for when Frog drown into the river
+	/**Animations for when Animal drown into the river*/
 	 Image drownImg1,drownImg2,drownImg3,drownImg4;
 	
 	//The standard image size for all Frog animations
 	 private int imgSize = 40;
 	
-	//To check if the second version of Frog animations are used during the last time frame.
+	/**determine if the second version of Animal's animations are used during the last time frame.*/
 	 private boolean secondAnimation = false;
 	
-	//check if Frog should move
+	/**determine if Animal should move*/
 	 boolean noMove = false;
 	
-	//the previous y position of frog
+	/**the previous y position of Animal in the game*/
 	private double initialYposition = 800;
 	
-	//Animal at which level
+	/**level of Animal is at*/
 	private int level=0;
 	
-	//Animal points
+	/**Animal points*/
 	private int points = 0;
 	
-	/**amount of {@code End} Animal has reached*/
+	/**the number of {@link froggerActors.End} Animal has reached*/
 	private int end=0;
-	
+	/**the amount of coins Animal has collected*/
 	private int coin=0;
-	
-	/**number of life Animal has*/
+	/**the number of life Animal has*/
 	private int life=5;
 	
-	/**vertical moving speed of Animal at a single move*/
-	private double movementY = 13.3333333*2;
-	
-	/**horizontal moving speed of Animal at a single move*/
+	/**vertical moving speed of Animal in a single move*/
+	private double movementY = 13.3333333*2;	
+	/**horizontal moving speed of Animal in a single move*/
 	private double movementX=0;
 
 	/**
 	 * determine Animal's car death.<br>
-	 * <b>true</b> when Animal gets hit by the Trucks and Cars on the road.
+	 * <b>true</b> when Animal gets hit by the trucks or cars (which are the {@link froggerActors.Obstacle}) on the road.
 	 */
 	 boolean carDeath = false;
 	
@@ -71,7 +70,7 @@ public class Animal extends Actor {
 	
 	/**
 	 * determine Animal's monster death<br>
-	 * <b>true</b> when Animal gets eaten by the {@link p4_group_8_repo.Monster}.
+	 * <b>true</b> when Animal gets eaten by the {@link pfroggerActors.Monster}.
 	 */
 	 boolean monsterDeath = false;
 	
@@ -89,8 +88,6 @@ public class Animal extends Actor {
 	  */
 	 boolean changeLife = false;
 	
-	
-	Animal(){};
 	
 	/**
 	 * This constructor will create an {@code Animal} object with its initial position in the game set.<br>
@@ -220,14 +217,12 @@ public class Animal extends Actor {
 
 	
 	/**
-	 * {@inheritDoc}<br>
-	 * Defines how Animal will behave in the game.<br>
-	 * Animal can collide with other game objects and move along with them.
-	 * Should the Animal experience any car death, water death or monster death. Animal will perform relevant actions upon its death.<br>
-	 * Deaths are determined upon calling methods :{@link Animal#checkcarDeath(boolean, long)} {@link Animal#checkwaterDeath(boolean, long)}, {@link Animal#checkmonsterDeath(boolean, long)}<br>
-	 * Should the Animal successfully reach the destinations, Animal will get points.
-	 * <br>
-	 * If Animal is moves out of the game scene, Animal will be moved back.
+	 * 
+	 * Defines how {@code Animal} will behave in the game.<br>
+	 * It can collide with other game objects and move along with them.<br>
+	 * Should the Animal experience any car death, water death or monster death, Animal will perform relevant actions upon its death (minus points).<br>
+	 * Should the Animal successfully reach the destinations, Animal will gain points.
+	 * 
 	 */
 	public void act(long now) {
 		
@@ -480,6 +475,11 @@ public class Animal extends Actor {
 		
 	}
 
+	/** Checks if {@code Animal} number of life has changed.<br>
+	 * 
+	 * @return boolean <b>true</b> if there is a change in the number of life<br>
+	 * see {@link Animal#changeLife}
+	 */
 	public boolean changeLife() {
 		if(changeLife) {
 			changeLife=false;
@@ -488,15 +488,16 @@ public class Animal extends Actor {
 		return false;
 	}
 
+	/** Checks if {@code Animal} has run out of life.
+	 * @return boolean <b>true</b> when {@code Animal} has no more life.*/
 	public boolean noLife(){
 	  	return life==0;
 	 }
 
 	/**
-	 * Checks if {@code Animal} is stopped in the game.<br>
-	 * If Animal has reached all the 5 Empty {@link p4_group_8_repo.End} in a single level, Animal will get stopped at that level.
+	 * Checks if {@code Animal} has reached all the 5 destinations in a single level and is stopped in the game.<br>
 	 * 
-	 * @return boolean <b>true</b> if Animal {@link Animal#end} is 5
+	 * @return boolean <b>true</b> if Animal has reached all the destinations.
 	 */
 	public boolean getStop() {
 		return end==5;
@@ -528,6 +529,8 @@ public class Animal extends Actor {
 	public void setLevel(int level) {
 		this.level=level;
 	}
+	/**Gets the {@link Animal#level} of the {@code Animal} currently at.
+	 * @return level in int*/
 	public int getLevel() {
 			return level;
 	}
@@ -545,17 +548,21 @@ public class Animal extends Actor {
 		return this.movementX;
 	}
 	
+	/**
+	 * Sets the {@link Animal#movementY} of {@code Animal} at each move.<br>
+	 * {@code movementY} is the vertical moving speed of {@code Animal}.
+	 * @param mY the value for {@link Animal#movementY} to be assigned with
+	 */
 	public void setmovementY(double mY) {
 		this.movementY=mY;
 	}
-	
 	public double getmovementY() {
 		return this.movementY;
 	}
 
 	
 	/**
-	 * Sets the number of {@link Animal#end} Animal has reached.
+	 * Sets the number of {@link Animal#end} / destinations Animal has reached.
 	 * @param end value for {@link Animal#end}
 	 */
 	public void setEnd(int end) {
@@ -567,6 +574,10 @@ public class Animal extends Actor {
 		return end;
 	}
 	
+	/**
+	 * Sets the number of {@link Animal#life} Animal has.
+	 * @param life value for {@link Animal#life}
+	 */
 	public void setLife(int life) {
 		this.life=life;
 	}
@@ -575,157 +586,20 @@ public class Animal extends Actor {
 		return life;
 	}
 	
+	/**
+	 * Sets the number of {@link Animal#coin} Animal has collected.
+	 * @param coin value for {@link Animal#coin}
+	 */
 	public void setCoin(int coin) {
 		this.coin=coin;
 	}
 
 	
-
-	
-	
 	/**
-		 * Checks if Animal gets eaten by the {@link p4_group_8_repo.Monster} and performs relevant actions.<br>
-		 * Should the Animal experience a <i>monster death</i>, Animal will be deducted 10points.
-		 * @param mD {@link Animal#monsterDeath}
-		 * @param now current time frame in nanoseconds
-		 */
-		/*
-		public void monsterDeath(boolean mD, long now) {
-			// TODO Auto-generated method stub
-			if (mD) {
-				noMove = true;
-				//animations purpose
-				if ((now)% 11 ==0) {
-					monsterD++;
-				}
-				if (monsterD==1) {		
-					setImage(hitImg1);
-				}
-				if (monsterD==2) {
-					setImage(hitImg2);
-				}
-				if (monsterD==3) {
-					setImage(hitImg3);
-				}
-				if (monsterD == 4) {
-					setX(300);
-					setY(679.8+movement);
-					this.monsterDeath = false;
-					monsterD = 0;
-					setImage(imgW1);
-					noMove = false;
-	
-					//change points
-					if(points>10) {
-						points-=10;
-						changeScore=true;
-					}
-					
-					life--;
-					changeLife=true;
-					
-				}
-				
-			}
-		}
-	*/
-		
-		
-		/**
-		 * Checks if {@code Animal} gets drown into the river and performs relevant game actions<br>
-		 * Should the Animal experience a <i>water death</i>, Animal will be deducted 10points.
-		 * @param wD {@link Animal#waterDeath}
-		 * @param now current time frame in nanoseconds
-		 */
-		/*public void waterDeath(boolean wD, long now) {
-			// TODO Auto-generated method stub
-			if (wD) {
-				noMove = true;
-				if ((now)% 11 ==0) {
-					waterD++;
-				}
-				if (waterD==1) {
-					setImage(drownImg1);
-				}
-				if (waterD==2) {
-					setImage(drownImg2);
-				}
-				if (waterD==3) {
-					setImage(drownImg3);
-				}
-				if (waterD == 4) {
-					setImage(drownImg4);
-				}
-				if (waterD == 5) {
-					setX(300);
-					setY(679.8+movement);
-					this.waterDeath = false;
-					waterD = 0;
-					setImage(imgW1);
-					noMove = false;
-					
-					//change
-					if(points>10) {
-						points-=10;
-						changeScore=true;
-					}
-					
-					life--;
-					changeLife=true;
-					
-				}
-				
-			}
-		}
-	*/
-		
-		/**
-		 * Checks if {@code Animal} gets hit by a Car/Truck (See : {@link p4_group_8_repo.Obstacle}) and perform relevant actions.<br>
-		 * Should the Animal experience a <i>car/truck death</i>, Animal will be deducted 10points.
-		 * @param cD {@link Animal#carDeath}
-		 * @param now current time frame in nanoseconds
-		 */
-		/*public void carDeath(boolean cD, long now) {
-			// TODO Auto-generated method stub
-			if (cD) {
-				noMove = true;
-				if ((now)% 11 ==0) {
-					carD++;
-				}
-				if (carD==1) {
-					setImage(hitImg1);
-				}
-				if (carD==2) {
-					setImage(hitImg2);
-				}
-				if (carD==3) {
-					setImage(hitImg3);
-				}
-				if (carD == 4) {
-					setX(300);
-					setY(679.8+movement);
-					this.carDeath = false;
-					carD = 0;
-					setImage(imgW1);
-					noMove = false;
-	
-					//change
-					if(points>10) {
-						points-=10;
-						changeScore=true;
-					}
-					life--;
-					changeLife=true;
-				}
-				
-			}
-			
-		}
-	*/
-		/**
-		 * Sets up all the necessary animations and looks for {@code Animal}.<br>
-		 * Images for the animations are set up by calling {@link Animal#createImage(String)} method
-		 */
+	 * Sets up all the necessary animations and looks for {@code Animal}.
+	 * Used exclusively by {@code Animal} only.<br>
+	 * Images for the animations are set up by using {@link Animal#createImage(String)} method
+	 */
 	//used in Animal class only
 		private void animalAnimationSetUp() {
 			// TODO Auto-generated method stub
@@ -746,7 +620,8 @@ public class Animal extends Actor {
 			drownImg4 = createImage("file:src/froggertextures/waterdeath4.png");
 		}
 
-		//use in Animal class only
+		
+	/**used exclusively by {@code Animal} only to create its images*/
 	private Image createImage(String ImageLink) {
 		// TODO Auto-generated method stub
 		Image img = new Image(ImageLink, this.imgSize,this.imgSize,true,true);

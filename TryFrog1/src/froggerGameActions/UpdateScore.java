@@ -4,14 +4,29 @@ import froggerElements.Digit;
 import froggerLevels.Level;
 import javafx.scene.image.Image;
 
+/**
+ * Represents one of the Game Actions.<br>
+ * Update the latest scores (via {@link froggerElements.Digit}) of {@link froggerAnimal_Actions.Animal}.
+ * @author GohXinYee
+ *
+ */
 public class UpdateScore implements GameAction{
 	
+	/** the target game {@link froggerLevels.Level} to show the latest score*/
 	private Level level;
 	
+	/**
+	 * This constructor will create an {@code UpdateScore} object
+	 * @param level value for {@link UpdateScore#level}
+	 */
 	public UpdateScore(Level level){
 		this.level=level;
 	}
 	
+	
+	/**
+	 * update the latest score of Animal in the target game level scene
+	 */
 	@Override
 	public void doAction() {
 		

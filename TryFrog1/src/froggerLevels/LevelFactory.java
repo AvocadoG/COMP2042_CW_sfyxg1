@@ -5,19 +5,19 @@ import froggerAnimal_Actions.Animal;
 //FACTORY METHOD
 
 /**
- * This is a Level Factory to retrieve the game levels.
- * <B>Factory Method Design Pattern</B> is applied.
- * @author User
+ * This is a Level Factory to create the game levels.<br>
+ * <b>Factory Method Design Pattern</b> is applied.
+ * @author GohXinYee
  *
  */
 public class LevelFactory {
 
 	/**
 	 * generate the required game {@code Level}<br>
-	 * The {@code Level} will have an {@link p4_group_8_repo.Animal} ready in it but the {@code Animal} is not <i>activated</i> yet. All the generated {@code Level} are subclasses of {@link p4_group_8_repo.Level}.
+	 * All the generated levels are subclasses of {@link froggerLevels.Level}.
 	 * @param level the game level to be created (example: level1, level2 etc) 
-	 * @param animal the {@code Animal} to be put into the level
-	 * @return the generated game {@code Level} 
+	 * @param animal the {@link froggerAnimal_Actions.Animal} to be put into the level
+	 * @return the generated game level 
 	 */
 	public Level getLevel(String level, Animal animal) {
 		

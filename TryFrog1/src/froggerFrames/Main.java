@@ -66,7 +66,8 @@ public class Main extends Application {
 		Animal animal = new Animal("file:src/froggertextures/froggerUp.png");
 		
 		LevelFactory levelfactory = new LevelFactory();
-
+		Level1 levell= new Level1(animal);
+		
 		level1 = levelfactory.getLevel("Level1", animal);
 	    //level1 = new Level1(animal);
 	    level1scene  = new Scene(level1,gamescreenwidth,gamescreenheight);

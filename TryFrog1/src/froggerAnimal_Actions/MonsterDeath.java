@@ -1,18 +1,31 @@
 package froggerAnimal_Actions;
 
-
+/**
+ * Represents a type of Animal Death.<br>
+ * Particularly for when {@link froggerAnimal_Actions.Animal} get eaten by the Monster in the game
+ *
+ */
 public class MonsterDeath implements AnimalDeath{
 
-	
+	/** target {@link froggerAnimal_Actions.Animal}*/	
 	private Animal animal;
+	/** determine if there is a monster death*/
 	private boolean death;
 
+	/**This constructor will create a {@code MonsterDeath} object
+	 * @param animal the target {@link froggerAnimal_Actions.Animal} object to do action upon
+	 * @param monsterDeath boolean, whether the target Animal has eaten by a monster
+	 */
 	MonsterDeath(Animal animal, boolean monsterDeath){
 		this.animal=animal;
 		this.death=monsterDeath;
 		
 	}
 	
+	/**
+	 * To do an action upon the target Animal's monster death.
+	 * @param now do an action right now 
+	 */
 	@Override
 	public void doAction(long now) {
 		// TODO Auto-generated method stub

@@ -5,15 +5,24 @@ import froggerActors.*;
 import froggerAnimal_Actions.Animal;
 import froggerElements.*;
 
+/**
+ * Level 6 of Frogger Game.<br>
+ * At Level 6, there is a {@link froggerActors.Monster} appearing in the game, which will eat the player's avatar (the Frog) and minus points.
+ * This is to make the game more challenging.
+ */
 public class Level6 extends Level{
 
-	private Animal animallevel6;
+	/** level index for {@code Level6}, which is 6*/
 	private int currentlevel=6;
 	
+	/**
+	 * Create a {@code Level6} for the game.
+	 * @param animal the {@code Animal} to be inserted into the {@code Level6} 
+	 */
 	public Level6(Animal animal){
-		setlevelAnimal(animal);
+		super.setlevelAnimal(animal);
 		createArena();
-		createMusic("src/froggermusic/Level456.mp3");
+		createMusic();
 		super.displaylevel(getcurrentLevel());
 
 
@@ -53,11 +62,7 @@ public class Level6 extends Level{
 		add(new End(141 + 141-13,96,false));
 		add(new End(141 + 141-13+141-13+1,96,false));
 		add(new End(141 + 141-13+141-13+141-13+3,96,false));
-		
-		/*animallevel3 = new Animal("file:src/froggertextures/froggerUp.png");
-		animallevel3.setLevel(getcurrentLevel());
-		animallevel3.setmovementX(10.666666*2*1.3);*/
-		//add(animallevel3);
+	
 		
 		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 0, 649, 1, 120, 120));
 		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 300, 649, 1, 120, 120));
@@ -80,74 +85,26 @@ public class Level6 extends Level{
 		//add level text display
 	}
 
+	/**{@inheritDoc}, Level 6*/
 	@Override
-	public void createMusic(String musicFile) {
+	protected void createMusic() {
 		// TODO Auto-generated method stub
-		super.musicFile= musicFile;
+		super.musicFile= "src/froggermusic/Level456.mp3";
 	}
 
-
-	@Override
-	public boolean levelComplete() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().getStop();
-	}
-	
-	@Override
-	public boolean levelStop() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().noLife();
-	}
-
-
-	@Override
-	public boolean animalchangeScore() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().changeScore();
-	}
-	
-	@Override
-	public boolean animalchangeLife() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().changeLife();
-	}
-
-
+	/**
+	 * {@inheritDoc}, Level 6.
+	 * Animal will be added into Level 6 game Arena
+	 */
 	@Override
 	public void activateAnimal() {
 		getlevelAnimal().setLevel(getcurrentLevel());
-		animallevel6.setmovementX(10.666666*2);
-		animallevel6.setEnd(0);
-		animallevel6.setLife(5);
-		animallevel6.setCoin(0);
-		add(animallevel6);
+		getlevelAnimal().setmovementX(10.666666*2);
+		getlevelAnimal().setEnd(0);
+		getlevelAnimal().setLife(5);
+		getlevelAnimal().setCoin(0);
+		add(getlevelAnimal());
 	}
-
-	@Override
-	public int getlevelPoints() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().getPoints();
-	}
-
-	
-	@Override
-	public int getlevelLife() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().getLife();
-	}
-	
-	
-	public void setlevelAnimal(Animal animal) {
-		// TODO Auto-generated method stub
-		this.animallevel6=animal;
-	}
-
-
-	public Animal getlevelAnimal() {
-		// TODO Auto-generated method stub
-		return animallevel6;
-	}
-
 
 	public int getcurrentLevel() {
 		// TODO Auto-generated method stub

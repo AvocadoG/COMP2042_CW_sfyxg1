@@ -1,20 +1,15 @@
 package froggerLevels;
 
-import froggerActors.*;
+import froggerAnimal_Actions.*;
 import froggerElements.BackgroundImage;
 
-import java.io.File;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-
 
 
 /*
@@ -25,39 +20,33 @@ import javafx.stage.Stage;
  * Level5 - 1.3 speed, add Coin function, //car-7
  * 
  * Level6 - original speed, add Monster(2), car -5
- * Level7 - original speed, add Monster(3), all Wet Turtles, car -5
- * Level8 - 1.3 speed, add Monster(4), all Wet Turtles, car -7
- * Level9 - 1.3 speed, add Monster(4), all Wet Turtles, add Coin, car -7
- * Level10 - 1.8 speed, add Monster(5), all Wet Turtles, car -7
+ * Level7 - 1.3 speed, add Monster(3), all Wet Turtles, car -5
+ * Level8 - 1.4 speed, add Monster(4), all Wet Turtles, car -7
+ * Level9 - 1.5 speed, add Monster(4), all Wet Turtles, add Coin, car -7
+ * Level10 - 1.7 speed, add Monster(5), all Wet Turtles, car -7
  */
 
 
 
 /**
  * The base class for all game levels.<br>
- * It is not a playable game level. It sets up a basic structure for game levels and allows functions like pausing, playing/stoping music at the level.<br>
- * {@code LevelMaster} will have no game objects ({@code Actor}) but only a background image.<br>
- * <b>Template Design Pattern</b> is applied, where {@code LevelMaster} has <i>abstract</i> methods to be implemented differently by its subclasses, which are the game levels.
- * @author User
+ * It is not a ready game level. It sets up a basic structure for the <b>real game levels</b> and allows functions like level display, checking if the game level has been completed or stopped, checking if the {@link froggerAnimal_Actions.Animal} at the game level has changed score or life etc.<br>
+ * {@code Level} will have no game objects other than an {@code Animal} and a background image for the level.<br>
+ * <b>Template Design Pattern</b> is applied, where {@code Level} has <b><i>abstract</i> methods</b> to be implemented differently by its subclasses, which are the <b><i>real and concrete</i> game levels</b>.
  *
  */
 public abstract class Level extends World{
 	
-	private MediaPlayer mediaPlayer;
-	protected String musicFile;
 	private Button pausebtn;
-	private Stage stage;
-	
-	/**determine if a game level is paused*/
+	/**determine if a game level can be paused, <b>true</b> if the level can be paused.*/
 	private boolean pause=true;
 	
-	/*@Override
-	public void act(long now) {
-		
-	}*/
+	/** the {@code Stage} the game level scene is at*/
+	private Stage stage;
+	/**the {@link froggerAnimal_Actions.Animal} object at the game level*/
+	private Animal levelanimal;
 	
-	
-	/**This constructor will generate a {@code LevelMaster} that sets up a structure for a game level<br> */
+	/**This constructor will generate a {@code Level} that sets up a structure for a game level<br> */
 	public Level() {		
 		
 		
@@ -78,32 +67,12 @@ public abstract class Level extends World{
 		
 			
 	}
-	
-	
-	/**
-	 * play the music of a game level
-	 * @param musicFile the music to play
-	 */
-	public void playMusic() {
-		
-		Media sound = new Media(new File(musicFile).toURI().toString());
-		mediaPlayer = new MediaPlayer(sound);
-		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-	    mediaPlayer.play();
-	}
-	
-	/**
-	 * stop the music of a game level
-	 */
-	public void stopMusic() {
-		mediaPlayer.stop();
-	}
-	
-	
+
+
 	/**
 	 * display the level# of a game level.<br>
-	 * Example: Game Level 1, # = 1
-	 * @param level the # of the game level 
+	 * Example: Game Level 1, # is 1
+	 * @param level the # of the game level to be displayed
 	 */
 	//called in its subclasses only
 	protected void displaylevel(int level) {
@@ -115,38 +84,71 @@ public abstract class Level extends World{
 		leveldisplay.setY(470);
 		add(leveldisplay);
 	}
-	
-	
-	private Button createbtn(String imagelink, int width, int height) {
-		Button btn = new Button();
-		btn.setMinSize(width, height);
-		btn.setMaxSize(width, height);
-		btn.setGraphic(new ImageView(new Image(imagelink)));
-		return btn;
-	}
-	
-	private void setbuttonAction() {
-		
-		//set pause button on-clicked action
-		//if pause button is clicked, game is paused and music is stopped
-		//clicked again, game and music are resumed
-		pausebtn.setOnMouseClicked(event -> {
-			if(pause) {
-				this.pause(pause);
-				this.stopMusic();
-				pause=false;
-			}
-			else {
-				this.pause(pause);
-				this.playMusic();
-				pause=true;
-			}
-		});
-		
-		
-	}
-	
 
+	/**
+	 * to check if a game level is completed
+	 * @return boolean <b>true</b> if the level has been completed by {@code Animal}
+	 */
+	public boolean levelComplete() {
+		return this.levelanimal.getStop();//end = 5
+	}
+
+	/**
+	 * to check if a game level is stopped
+	 * @return boolean <b>true</b> if the level has been stopped
+	 */
+	//public abstract boolean levelStop();//main
+	public boolean levelStop() {
+		return this.levelanimal.noLife();//life = 0
+	}
+
+	/**
+	 * to check if {@code Animal} has changed score at a game level
+	 * @return boolean <b>true</b> if the Animal has changed score at that level
+	 */
+	public boolean animalchangeScore() {
+		// TODO Auto-generated method stub
+		return this.levelanimal.changeScore();
+	}
+
+	/**
+	 * to check if {@code Animal} amount of life has changed at a game level
+	 * @return boolean <b>true</b> if the Animal amount of life has changed
+	 */
+	public boolean animalchangeLife() {
+		// TODO Auto-generated method stub
+		return this.levelanimal.changeLife();
+	}
+
+	/**
+	 * get the points of {@code Animal} at a game level
+	 * @return int, the points of {@code Animal} at a game level
+	 */
+	public int getlevelPoints() {
+		// TODO Auto-generated method stub
+		return this.levelanimal.getPoints();
+	}
+
+	/**
+	 * get the amount of life of {@code Animal} at a game level
+	 * @return int, the amount of life of {@code Animal} at a game level
+	 */
+	public int getlevelLife() {
+		// TODO Auto-generated method stub
+		return this.levelanimal.getLife();
+	}
+
+	/**setter method for {@link Level#levelanimal}*/
+	public void setlevelAnimal(Animal animal) {
+		this.levelanimal=animal;
+	}
+	/** getter mthod for {@link Level#levelanimal}*/
+	public Animal getlevelAnimal() {
+		return this.levelanimal;
+	}
+
+	
+	
 	/**
 	 * setter method for {@link Level#stage}<br>
 	 * record the <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/stage/Stage.html">{@code Stage}</a> 
@@ -162,109 +164,65 @@ public abstract class Level extends World{
 	/**
 	 * getter method for {@link Level#stage}<br>
 	 * retrieve the {@code Stage} of a game level is in.<br>
-	 * used here to retrieve and pass the {@code Stage} from one game {@code Level} to another.<br>
+	 * used here to retrieve and pass the {@code primaryStage} from one game {@code Level} to another.<br>
 	 * See : {@link Level#setStage(Stage)}
-	 * @return {@code Stage}
+	 * @return {@code Stage} of the game level
 	 */
 	public Stage getStage() {
 		System.out.println("Done get");
 		return this.stage;
 	}
 	
+	
 	/**
-	 * update the score displayed in the arena of a game level  
-	 * @param n
+	 * to create button appeared on the game level scene.<br>
+	 * Used <b>exclusively</b> by Level only.
+	 * @param imagelink the link of the image for how the button on the level scene looks like
+	 * @param width the width of the button
+	 * @param height the height of the button
+	 * @return a created {@code Button}
 	 */
-	/*public void updateScore(int n) {
-    	int shift = 0;
-    	
-    	if(n<100) {//if points has 2 digits
-        	while (n > 0) {
-        		  int d = n / 10;
-        		  int k = n - d * 10;
-        		  n = d;
-        		  add(new Digit(k, 30, 550 - shift, 25));
-        		  shift+=30;
-        	}
-        	add(new Digit(0,30,550 - shift, 25));
-        }
-        	
-        else if(n>=100) {//if points has 3digits
-        	while (n > 0) {
-          		  int d = n / 10;
-          		  int k = n - d * 10;
-          		  n = d;
-          		  add(new Digit(k, 30, 550 - shift, 25));
-          		  shift+=30;
-          	}
-        }
-    	
-    }
-	
-	public void updateLife(int n) {
-		add(new Digit(n,30,500,60));
-	}*/
-	
-	
-	
-	/*////SCREENGENERATOR INTERFACE IMPLEMENTATION/////
-	@Override
-	public Button createbtn(String BtnImageLink) {
-		// TODO Auto-generated method stub
-		Button btn = new Button(); 
-		btn.setMinSize(30,30);
-		btn.setMaxSize(30,30);
-		Image btnImg = new Image(BtnImageLink);
-		btn.setGraphic(new ImageView(btnImg));
+	private Button createbtn(String imagelink, int width, int height) {
+		Button btn = new Button();
+		btn.setMinSize(width, height);
+		btn.setMaxSize(width, height);
+		btn.setGraphic(new ImageView(new Image(imagelink)));
 		return btn;
 	}
-	
-	@Override
-	public Text createText(String text, String fonttype, int textsize) {
-		// TODO Auto-generated method stub
-		Text txt = new Text(text);
-		txt.setFont(Font.loadFont("file:src/froggerfonts/"+fonttype+".ttf", textsize));
-		txt.setFill(Color.WHITE);
-		txt.setX(510);
-		txt.setY(470);	
-		return txt;
-	}*/
-	
 
-	
-	
-	/////TEMPLATE METHOD DESIGN PATTERN/////
-	////ABSTRACT CLASSES TO BE IMPLEMENTED BY SUBCLASSES////
-	
+
+	/**
+	 * to set up the action of the buttons appear in the game level scene.<br>
+	 * used <b>exclusively</b> by Level only
+	 */
+	private void setbuttonAction() {
+		
+		//set pause button on-clicked action
+		//if pause button is clicked, game is paused and music is stopped
+		//clicked again, game and music are resumed
+		pausebtn.setOnMouseClicked(event -> {
+			if(pause) {
+				this.pause(pause);//pause game
+				this.stopMusic();
+				pause=false;
+			}
+			else {
+				this.pause(pause);//resume game
+				this.playMusic();
+				pause=true;
+			}
+		});
+		
+		
+	}
+
+
 	/**to set up an arena or scene for a game level*/
 	protected abstract void createArena();//different arena for each level
 	
 	/**to generate music for a game level */
-	public abstract void createMusic(String musicFile);//different music for each level
-	
-	/**
-	 * to check if a game level is completed
-	 * @return boolean <b>true</b> if the level has been completed by {@code Animal}
-	 */
-	public abstract boolean levelComplete();//main
-	
-	public abstract boolean levelStop();//main
-	
-	/**
-	 * to check if {@code Animal} has changed score at a game level
-	 * @return boolean <b>true</b> if the Animal has changed score at that level
-	 */
-	public abstract boolean animalchangeScore();//main
-	public abstract boolean animalchangeLife();//main
+	protected abstract void createMusic();//different music for each level
 	
 	/**to activate {@code Animal} at a game level */
 	public abstract void activateAnimal();//main//different activation details for each level
-
-	/**
-	 * get the points of {@link p4_group_8_repo.Animal} at a game level
-	 * @return int, the points of {@code Animal} at a game level
-	 */
-	public abstract int getlevelPoints();//different points at each level
-	public abstract int getlevelLife();
-
 }

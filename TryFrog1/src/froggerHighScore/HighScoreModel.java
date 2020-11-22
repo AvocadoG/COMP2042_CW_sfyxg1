@@ -1,8 +1,8 @@
 package froggerHighScore;
 
 /**
- * Player's high score record which consists of a username and game points.
- * @author User
+ * Represents the player's high score record which consists of a username and game points.
+ * @author GohXinYee
  *
  */
 public class HighScoreModel {
@@ -11,7 +11,7 @@ public class HighScoreModel {
 	private int points;
 	
 	/**
-	 * This constructor will create a high score record of a player
+	 * This constructor will create a {@code HighScoreModel} object for a player
 	 * with the player's username and game points
 	 * @param name the player's username
 	 * @param points the player's points

@@ -7,33 +7,31 @@ import froggerElements.*;
 //level 2 - speed up *1.3
 
 /**
- * Level 2 of Frogger Game. The game speed increases at this level.
+ * Level 2 of Frogger Game. The game speed at Level 2 is higher than Level 1.<br>
+ * There are still {@link froggerActors.Obstacle}, {@link froggerActors.Turtle},  {@link froggerActors.WetTurtle},  {@link froggerActors.Log} ,  {@link froggerActors.End} at Level 2.
  * @author User
  *
  */
 public class Level2 extends Level{
-
-	//private Stage level1stage;
-	private Animal animallevel2;
+	
+	/** level index for {@code Level2}, which is 2*/
 	private int currentlevel=2;
 	
 
 	/**
-	 * Create a {@code Level2} for the game with an {@link p4_group_8_repo.Animal} ready but not yet activated.
-	 * Game arena for {@code Level2} will be set up, the level# will be displayed.
+	 * Create a {@code Level2} for the game.
 	 * @param animal the {@code Animal} to be inserted into the {@code Level2} 
 	 */
 	public Level2(Animal animal){
-		setlevelAnimal(animal);
+		super.setlevelAnimal(animal);
 		createArena();
-		createMusic("src/froggermusic/Level123_KomikuTraveltotheHorizon.mp3");
+		createMusic();
 		super.displaylevel(getcurrentLevel());
 
 	}
 
 	/**
 	 * {@inheritDoc}, Level 2.<br>
-	 * relevant Actor class objects such as {@link p4_group_8_repo.Obstacle}, {@link p4_group_8_repo.Turtle},  {@link p4_group_8_repo.WetTurtle},  {@link p4_group_8_repo.Log} ,  {@link p4_group_8_repo.End} will be added to the Level 2 Game Arena with a faster moving speed than Level 1.
 	 */
 	@Override
 	protected void createArena() {
@@ -67,11 +65,6 @@ public class Level2 extends Level{
 		add(new End(141 + 141-13+141-13+1,96,false));
 		add(new End(141 + 141-13+141-13+141-13+3,96,false));
 		
-		/*animallevel2 = new Animal("file:src/froggertextures/froggerUp.png");
-		animallevel2.setmovementX(10.666666*2);
-		animallevel2.setLevel(getcurrentLevel());*/
-		//add(animallevel2);
-		
 		
 		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 0, 649, 1, 120, 120));
 		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 300, 649, 1, 120, 120));
@@ -97,45 +90,11 @@ public class Level2 extends Level{
 	
 	/**{@inheritDoc}, Level 2*/
 	@Override
-	public void createMusic(String musicFile) {
+	protected void createMusic() {
 		// TODO Auto-generated method stub
-		super.musicFile= musicFile ;
+		super.musicFile= "src/froggermusic/Level123_KomikuTraveltotheHorizon.mp3" ;
 		
 	}
-
-
-	/**
-	 * {@inheritDoc}, Level 2
-	 * @return boolean <b>true</b> if {@code Animal} has completed Level 2
-	 */
-	@Override
-	public boolean levelComplete() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().getStop();
-	}
-	
-	@Override
-	public boolean levelStop() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().noLife();
-	}
-
-	/**
-	 * {@inheritDoc}, Level 2.
-	 * @return boolean <b>true</b> if {@code Animal} score is changed, at Level 2
-	 */
-	@Override
-	public boolean animalchangeScore() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().changeScore();
-	}
-	
-	@Override
-	public boolean animalchangeLife() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().changeLife();
-	}
-	
 
 	/**
 	 * {@inheritDoc}, Level 2.
@@ -144,47 +103,16 @@ public class Level2 extends Level{
 	@Override
 	public void activateAnimal() {
 		getlevelAnimal().setmovementX(10.666666*2);
-		animallevel2.setLevel(getcurrentLevel());
-		animallevel2.setEnd(0);
-		animallevel2.setLife(5);
-		animallevel2.setCoin(0);
-		add(animallevel2);
+		getlevelAnimal().setLevel(getcurrentLevel());
+		getlevelAnimal().setEnd(0);
+		getlevelAnimal().setLife(5);
+		getlevelAnimal().setCoin(0);
+		add(getlevelAnimal());
 
 	}
 	
-	/** {@inheritDoc}, Level 2*/
-	@Override
-	public int getlevelPoints() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().getPoints();
-	}
-	
 
-	@Override
-	public int getlevelLife() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().getLife();
-	}
 	
-	
-	/**
-	 * setter for {@link Level2#animallevel2}
-	 * @param animal {@code Animal} to be set for Level 2
-	 */
-	public void setlevelAnimal(Animal animal) {
-		// TODO Auto-generated method stub
-		this.animallevel2=animal;
-	}
-
-	/**
-	 * getter for {@link Level2#animallevel2}
-	 * @return {@code Animal} object of {@code Level2}
-	 */
-	public Animal getlevelAnimal() {
-		// TODO Auto-generated method stub
-		return this.animallevel2;
-	}
-
 	/**
 	 * getter for {@link Level2#currentlevel}
 	 * @return current level# in int

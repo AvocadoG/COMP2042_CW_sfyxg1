@@ -1,6 +1,5 @@
 package froggerFrames;
 
-import DisplayGenerator.*;
 import froggerElements.BackgroundImage;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -13,40 +12,32 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 /**
- * Represents the Information Screen of the game.<br>
+ * Represents the Information Screen of Frogger Game.<br>
  * <b>Singleton Design Pattern</b> is applied to this class, so there is only <b>one</b> {@code InfoScreen} instance throughout the game.
  * @author GohXinYee
  *
  */
 public class InfoScreen {
 
+	/** the InfoScreen group that house all the elements appeared on the {@code InfoScreen}*/
 	private Group infogroup;
+	/** a return button on {@code InfoScreen} */
 	private Button backtostart;
+	/** a vertical box element in {@code InfoScreen} to arrange the text and buttons vertically*/
 	private VBox infoscreenVBox;
-	private ButtonDisplayGenerator bgenerator;
-	private TextDisplayGenerator tgenerator;
 	
-	
+	/** the {@code InfoScreen} instance.<br>
+	 * declared as <i>static</i> to make sure there is only 1 {@code InfoScreen} throughout the game*/
 	private static InfoScreen infoscreen;
 	
-	
-	/**private default constructor*/
-	private InfoScreen () {};
+
 	
 	/**
-	 * This constructor will create an {@code InfoScreen} object, with instructions to play the game.<br>
+	 * This constructor will create an {@code InfoScreen}, displaying the instructions to play the game.<br>
 	 * The constructor is declared private to ensure that no other classes can create another {@code InfoScreen} instance.
 	 * @param ImageLink the link of the background image of {@code InfoScreen}
 	 */
 	private InfoScreen (String ImageLink){
-		
-		/*bgenerator = new ButtonDisplayGenerator(140,50);
-		backtostart = bgenerator.generatebtn("file:src/froggertextures/backtostartbtnfrogger.png");
-		
-		tgenerator = new TextDisplayGenerator("ChickenPie",20,TextAlignment.CENTER);
-		Text subheading = tgenerator.generatetxt("How to Play??");
-		tgenerator = new TextDisplayGenerator("Phosb___",15,TextAlignment.JUSTIFY);
-		Text instructions = tgenerator.generatetxt(getinstructions());*/
 		
 		//generate a background image
 	    BackgroundImage infobackground = new BackgroundImage(ImageLink,613,800);
@@ -55,8 +46,8 @@ public class InfoScreen {
 		backtostart = createbtn("file:src/froggertextures/backtostartbtnfrogger.png");
 		
 		//create subheading and instructions text
-		Text subheading = createText("How to Play??", "ChickenPie",20);
-		Text instructions = createText(getinstructions(),"Phosb___",15);
+		Text subheading = createText("How to Play??", "ChickenPie",19);
+		Text instructions = createText(getinstructions(),"Phosb___",14);
 	    
 	    //set up a VBox to add in the elements
 		infoscreenVBox = new VBox(15,subheading,instructions,backtostart);
@@ -71,13 +62,12 @@ public class InfoScreen {
 		infogroup.getChildren().addAll(infobackground,infoscreenVBox);
 	}
 	
-	
-	
 
 
 	/**
-	 * to retrieve the {@code InfoScreen} instance
-	 * @return {@code InfoScreen} instance
+	 * to retrieve the {@code InfoScreen} instance<br>
+	 * declared as <i>static</i> so that it can be called without an {@code InfoScreen} object having to be created beforehand.
+	 * @return {@code InfoScreen} InfoScreen instance
 	 */
 	public static InfoScreen getInstance() {
 		
@@ -89,15 +79,15 @@ public class InfoScreen {
 
 	
 	/**
-	 * access the parent of all the elements in an {@code InfoScreen} 
-	 * @return {@code Group} the parent element
+	 * To access the group that holds all the elements of an {@code InfoScreen} 
+	 * @return {@code Group} {@link InfoScreen#infogroup}
 	 */
 	public Group getInfoScreenGroup() {
 		return infogroup;
 	}
 	
 	/**
-	 * retrieve the back-to-start button on {@code InfoScreen}
+	 * Retrieve the back-to-start button on {@code InfoScreen}
 	 * @return {@link InfoScreen#backtostart} {@code Button} element
 	 */
 	public Button getbacktostartbtn() {
@@ -115,22 +105,23 @@ public class InfoScreen {
 				"S key to move Frogger back\n" +
 				"W key to make Frogger jump\n\n" +				                                                                     
 				"RULES\n" +
-				"The goals are sending Frogger to all the 5 empty ENDS on the other side. " +
-				"Purple zones are the resting zones. Frogger has to avoid any trucks/cars/monsters on the way and cross the river by jumping onto Logs/Turtles.\n" +
+				"The goals are sending your Frog to all the 5 empty destinations on the other side. " +
+				"Purple zones are the resting zones. Your frog has to AVOID any trucks, cars and monsters on the way and cross the river by jumping onto the logs and turtles.\n" +
 				"Green turtles will submerge into the river from time to time. Red turtles will turn into Green turtles too! " +
-				"When Frogger jumps onto the green turtle and the green turtle submerges, Frogger will sink into the river and die."+
-				"\n\n10points for reaching each Empty End.\n5points for each successful forward movement.\n" +
-				"MINUS 10points for getting hit by the Trucks/Cars/Monsters and sinking into the River. MINUS 5points for bumping into the grass block.\n" +
-				"5 Levels in total, Level Up upon reaching all Ends at each Level.The speed of the game will increase as Frogger levels up."+
-				"Level 4 & 5 are when the Monster comes!";
+				"When Frogger jumps onto the Green Turtle and the Green Turtle submerges, Frogger will sink into the river and DIE."+
+				"\n\n5points for each successful forward movement.\n10points for reaching each destination. Note that SOME destinations have COINS! If your Frog manages to collect all the coins CONTINUOUSLY, it can proceed to the Next level RIGHT AWAY and get extra 50 points!" +
+				"\nMINUS 10points for getting hit by the Trucks, Cars, Monsters or drowning into the river. \nMINUS 5points for bumping into the grass block.\n" +
+				"10 Levels in total, Level Up upon reaching all destinations at each level. The speed of the game will increase as your Frog levels up."+
+				" Beware of the Monster!";
 	}
 
 	
-	
-	
-	///SCREENGENERATOR INTERFACE IMPLEMENTATION////
-	/**{@inheritDoc} for {@code InfoScreen}*/
-
+	/**
+	 * to create button appeared on the {@code InfoScreen}.<br>
+	 * Used <b>exclusively</b> by {@code InfoScreen} object only.
+	 * @param BtnImageLink the link of the image for how the button looks like on the screen
+	 * @return a created {@code Button}
+	 */
 	private Button createbtn(String BtnImageLink) {
 		// TODO Auto-generated method stub
 		Button btn = new Button();
@@ -141,8 +132,14 @@ public class InfoScreen {
 		return btn;
 	}
 	
-	/** {@inheritDoc} for {@code InfoScreen} */
-	
+	/**
+	 * to create text appeared on the {@code InfoScreen}.<br>
+	 * Used <b>exclusively</b> by {@code InfoScreen} object only.
+	 * @param text the text to be generated
+	 * @param fonttype the font type of the text 
+	 * @param textsize the font size of the text
+	 * @return a created {@code Text}
+	 */
 	private Text createText(String text, String fonttype, int textsize) {
 		// TODO Auto-generated method stub
 		Text txt = new Text(text);

@@ -27,9 +27,10 @@ public abstract class Actor extends ImageView{
 
     
     /**
-     * Access the {@code Actor}'s parent {@link p4_group_8_repo.World}<br>
-     * {@link p4_group_8_repo.World} is the Main Game Arena
-     * @return {@link p4_group_8_repo.World}, the Main Game Arena 
+     * Access the {@link froggerLevels.World}, which is where the Actors are added to, in Frogger Game<br>
+     * {@link froggerLevels.World} is the game arena of the game levels.
+     * 
+     * @return {@link froggerLevels.World}, the game arena where {@code Actor} is 
      */
     //to access the World class (Pane)
     public World getWorld() {
@@ -47,7 +48,7 @@ public abstract class Actor extends ImageView{
 
     
     /**
-     * Retrieves a list of game objects from {@link p4_group_8_repo.World} that collide with the {@code Actor}.<br>
+     * Retrieves a list of game objects from {@link froggerLevels.World} that collide with the {@code Actor}.<br>
      * The game objects must match the targeted {@code cls} class type. 
      * 
      * @param <A> specifies that {@code cls} should be a class type that is also a subclass of {@code Actor} class

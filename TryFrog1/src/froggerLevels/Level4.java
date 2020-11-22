@@ -6,34 +6,30 @@ import froggerAnimal_Actions.Animal;
 import froggerElements.*;
 
 /**
- * Level 4 of Frogger Game. 
- * At this level, there are only {@link p4_group_8_repo.WetTurtle} and no more regular Red {@link p4_group_8_repo.Turtle}. 
- * Also, a {@link p4_group_8_repo.Monster} appears to eat {@code Animal}.
+ * Level 4 of Frogger Game. <br>
+ * At this level, the game further speeds up, faster than the previous Level 1,2,3.
  * @author User
  *
  */
 public class Level4 extends Level{
 
-	private Animal animallevel4;
+	/** level index for {@code Level4}, which is 4*/
 	private int currentlevel=4;
 	
 
 	/**
-	 * Create a {@code Level4} for the game with an {@link p4_group_8_repo.Animal} ready but not yet activated.
-	 * Game arena for {@code Level4} will be set up, the level# will be displayed.
-	 * @param animal the {@code Animal} to be inserted into the {@code Level4} 
+	 * Create a {@code Level4} for the game.
+	 * @param animal the {@code Animal} to be inserted into {@code Level4} 
 	 */
 	public Level4(Animal animal){
-		setlevelAnimal(animal);
+		super.setlevelAnimal(animal);
 		createArena();
-		createMusic("src/froggermusic/Level456.mp3");
+		createMusic();
 		super.displaylevel(getcurrentLevel());
 	}
 	
 	/**
 	 * {@inheritDoc}, Level 4.<br>
-	 * relevant {@link p4_group_8_repo.Actor}s such as {@link p4_group_8_repo.Monster}, {@link p4_group_8_repo.Obstacle},  {@link p4_group_8_repo.WetTurtle},  {@link p4_group_8_repo.Log} ,  {@link p4_group_8_repo.End} will be added to the {@code Level4} Game Arena
-	 * Different from Level 1,2,3, {@code Level4} has Monster and only WetTurtles.
 	 */
 	@Override
 	protected void createArena() {
@@ -67,15 +63,7 @@ public class Level4 extends Level{
 			add(new End(141 + 141-13,96,false));
 			add(new End(141 + 141-13+141-13+1,96,false));
 			add(new End(141 + 141-13+141-13+141-13+3,96,false));
-			
-			/*animallevel4 = new Animal("file:src/froggertextures/froggerUp.png");
-			animallevel4.setmovementX(10.666666*2);
-			animallevel4.setLevel(getcurrentLevel());*/
-			//add(animallevel4);
-			
-			
-			/*Monster monsterlevel4 = new Monster(50,0,430,2);
-			add(monsterlevel4);*/
+
 			
 			add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 0, 649, 1*1.3, 120, 120));
 			add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 300, 649, 1*1.3, 120, 120));
@@ -100,43 +88,11 @@ public class Level4 extends Level{
 
 	/**{@inheritDoc}, Level 4*/
 	@Override
-	public void createMusic(String musicFile) {
+	protected void createMusic() {
 		// TODO Auto-generated method stub
-		super.musicFile= musicFile;
+		super.musicFile= "src/froggermusic/Level456.mp3";
 	}
 
-	/**
-	 * {@inheritDoc}, Level 4
-	 * @return boolean <b>true</b> if {@code Animal} has completed Level 4
-	 */
-	@Override
-	public boolean levelComplete() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().getStop();
-	}
-	
-	@Override
-	public boolean levelStop() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().noLife();
-	}
-
-	/**
-	 * {@inheritDoc}, Level 4
-	 * @return boolean <b>true</b> if {@code Animal} score is changed, at Level 4
-	 */
-	@Override
-	public boolean animalchangeScore() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().changeScore();
-	}
-	
-	@Override
-	public boolean animalchangeLife() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().changeLife();
-	}
-	
 	/**
 	 * {@inheritDoc}, Level 4.
 	 * Animal will be added into Level 4 game Arena
@@ -144,48 +100,12 @@ public class Level4 extends Level{
 	@Override
 	public void activateAnimal() {
 		getlevelAnimal().setmovementX(10.666666*2*1.3);
-		animallevel4.setLevel(getcurrentLevel());
-		animallevel4.setEnd(0);
-		animallevel4.setLife(5);
-		animallevel4.setCoin(0);
-		add(animallevel4);
+		getlevelAnimal().setLevel(getcurrentLevel());
+		getlevelAnimal().setEnd(0);
+		getlevelAnimal().setLife(5);
+		getlevelAnimal().setCoin(0);
+		add(getlevelAnimal());
 
-	}
-
-	/////ABSTRACT METHODS IMPLEMENTATION/////
-	/**{@inheritDoc}, Level 4 */
-	@Override
-	public int getlevelPoints() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().getPoints();
-	}
-
-	@Override
-	public int getlevelLife() {
-		// TODO Auto-generated method stub
-		return getlevelAnimal().getLife();
-	}
-
-	
-	
-	
-	
-	/**
-	 * setter for {@link Level4#animallevel4}
-	 * @param animal {@code Animal} to be set for Level 4
-	 */
-	public void setlevelAnimal(Animal animal) {
-		// TODO Auto-generated method stub
-		this.animallevel4=animal;
-	}
-
-	/**
-	 * getter for {@link Level4#animallevel4}
-	 * @return {@code Animal} object of {@code Level4}
-	 */
-	public Animal getlevelAnimal() {
-		// TODO Auto-generated method stub
-		return animallevel4;
 	}
 
 	/**

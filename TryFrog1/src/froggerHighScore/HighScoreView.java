@@ -13,13 +13,16 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 /**
- * Represents how the High Score pop up will look like in the game.
+ * Represents how the high score pop up will look like in Frogger Game.
  *
  */
 public class HighScoreView {
 
-	private Button quitbtn;
+	/** the HighScoreView group that house all the elements appeared on the {@code HighScoreView}*/
 	private Group highscoregroup;
+	/** quit button in the HighScoreView to exit the game*/
+	private Button quitbtn;
+	/** a vertical box element to arrange the buttons and text elements in the HighScoreView vertically*/
 	private VBox highscoreVBox;
 	
 	
@@ -65,7 +68,7 @@ public class HighScoreView {
 	
 	
 	/**
-	 * Input high score record to the High Score pop up for display
+	 * Add high score record to the display of the high score pop up in the game
 	 * @param rank The ranking of the high score record
 	 * @param highscoreinput The high score record to be added into the high score pop up
 	 */
@@ -77,9 +80,7 @@ public class HighScoreView {
 
 
 	/**
-	 * Finish up the display of the High Score pop up.<br>
-	 * Done 
-	 * by adding a quit button and put all elements into the parent {@code Group} element
+	 * Finish up the display of the high score pop up.<br>
 	 */
 	public void finishup() {
 		highscoreVBox.getChildren().add(quitbtn);
@@ -88,15 +89,15 @@ public class HighScoreView {
 
 
 	/**
-	 * access the parent of all the elements in the High Score pop up
-	 * @return {@code Group}, the parent element
+	 * access the group that holds all the elements in the high score pop up
+	 * @return {@code Group} {@link HighScoreView#highscoregroup}
 	 */
 	public Group gethighscorepopup() {
 		return highscoregroup;
 	}
 	
 	/**
-	 * access the quit Button in the high score pop up
+	 * access the quit button in the high score pop up
 	 * @return {@link HighScoreView#quitbtn} Button element
 	 */
 	public Button getquitbtn() {
@@ -105,8 +106,12 @@ public class HighScoreView {
 	
 
 	
-	
-	
+	/**
+	 * to create button appeared on the {@code HighScoreView}.<br>
+	 * Used <b>exclusively</b> by {@code HighScoreView} object only.
+	 * @param BtnImageLink the link of the image for how the button looks like on the screen
+	 * @return a created {@code Button}
+	 */
 	private Button createbtn(String BtnImageLink) {
 		// TODO Auto-generated method stub
 		Button btn = new Button();
@@ -119,6 +124,14 @@ public class HighScoreView {
 	}
 
 	
+	/**
+	 * to create text appeared on the {@code HighScoreView}.<br>
+	 * Used <b>exclusively</b> by {@code HighScoreView} object only.
+	 * @param text the text to be generated
+	 * @param fonttype the font type of the text 
+	 * @param textsize the font size of the text
+	 * @return a created {@code Text}
+	 */
 	private Text createText(String text, String fonttype, int textsize) {
 		// TODO Auto-generated method stub
 		Text txt = new Text(text);

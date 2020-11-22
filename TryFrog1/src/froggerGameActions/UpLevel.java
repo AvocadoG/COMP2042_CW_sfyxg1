@@ -4,11 +4,27 @@ import froggerLevels.Level;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+* Represents one of the Game Actions.<br>
+* Level Up
+* @author GohXinYee
+*
+*/
 public class UpLevel implements GameAction{
 	
-	private Level currentlevel,nextlevel;
+	/** the level the player is currently at*/
+	private Level currentlevel;
+	/** the next level the player transits to*/
+	private Level nextlevel;
+	/** the scene of the next level*/
 	private Scene nextlevelscene;
 	
+	/**
+	 * This constructor will create an {@code UpLevel} object
+	 * @param currentlevel value for {@link UpLevel#currentlevel}
+	 * @param nextlevel value for {@link UpLevel#nextlevel}
+	 * @param nextlevelscene value for {@link UpLevel#nextlevelscene}
+	 */
 	public UpLevel(Level currentlevel,Level nextlevel,Scene nextlevelscene){
 		this.currentlevel=currentlevel;
 		this.nextlevel=nextlevel;
@@ -16,6 +32,9 @@ public class UpLevel implements GameAction{
 		
 	}
 
+	/**
+	 * up the level of the player.
+	 */
 	@Override
 	public void doAction() {
 		// TODO Auto-generated method stub

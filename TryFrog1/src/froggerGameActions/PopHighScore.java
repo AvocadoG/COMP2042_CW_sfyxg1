@@ -9,18 +9,36 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Represents one of the Game Actions.<br>
+ * Retrieves and Pops the {@link froggerHighScore.HighScoreView} of Frogger Game.
+ * @author GohXinYee
+ *
+ */
 public class PopHighScore implements GameAction{
 
+	/** the level of the current player when high score is popped*/
 	private Level level;
+	/** username of the current player*/
 	private String currentplayerUsername;
+	/** the game status of the current player (win or lose)*/
 	private String winlosestatus;
 	
+	/**
+	 * This constructor will create a {@code PopHighScore} object.
+	 * @param winlosestatus value for {@link PopHighScore#winlosestatus}
+	 * @param currentplayerUsername value for {@link PopHighScore#currentplayerUsername}
+	 * @param level value for {@link PopHighScore#level}
+	 */
 	public PopHighScore(String winlosestatus, String currentplayerUsername, Level level){
 		this.level=level;
 		this.currentplayerUsername=currentplayerUsername;
 		this.winlosestatus=winlosestatus;
 	}
 	
+	/**
+	 * pop the HighScoreView that shows <b>the top5 high score records</b> and the current player's score record when the game ends
+	 */
 	@Override
 	public void doAction() {
 		// TODO Auto-generated method stub

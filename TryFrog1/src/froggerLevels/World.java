@@ -1,6 +1,7 @@
 package froggerLevels;
 
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,21 +15,24 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 //import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
 //import javafx.scene.layout.StackPane;
+import javafx.scene.media.MediaPlayer;
 
 /**
- * Represents the main World of Frogger Game where all the game objects are added into this {@code World} for gameplay. 
- * @author User
+ * Represents the game World of Frogger Game where all the game objects are added into this {@code World} for gameplay. 
  *
  */
 public abstract class World extends Pane {
 	
     private AnimationTimer timer;
+    protected String musicFile;
+    private MediaPlayer mediaPlayer;
     
     /**
      * This constructor will generate {@code World}. <br>
-     * The World is connected to the game scene.
-     * It <b>listens</b> to any changes in the game scene and let the game objects (Actor) perform relevant actions.
+     * The {@code World} is connected to the scenes of game levels.
+     * It <b>listens</b> to any changes in the game scene and let the game objects ({@link froggerActors.Actor}) perform relevant actions.
      * <br>
      * It keeps the game active and updated.<br>
      * See :
@@ -81,10 +85,10 @@ public abstract class World extends Pane {
 
     /**
      * creates a timer for the game.<br>
-     * Once the timer is started, the game will be active.
-     * <br>The game objects ({@link p4_group_8_repo.Actor}) will be put into action.
+     * Once the timer is started, the game will be started and active.
+     * <br>The game objects ({@link froggerActors.Actor}) in {@code World} will be put into action.
      * <br>
-     * See : {@link p4_group_8_repo.Actor#act(long)} , 
+     * See : {@link froggerActors.Actor#act(long)} , 
      * <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/animation/AnimationTimer.html">AnimationTimer</a>
      */
     public void createTimer() {
@@ -102,19 +106,13 @@ public abstract class World extends Pane {
         };
     }
 
-    /**
-     * start the game.<br>
-     * start the game timer.
-     */
+    /**start the game timer and start the game.*/
     public void start() {
     	createTimer();
         timer.start();
     }
 
-    /**
-     * stop the game.<br>
-     * stop the game timer.
-     */
+    /**stop the game timer and stop the game*/
     public void stop() {
         timer.stop();
     }
@@ -132,10 +130,19 @@ public abstract class World extends Pane {
     	}
     }
     
-   /*
-   public void add(Actor actor) {
-        getChildren().add(actor);
-    }*/
+    /**play the music of a game level*/
+	public void playMusic() {
+		
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+	    mediaPlayer.play();
+	}
+	
+	/**stop the music of a game level*/
+	public void stopMusic() {
+		mediaPlayer.stop();
+	}
     
     /**
      * add game objects and other game elements into Frogger Game {@code World}
@@ -144,19 +151,10 @@ public abstract class World extends Pane {
     public void add(Node node) {
         getChildren().add(node);
     }
-
-   /**
-    * @deprecated NOT IN USE<br>
-    * removes a game object which is also a subclass of {@code Actor} class, from {@code World}
-    * @param actor the object to be removed
-    */
-    public void remove(Actor actor) {
-        getChildren().remove(actor);
-    }
-
+    
     /**
      * retrieve game objects which match {@code cls} type, from {@code World}
-     * @param <A> specifies that {@code cls} should be a class type that's also a subclass of {@link p4_group_8_repo.Actor}
+     * @param <A> specifies that {@code cls} should be a class type that's also a subclass of {@link froggerActors.Actor}
      * @param cls the targeted game object {@code cls} type when retrieving
      * @return a list of game objects of {@code cls} type retrieved from {@code World}
      */
@@ -169,6 +167,21 @@ public abstract class World extends Pane {
         }
         return someArray;
     }
+    
+    
+    
+   /*
+   public void add(Actor actor) {
+        getChildren().add(actor);
+    }*/
+    
+
+   /*
+    public void remove(Actor actor) {
+        getChildren().remove(actor);
+    }*/
+
+
 
    // public abstract void act(long now);
 }
