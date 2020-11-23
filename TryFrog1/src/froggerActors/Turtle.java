@@ -63,7 +63,8 @@ public class Turtle extends Actor{
 	}
 
 
-	/** Retrieve the moving speed of {@code Turtle}*/
+	/** Retrieve the moving speed of {@code Turtle}
+	 * @return speed of {@code Turtle} object */
 	public double getSpeed() {
 		return speed;
 	}

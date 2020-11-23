@@ -37,14 +37,10 @@ public class Level2 extends Level{
 	protected void createArena() {
 		// TODO Auto-generated method stub
 		
-		//add images of logs, turtles, cars(obstacles) and end boxes///
 						
 		add(new Log("file:src/froggertextures/log3.png", 150, 0, 166, 0.75));
 		add(new Log("file:src/froggertextures/log3.png", 150, 220, 166, 0.75));
-		add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75));
-		
-		
-		//redundant
+		add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75));		
 		add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2));
 		add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2));
 		add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.75));
@@ -78,11 +74,9 @@ public class Level2 extends Level{
 		add(new Obstacle("file:src/froggertextures/truck2Right.png", 500, 540, 1, 200, 200));
 		add(new Obstacle("file:src/froggertextures/car1Left.png", 500, 490, -5, 50, 50));
 
+		//show life amount and score
 		add(new Life(5,30,500,60));
 		add(new Digit(0, 30, 550, 25));
-		
-		//add(new Digit(getcurrentLevel(),30,550,450));
-
 
 	}
 

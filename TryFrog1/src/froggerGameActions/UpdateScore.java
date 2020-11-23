@@ -2,7 +2,6 @@ package froggerGameActions;
 
 import froggerElements.Digit;
 import froggerLevels.Level;
-import javafx.scene.image.Image;
 
 /**
  * Represents one of the Game Actions.<br>

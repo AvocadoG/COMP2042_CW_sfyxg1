@@ -70,7 +70,7 @@ public class Animal extends Actor {
 	
 	/**
 	 * determine Animal's monster death<br>
-	 * <b>true</b> when Animal gets eaten by the {@link pfroggerActors.Monster}.
+	 * <b>true</b> when Animal gets eaten by the {@link froggerActors.Monster}.
 	 */
 	 boolean monsterDeath = false;
 	
@@ -621,7 +621,8 @@ public class Animal extends Actor {
 		}
 
 		
-	/**used exclusively by {@code Animal} only to create its images*/
+	/**used exclusively by {@code Animal} only to create its images
+	 * @param ImageLink the link of the image for {@code Animal}*/
 	private Image createImage(String ImageLink) {
 		// TODO Auto-generated method stub
 		Image img = new Image(ImageLink, this.imgSize,this.imgSize,true,true);

@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 
 /**
  * Represents the background images appeared in the game.<br>
- * Used in each game level {@link froggerLevels.Level}, {@link froggerFrames.StartScreen}, {@link froggerFrame.InfoScreen} and {@link froggerHighScore.HighScoreView}.<br> 
+ * Used in each game level {@link froggerLevels.Level}, {@link froggerFrames.StartScreen}, {@link froggerFrames.InfoScreen} and {@link froggerHighScore.HighScoreView}.<br> 
  *
  */
 public class BackgroundImage extends ImageView{

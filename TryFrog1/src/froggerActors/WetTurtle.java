@@ -85,7 +85,8 @@ public class WetTurtle extends Actor{
 		return sunk;
 	}
 	
-	/** Retrieve the moving speed of {@code WetTurtle}*/
+	/** Retrieve the moving speed of {@code WetTurtle}
+	 *  @return speed of {@code WetTurtle} object*/
 	public double getSpeed() {
 		return speed;
 	}

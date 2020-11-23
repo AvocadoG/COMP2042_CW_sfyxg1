@@ -77,7 +77,7 @@ public abstract class Actor extends ImageView{
     }
 
     /**
-     * Retrieve the first object which matches the targeted {@code cls} type, from the {@link p4_group_8_repo.World} that collides with 
+     * Retrieve the first object which matches the targeted {@code cls} type, from the {@link froggerLevels.World} that collides with 
      * {@code Actor}
      * 
      * @deprecated Not in Use

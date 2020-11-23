@@ -25,7 +25,6 @@ public class InfoScreen {
 	private Button backtostart;
 	/** a vertical box element in {@code InfoScreen} to arrange the text and buttons vertically*/
 	private VBox infoscreenVBox;
-	
 	/** the {@code InfoScreen} instance.<br>
 	 * declared as <i>static</i> to make sure there is only 1 {@code InfoScreen} throughout the game*/
 	private static InfoScreen infoscreen;
@@ -54,7 +53,6 @@ public class InfoScreen {
 	    infoscreenVBox.setMinSize(600,800);
 	    infoscreenVBox.setMaxSize(600, 800);
 	    infoscreenVBox.setAlignment(Pos.CENTER);
-	    
 
 	    //create a Group as parent
 	    //add the elements to a parent Group
@@ -149,9 +147,6 @@ public class InfoScreen {
 	    txt.setFont(Font.loadFont("file:src/froggerfonts/"+fonttype+".ttf", textsize));
 		return txt;
 	}
-	
-	
-	
 	
 	
 }

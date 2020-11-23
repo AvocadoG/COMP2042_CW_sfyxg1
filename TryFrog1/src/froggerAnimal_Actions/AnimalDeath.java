@@ -6,6 +6,7 @@ package froggerAnimal_Actions;
  */
 public interface AnimalDeath {
 
-	/**To do an action upon {@link froggerAnimal_Actions.Animal} death.*/
+	/**To do an action upon {@link froggerAnimal_Actions.Animal} death.
+	 * @param now current timeframe in nanoseconds*/
 	void doAction( long now);
 }

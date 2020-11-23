@@ -34,20 +34,18 @@ public class Level10 extends Level{
 	@Override
 	protected void createArena() {
 		// TODO Auto-generated method stub
-		//add images of logs, turtles, cars(obstacles) and end boxes///
 		
-		//HOW TO REMOVE
+		//add Logs to the game
 		add(new Log("file:src/froggertextures/log3.png", 150, 0, 166, 0.75*1.7));
 		add(new Log("file:src/froggertextures/log3.png", 150, 220, 166, 0.75*1.7));
 		add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75*1.7));
-
-		//redundant
 		add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2*1.7));
 		add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2*1.7));
 		add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.75*1.7));
 		add(new Log("file:src/froggertextures/log3.png", 150, 270, 329, 0.75*1.7));
 		add(new Log("file:src/froggertextures/log3.png", 150, 490, 329, 0.75*1.7));
 	
+		//add Wet Turtles to the game
 		add(new WetTurtle(500, 376, -1*1.7, 130, 130));
 		add(new WetTurtle(300, 376, -1*1.7, 130, 130));
 		add(new WetTurtle(700, 376, -1*1.7, 130, 130));
@@ -55,16 +53,17 @@ public class Level10 extends Level{
 		add(new WetTurtle(400, 217, -1*1.7, 130, 130));
 		add(new WetTurtle(200, 217, -1*1.7, 130, 130));
 	
+		//add Monster
 		add(new Monster(55,0,430,4));
 		
-		//no coin End
+		//add Ends with and without Coins
 		add(new End(13,96,false));
 		add(new End(141,96,false));
 		add(new End(141 + 141-13,96,false));
 		add(new End(141 + 141-13+141-13+1,96,false));
 		add(new End(141 + 141-13+141-13+141-13+3,96,false));
 		
-		
+		//add cars and trucks
 		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 0, 649, 1*1.7, 120, 120));
 		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 300, 649, 1*1.7, 120, 120));
 		add(new Obstacle("file:src/froggertextures/truck1"+"Right.png", 600, 649, 1*1.7, 120, 120));
@@ -76,7 +75,9 @@ public class Level10 extends Level{
 		add(new Obstacle("file:src/froggertextures/truck2Right.png", 500, 540, 1*1.7, 200, 200));
 		add(new Obstacle("file:src/froggertextures/car1Left.png", 500, 490, -5*1.7, 50, 50));
 
+		//show life amount
 		add(new Life(5,30,500,60));
+		//show score
 		add(new Digit(0, 30, 550, 25));
 	}
 

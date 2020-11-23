@@ -48,6 +48,9 @@ public class LevelFactory {
 		if(level.equalsIgnoreCase("Level9")) {
 			return new Level9(animal);
 		}
+		if(level.equalsIgnoreCase("Level10")) {
+			return new Level10(animal);
+		}
 		
 		
 		return null;

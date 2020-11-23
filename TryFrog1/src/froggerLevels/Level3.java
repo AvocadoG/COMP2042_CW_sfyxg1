@@ -34,14 +34,9 @@ public class Level3 extends Level{
 		// TODO Auto-generated method stub
 		
 
-		//add images of logs, turtles, cars(obstacles) and end boxes///
-						
-		//HOW TO REMOVE
 		add(new Log("file:src/froggertextures/log3.png", 150, 0, 166, 0.75));
 		add(new Log("file:src/froggertextures/log3.png", 150, 220, 166, 0.75));
 		add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75));
-
-		//redundant
 		add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2));
 		add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2));
 		add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.75));

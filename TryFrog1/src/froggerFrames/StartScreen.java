@@ -1,7 +1,6 @@
 package froggerFrames;
 
 import java.io.File;
-
 import froggerElements.BackgroundImage;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -192,19 +191,3 @@ public class StartScreen {
 	}
 }
 
-
-
-/*startbtn = new Button();
-startbtn.setMinSize(140,50);
-Image startbtnImg = new Image("file:src/froggertextures/startbtnfrogger.png");
-startbtn.setGraphic(new ImageView(startbtnImg));
-
-infobtn = new Button();
-infobtn.setMinSize(140,50);
-Image infobtnImg = new Image("file:src/froggertextures/infobtnfrogger.png");
-infobtn.setGraphic(new ImageView(infobtnImg));
-
-exitbtn = new Button();
-exitbtn.setMinSize(140, 50);
-Image exitbtnImg = new Image("file:src/froggertextures/exitbtnfrogger.png");
-exitbtn.setGraphic(new ImageView(exitbtnImg));*/

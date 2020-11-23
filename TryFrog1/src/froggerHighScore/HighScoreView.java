@@ -31,6 +31,7 @@ public class HighScoreView {
 	 * <br>
 	 * It will display the score of the current player and the high score records of previous players.
 	 * @param currentplayerpoints the score of the current player
+	 * @param winlosestatus the game status of current player (win or lose)
 	 */
 	public HighScoreView(int currentplayerpoints, String winlosestatus){//String winlosestatus
 		

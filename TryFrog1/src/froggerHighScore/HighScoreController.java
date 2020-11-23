@@ -35,8 +35,7 @@ public class HighScoreController {
 	
 	/**
 	 * Write high score record into file (append mode)
-	 * @param name the player's username
-	 * @param points the player's game points
+	 * 
 	 */
 	public void writingHighScore() {
 		

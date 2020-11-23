@@ -56,7 +56,8 @@ public class Log extends Actor {
 		return speed < 0;
 	}
 
-	/** to retrieve the moving speed of {@code Log} object*/
+	/** to retrieve the moving speed of {@code Log} object
+	 * @return speed of {@code Log} object*/
 	public double getSpeed() {
 		return speed;
 	}

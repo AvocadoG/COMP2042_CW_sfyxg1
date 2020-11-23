@@ -3,8 +3,6 @@ package froggerLevels;
 import froggerActors.*;
 import froggerAnimal_Actions.Animal;
 import froggerElements.*;
-import javafx.scene.control.Button;
-import javafx.scene.text.Text;
 
 //change scoring system, move up +5 points
 //reach empty END +10 points

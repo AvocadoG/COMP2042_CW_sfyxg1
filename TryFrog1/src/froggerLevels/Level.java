@@ -138,11 +138,13 @@ public abstract class Level extends World{
 		return this.levelanimal.getLife();
 	}
 
-	/**setter method for {@link Level#levelanimal}*/
+	/**setter method for {@link Level#levelanimal}
+	 * @param animal animal to set to*/
 	public void setlevelAnimal(Animal animal) {
 		this.levelanimal=animal;
 	}
-	/** getter mthod for {@link Level#levelanimal}*/
+	/** getter mthod for {@link Level#levelanimal}
+	 * @return {@link Level#levelanimal} */
 	public Animal getlevelAnimal() {
 		return this.levelanimal;
 	}
