@@ -364,7 +364,7 @@ public class Animal extends Actor {
 	 * @return boolean <b>true</b> if Animal has reached all the destinations.
 	 */
 	public boolean getStop() {
-		return end==1;
+		return end==5;
 	}
 	
 	
