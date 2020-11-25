@@ -36,16 +36,6 @@ public abstract class Actor extends ImageView{
     public World getWorld() {
         return (World) getParent();
     }
-
-   /* NOT IN USE
-    public double getWidth() {
-        return this.getBoundsInLocal().getWidth();
-    }
-
-    public double getHeight() {
-        return this.getBoundsInLocal().getHeight();
-    }*/
-
     
     /**
      * Retrieves a list of game objects from {@link froggerLevels.World} that collide with the {@code Actor}.<br>

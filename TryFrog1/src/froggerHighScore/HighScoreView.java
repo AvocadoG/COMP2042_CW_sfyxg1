@@ -24,6 +24,7 @@ public class HighScoreView {
 	private Button quitbtn;
 	/** a vertical box element to arrange the buttons and text elements in the HighScoreView vertically*/
 	private VBox highscoreVBox;
+	private BackgroundImage highscorebackground;
 	
 	
 	/**
@@ -56,7 +57,7 @@ public class HighScoreView {
 		header.setFill(Color.DARKCYAN);
 		
 		//create a background image for highscore pop up
-		BackgroundImage highscorebackground = new BackgroundImage("file:src/froggertextures/highscorepopupfrogger.png",400,500);
+		highscorebackground = new BackgroundImage("file:src/froggertextures/highscorepopupfrogger.png",400,500);
 		
 		//create a VBox and add in the elements
 		highscoreVBox = new VBox(10,currentplayerscore,header);

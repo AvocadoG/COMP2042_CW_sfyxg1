@@ -2,7 +2,6 @@ package froggerLevels;
 
 import froggerActors.*;
 import froggerAnimal_Actions.Animal;
-import froggerElements.*;
 
 //change scoring system, move up +5 points
 //reach empty END +10 points
@@ -100,17 +99,11 @@ public class Level1 extends Level{
 		//car closest to the resting zone
 		add(new Obstacle("file:src/froggertextures/car1Left.png", 500, 490, -5*0.7, 50, 50));//-5
 
-	
-	//changes on the score position 550
-		//30 is width&height dimension
+
 		
 		
-		add(new Life(5,40,500,60));//Life
-		add(new Digit(0, 30, 550, 25));
 		
 		//level display
-		
-		//add(new Digit(getcurrentLevel(), 30, 550, 450));
 
 
 	}

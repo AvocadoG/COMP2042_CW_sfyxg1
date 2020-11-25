@@ -6,8 +6,6 @@ import froggerActors.Monster;
 import froggerActors.Obstacle;
 import froggerActors.WetTurtle;
 import froggerAnimal_Actions.Animal;
-import froggerElements.Digit;
-import froggerElements.Life;
 
 /**
  * Level 10 of Frogger Game, which is also the final level.<br>
@@ -75,10 +73,6 @@ public class Level10 extends Level{
 		add(new Obstacle("file:src/froggertextures/truck2Right.png", 500, 540, 1*1.7, 200, 200));
 		add(new Obstacle("file:src/froggertextures/car1Left.png", 500, 490, -5*1.7, 50, 50));
 
-		//show life amount
-		add(new Life(5,30,500,60));
-		//show score
-		add(new Digit(0, 30, 550, 25));
 	}
 
 	/**{@inheritDoc}, Level 10*/

@@ -20,7 +20,8 @@ public class Main extends Application {
 	Level level6, level7, level8, level9,level10;
 	Scene level1scene, level2scene, level3scene, level4scene, level5scene;
 	Scene level6scene, level7scene, level8scene, level9scene, level10scene;
-
+	StartScreen start;
+	InfoScreen info;
 	
 	public String username;
 	public static int currentlevelvalue;
@@ -32,18 +33,21 @@ public class Main extends Application {
 		launch(args);
 	}
 
+	/** start the application
+	 * @param primaryStage the stage to set the scene
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	    
 		
 		//GENERATE START SCREEN//
 		//SINGLETON DESIGN PATTERN
-		StartScreen start = StartScreen.getInstance();
+		start = StartScreen.getInstance();
 		Scene startscreen = new Scene(start.getStartScreenGroup(),gamescreenwidth,gamescreenheight);
 		
 		//GENERATE INFO SCREEN//
 		//SINGLETON DESIGN PATTERN
-		InfoScreen info = InfoScreen.getInstance();
+		info = InfoScreen.getInstance();
 		Scene infoscreen = new Scene(info.getInfoScreenGroup(),gamescreenwidth,gamescreenheight);
 		
 		
@@ -146,9 +150,13 @@ public class Main extends Application {
 }
 	
 	
-	
+	/**
+	 * create the timer for the application and the application will become active when the timer is started.<br> 
+	 */
 	public void createTimer() {
         timer = new AnimationTimer() {
+        	
+        	//handle each game level by checking and executing appropriate game action
             @Override
             public void handle(long now) {
             	
@@ -254,18 +262,18 @@ public class Main extends Application {
 	
 	 }
 
-	/**to start the application*/
+	/**to start the timer of the application*/
 	public void start() {
     	createTimer();
         timer.start();
     }
 
-	/**to stop the application*/
+	/**to stop the timer of the application*/
     public void stop() {
         timer.stop();
     }
     
-    
+    /*
     public void winGame(Level level) {
     	System.out.println("WINNN");
     	level.stopMusic();
@@ -279,9 +287,10 @@ public class Main extends Application {
 	 	level.stop();
 	  	stop();
 	
-	}
+	}*/
 	
-    /**called to end the game*/
+    /**called to end the game
+     * @param level the level the player is at when the game is ended*/
     public void endGame(Level level) {
     	System.out.println("GAME END");
     	level.stopMusic();

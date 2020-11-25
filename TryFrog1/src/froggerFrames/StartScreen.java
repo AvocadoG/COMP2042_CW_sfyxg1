@@ -36,6 +36,7 @@ public class StartScreen {
 	private TextField username;
 	/** a vertical box element in {@code StartScreen} to arrange the text and buttons elements vertically*/
 	private VBox startscreenVBox;
+	private BackgroundImage startscreenbackground;
 	/**music player for startscreen*/
 	private MediaPlayer mediaPlayer;
 	/** the {@code StartScreen} instance.<br>
@@ -55,7 +56,7 @@ public class StartScreen {
 		
 		
 		//generate a background image
-		BackgroundImage startscreenImage = new BackgroundImage(ImageLink,613,800);
+		startscreenbackground = new BackgroundImage(ImageLink,613,800);
 		
 		//create buttons
 		startbtn = createbtn("file:src/froggertextures/startbtnfrogger.png");
@@ -82,7 +83,7 @@ public class StartScreen {
 		startgroup = new Group();
 		
 		//add elements to parent Group 
-		startgroup.getChildren().addAll(startscreenImage,startscreenVBox);
+		startgroup.getChildren().addAll(startscreenbackground,startscreenVBox);
 	}
 	
 	

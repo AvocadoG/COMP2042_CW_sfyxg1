@@ -2,7 +2,8 @@ package froggerLevels;
 
 import froggerAnimal_Actions.*;
 import froggerElements.BackgroundImage;
-
+import froggerElements.Digit;
+import froggerElements.Life;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,7 +32,7 @@ import javafx.stage.Stage;
 /**
  * The base class for all game levels.<br>
  * It is not a ready game level. It sets up a basic structure for the <b>real game levels</b> and allows functions like level display, checking if the game level has been completed or stopped, checking if the {@link froggerAnimal_Actions.Animal} at the game level has changed score or life etc.<br>
- * {@code Level} will have no game objects other than an {@code Animal} and a background image for the level.<br>
+ * {@code Level} will have no game objects other than an {@code Animal} and a background image for the level. It will also have the initial score and life ready.<br>
  * <b>Template Design Pattern</b> is applied, where {@code Level} has <b><i>abstract</i> methods</b> to be implemented differently by its subclasses, which are the <b><i>real and concrete</i> game levels</b>.
  *
  */
@@ -45,6 +46,9 @@ public abstract class Level extends World{
 	private Stage stage;
 	/**the {@link froggerAnimal_Actions.Animal} object at the game level*/
 	private Animal levelanimal;
+	private BackgroundImage levelbackground;
+	private Life initiallife;
+	private Digit initialscore;
 	
 	/**This constructor will generate a {@code Level} that sets up a structure for a game level<br> */
 	public Level() {		
@@ -52,14 +56,19 @@ public abstract class Level extends World{
 		
 		//add background image for the game level
 		//all game levels have the same background image
-		BackgroundImage levelbackground = new BackgroundImage("file:src/froggertextures/iKogsKW.png",605,800);
+		levelbackground = new BackgroundImage("file:src/froggertextures/iKogsKW.png",605,800);
+		initiallife = new Life(5,40,500,60);
+		initialscore = new Digit(0,30,550,25);
+		
 		add(levelbackground);
+		add(initiallife);//Life
+		add(initialscore);//add score display
 		
 		//add a pause button to the game level
 		//all game levels will have a pause button
 		pausebtn = createbtn("file:src/froggertextures/pausebtnfrogger.png",40,40);
 		pausebtn.setLayoutX(550);
-		pausebtn.setLayoutY(60);
+		pausebtn.setLayoutY(58);
 		add(pausebtn);
 		
 		setbuttonAction();
@@ -80,7 +89,7 @@ public abstract class Level extends World{
 		Text leveldisplay = new Text("Level "+level);
 		leveldisplay.setFont(Font.loadFont("file:src/froggerfonts/ChickenPie.ttf", 25));
 		leveldisplay.setFill(Color.WHITE);
-		leveldisplay.setX(510);
+		leveldisplay.setX(508);
 		leveldisplay.setY(470);
 		add(leveldisplay);
 	}

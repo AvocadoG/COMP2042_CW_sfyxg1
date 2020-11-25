@@ -245,50 +245,17 @@ public class Animal extends Actor {
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
 			carDeath = true;
 		}
-
-		//if on a Log, move along with the Log
-		/*else if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
-			if(getIntersectingObjects(Log.class).get(0).goingLeft()) {
-				if(level==1) move(-1,0);
-				if(level==2 || level==4) move(-2,0);
-				if(level==3 || level==5) move(-2*1.3,0);//move(xspeed,yspeed)
-			}
-			else {
-				if(level==1) move(0.5,0);
-				if(level==2 || level==4) move(.75,0);
-				if(level==3 || level==5) move (.75*1.3,0);
-			}
-		}*/
 		
 		else if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			Log log = getIntersectingObjects(Log.class).get(0);
 			move(log.getSpeed(),0);
 		}
 		
-		//if on a Turtle, move along with the Turtle
-		/*else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
-			if (level==1) move(-0.5,0);//
-			if (level==2 || level==4) move(-1,0);
-			if (level==3 || level==5) move(-1*1.3,0);
-		}*/
-		
 		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
 			Turtle turtle = getIntersectingObjects(Turtle.class).get(0);
 			move(turtle.getSpeed(),0);
 		}
 		
-		//if on a Wet Turtle
-		//if the Wet Turtle sinks, water death
-		//else, move along with the Wet Turtle
-		/*else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
-			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
-				waterDeath = true;
-			} else {
-				if(level==1) move(-0.5,0);//-1
-				if(level==2 || level==4) move(-1,0);
-				if (level==3 || level==5) move(-1*1.3,0);
-			}
-		}*/
 		
 		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
 			WetTurtle wetturtle = getIntersectingObjects(WetTurtle.class).get(0);
@@ -354,111 +321,8 @@ public class Animal extends Actor {
 		context.executeAction(now);
 		
 		
-		
-		//checking for each type of death and perform actions
-		//carDeath(carDeath,now);
-		//waterDeath(waterDeath,now);
-		//monsterDeath(monsterDeath,now);
-		
-		
 }
 	
-	
-	/**
-	 * Checks if Animal gets eaten by the {@link p4_group_8_repo.Monster} and performs relevant actions.<br>
-	 * Should the Animal experience a <i>monster death</i>, Animal will be deducted 10points.
-	 * @param mD {@link Animal#monsterDeath}
-	 * @param now current time frame in nanoseconds
-	 */
-	/*
-	public void monsterDeath(boolean mD, long now) {
-		// TODO Auto-generated method stub
-		if (mD) {
-			noMove = true;
-			//animations purpose
-			if ((now)% 11 ==0) {
-				monsterD++;
-			}
-			if (monsterD==1) {		
-				setImage(hitImg1);
-			}
-			if (monsterD==2) {
-				setImage(hitImg2);
-			}
-			if (monsterD==3) {
-				setImage(hitImg3);
-			}
-			if (monsterD == 4) {
-				setX(300);
-				setY(679.8+movement);
-				this.monsterDeath = false;
-				monsterD = 0;
-				setImage(imgW1);
-				noMove = false;
-
-				//change points
-				if(points>10) {
-					points-=10;
-					changeScore=true;
-				}
-				
-				life--;
-				changeLife=true;
-				
-			}
-			
-		}
-	}
-*/
-	
-	
-	/**
-	 * Checks if {@code Animal} gets drown into the river and performs relevant game actions<br>
-	 * Should the Animal experience a <i>water death</i>, Animal will be deducted 10points.
-	 * @param wD {@link Animal#waterDeath}
-	 * @param now current time frame in nanoseconds
-	 */
-	/*public void waterDeath(boolean wD, long now) {
-		// TODO Auto-generated method stub
-		if (wD) {
-			noMove = true;
-			if ((now)% 11 ==0) {
-				waterD++;
-			}
-			if (waterD==1) {
-				setImage(drownImg1);
-			}
-			if (waterD==2) {
-				setImage(drownImg2);
-			}
-			if (waterD==3) {
-				setImage(drownImg3);
-			}
-			if (waterD == 4) {
-				setImage(drownImg4);
-			}
-			if (waterD == 5) {
-				setX(300);
-				setY(679.8+movement);
-				this.waterDeath = false;
-				waterD = 0;
-				setImage(imgW1);
-				noMove = false;
-				
-				//change
-				if(points>10) {
-					points-=10;
-					changeScore=true;
-				}
-				
-				life--;
-				changeLife=true;
-				
-			}
-			
-		}
-	}
-*/
 	
 	/**
 	 * Checks if {@code Animal} score has changed.<br>
@@ -500,7 +364,7 @@ public class Animal extends Actor {
 	 * @return boolean <b>true</b> if Animal has reached all the destinations.
 	 */
 	public boolean getStop() {
-		return end==5;
+		return end==1;
 	}
 	
 	
@@ -622,7 +486,8 @@ public class Animal extends Actor {
 
 		
 	/**used exclusively by {@code Animal} only to create its images
-	 * @param ImageLink the link of the image for {@code Animal}*/
+	 * @param ImageLink the link of the image for {@code Animal}
+	 * @return {@code Image} a created image*/
 	private Image createImage(String ImageLink) {
 		// TODO Auto-generated method stub
 		Image img = new Image(ImageLink, this.imgSize,this.imgSize,true,true);
@@ -631,14 +496,3 @@ public class Animal extends Actor {
 	
 
 }
-
-//interface Image Generator
-		/*imgW1 = new Image("file:src/froggertextures/froggerUp.png", imgSize, imgSize, true, true);
-		imgA1 = new Image("file:src/froggertextures/froggerLeft.png", imgSize, imgSize, true, true);
-		imgS1 = new Image("file:src/froggertextures/froggerDown.png", imgSize, imgSize, true, true);
-		imgD1 = new Image("file:src/froggertextures/froggerRight.png", imgSize, imgSize, true, true);
-		imgW2 = new Image("file:src/froggertextures/froggerUpJump.png", imgSize, imgSize, true, true);
-		imgA2 = new Image("file:src/froggertextures/froggerLeftJump.png", imgSize, imgSize, true, true);
-		imgS2 = new Image("file:src/froggertextures/froggerDownJump.png", imgSize, imgSize, true, true);
-		imgD2 = new Image("file:src/froggertextures/froggerRightJump.png", imgSize, imgSize, true, true);*/
-		

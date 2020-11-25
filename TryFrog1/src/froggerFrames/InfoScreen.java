@@ -25,6 +25,7 @@ public class InfoScreen {
 	private Button backtostart;
 	/** a vertical box element in {@code InfoScreen} to arrange the text and buttons vertically*/
 	private VBox infoscreenVBox;
+	private BackgroundImage infobackground;
 	/** the {@code InfoScreen} instance.<br>
 	 * declared as <i>static</i> to make sure there is only 1 {@code InfoScreen} throughout the game*/
 	private static InfoScreen infoscreen;
@@ -39,7 +40,7 @@ public class InfoScreen {
 	private InfoScreen (String ImageLink){
 		
 		//generate a background image
-	    BackgroundImage infobackground = new BackgroundImage(ImageLink,613,800);
+	    infobackground = new BackgroundImage(ImageLink,613,800);
 	    
 		//create a back-to-start button
 		backtostart = createbtn("file:src/froggertextures/backtostartbtnfrogger.png");

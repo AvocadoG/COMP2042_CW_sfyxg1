@@ -2,7 +2,7 @@ package froggerLevels;
 
 import froggerActors.*;
 import froggerAnimal_Actions.Animal;
-import froggerElements.*;
+
 
 /**
  * Level 5 of Frogger Game. <br>
@@ -71,8 +71,6 @@ public class Level5 extends Level{
 			add(new Obstacle("file:src/froggertextures/truck2Right.png", 500, 540, 1*1.3, 200, 200));
 			add(new Obstacle("file:src/froggertextures/car1Left.png", 500, 490, -5*1.3, 50, 50));
 
-			add(new Life(5,30,500,60));
-			add(new Digit(0, 30, 550, 25));
 	
 	}
 

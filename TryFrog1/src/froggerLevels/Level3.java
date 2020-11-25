@@ -1,7 +1,6 @@
 package froggerLevels;
 import froggerActors.*;
 import froggerAnimal_Actions.Animal;
-import froggerElements.*;
 /**
  * Level 3 of Frogger Game.<br>
  * At this level, there are <i>coins</i> at some of the {@link froggerActors.End} destinations. If player manages to collect all the coins continuously, the player can proceed to the next level right away and gain extra bonus points.
@@ -68,10 +67,6 @@ public class Level3 extends Level{
 		add(new Obstacle("file:src/froggertextures/truck2Right.png", 0, 540, 1, 200, 200));
 		add(new Obstacle("file:src/froggertextures/truck2Right.png", 500, 540, 1, 200, 200));
 		add(new Obstacle("file:src/froggertextures/car1Left.png", 500, 490, -5, 50, 50));
-
-	
-		add(new Life(5,30,500,60));
-		add(new Digit(0, 30, 550, 25));
 
 
 	}
