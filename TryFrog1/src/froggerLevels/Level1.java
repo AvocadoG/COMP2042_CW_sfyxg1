@@ -127,6 +127,7 @@ public class Level1 extends Level{
 	 */
 	@Override
 	public void activateAnimal() {
+		System.out.println("Level 1 activated");
 		getlevelAnimal().setmovementX(10.666666*2*0.7);
 		getlevelAnimal().setLevel(getcurrentLevel());
 		getlevelAnimal().setEnd(0);

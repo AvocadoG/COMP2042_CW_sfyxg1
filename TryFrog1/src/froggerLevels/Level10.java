@@ -34,7 +34,7 @@ public class Level10 extends Level{
 		
 		//add Logs to the game
 		add(new Log("file:src/froggertextures/log3.png", 150, 0, 166, 0.75*1.7));
-		add(new Log("file:src/froggertextures/log3.png", 150, 220, 166, 0.75*1.7));
+		add(new Log("file:src/froggertextures/logsbomb.png", 150, 220, 156, 0.75*1.7,true));
 		add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75*1.7));
 		add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2*1.7));
 		add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2*1.7));
@@ -91,6 +91,7 @@ public class Level10 extends Level{
 	@Override
 	public void activateAnimal() {
 		// TODO Auto-generated method stub
+		System.out.println("Level 10 activated");
 		getlevelAnimal().setLevel(getcurrentLevel());
 		getlevelAnimal().setmovementX(10.666666*2*1.7);
 		getlevelAnimal().setEnd(0);

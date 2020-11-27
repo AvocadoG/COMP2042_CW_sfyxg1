@@ -70,9 +70,6 @@ public class Level6 extends Level{
 		add(new Obstacle("file:src/froggertextures/truck2Right.png", 500, 540, 1*1.3, 200, 200));
 		add(new Obstacle("file:src/froggertextures/car1Left.png", 500, 490, -5*1.3, 50, 50));
 
-	
-		add(new Life(5,30,500,60));
-		add(new Digit(0, 30, 550, 25));
 
 	}
 
@@ -89,6 +86,7 @@ public class Level6 extends Level{
 	 */
 	@Override
 	public void activateAnimal() {
+		System.out.println("Level 6 activated");
 		getlevelAnimal().setLevel(getcurrentLevel());
 		getlevelAnimal().setmovementX(10.666666*2*1.3);
 		getlevelAnimal().setEnd(0);

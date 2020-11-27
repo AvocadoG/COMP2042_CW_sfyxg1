@@ -106,11 +106,11 @@ public class InfoScreen {
 				"W key to make Frogger jump\n\n" +				                                                                     
 				"RULES\n" +
 				"The goals are sending your Frog to all the 5 empty destinations on the other side. " +
-				"Purple zones are the resting zones. Your frog has to AVOID any trucks, cars and monsters on the way and cross the river by jumping onto the logs and turtles.\n" +
+				"Your frog has to AVOID any trucks, cars and monsters on the way and cross the river by jumping onto the logs and turtles.\n" +
 				"Green turtles will submerge into the river from time to time. Red turtles will turn into Green turtles too! " +
-				"When Frogger jumps onto the Green Turtle and the Green Turtle submerges, Frogger will sink into the river and DIE."+
+				"When Frogger jumps onto the Green Turtle and the Green Turtle submerges, Frogger will sink into the river and DIE.\nThe BOMBS on the Logs will kill your Frog too!."+
 				"\n\n5points for each successful forward movement.\n10points for reaching each destination. Note that SOME destinations have COINS! If your Frog manages to collect all the coins CONTINUOUSLY, it can proceed to the Next level RIGHT AWAY and get extra 50 points!" +
-				"\nMINUS 10points for getting hit by the Trucks, Cars, Monsters or drowning into the river. \nMINUS 5points for bumping into the grass block.\n" +
+				"\nMINUS 10points for getting killed by the Trucks, Cars, Monsters, Bombs or drowning into the river. \nMINUS 5points for bumping into the grass block.\n" +
 				"10 Levels in total, Level Up upon reaching all destinations at each level. The speed of the game will increase as your Frog levels up."+
 				" Beware of the Monster!";
 	}

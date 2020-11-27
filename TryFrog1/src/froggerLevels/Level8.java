@@ -31,7 +31,7 @@ public class Level8 extends Level{
 		// TODO Auto-generated method stub
 
 			add(new Log("file:src/froggertextures/log3.png", 150, 0, 166, 0.75*1.4));
-			add(new Log("file:src/froggertextures/log3.png", 150, 220, 166, 0.75*1.4));
+			add(new Log("file:src/froggertextures/logsbomb.png", 150, 220, 156, 0.75*1.4,true));
 			add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75*1.4));
 			add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2*1.4));
 			add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2*1.4));
@@ -85,6 +85,7 @@ public class Level8 extends Level{
 	 */
 	@Override
 	public void activateAnimal() {
+		System.out.println("Level 8 activated");
 		getlevelAnimal().setLevel(getcurrentLevel());
 		getlevelAnimal().setmovementX(10.666666*2*1.4);
 		getlevelAnimal().setEnd(0);
