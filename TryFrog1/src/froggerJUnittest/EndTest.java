@@ -41,7 +41,7 @@ public class EndTest {
 	
 	/** Test when End is setEndOccupied() with Animal, it is occupied and has no coin*/
 	@Test
-	public void test_End_setEnd() {
+	public void test_End_setEndOccupied() {
 		
 		//create a new end with coin
 		end1=new End(2,2,true);
