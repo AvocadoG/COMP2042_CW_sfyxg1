@@ -1,4 +1,6 @@
 # COMP2042_sfyxg1 ---- Frogger Game
+
+To run the game, go to **froggerFrames** package Main class.
 # Extension/Addition
 
   1. Added a **Start Screen** and **Info Screen** to the game (in **froggerFrames package**)
@@ -8,17 +10,17 @@ The player can go to the Info Screen from the Start Screen or exit the game by c
 
  2. Added a **High Score Pop Up** to the game (in **froggerHighScore package**)
  
-High Score will be popped once the game ends, whether the player has lost or won the game. Only the Top 5 high score records will be shown in the pop up, together with the score of the current player, be it a win or a lose.This is for better user-experience.
+High Score will be popped once the game ends, whether the player has lost or won the game. Only the Top 5 high score records will be shown in the pop up, together with the score of the current player, be it a win or a lose.This is for better gameplay experience.
 
- 3. Added new **levels** to the game (in **froggerLevels package**)
+ 3. Added a **permanent High Score file** that stores all the scores of previous players (can be found in **froggerfiles package** : scorefile.txt).
+
+4. Added new **levels** to the game (in **froggerLevels package**)
  
-There are **10** levels in total, each with new feautures (such as destinations with coins for bonus points and Monster feature) and increasing game speed.This is too add more fun to the game.
-
-4. Added a **permanent High Score file** that stores all the scores of previous players (can be found in **froggerfiles package** : scorefile.txt).
+There are **10** levels in total, each with new feautures (such as destinations with coins for bonus points, Logs with bombs, Monster etc) and increasing game speed.This is to add more fun and challenge to the game.
 
 5. Added **Life** feature to the game (in **froggerElements package**)
 
-Starts at having 5 life. If player's avatar runs out of life at a certain level, player will lose and the game ends. At each new level, the life will be restored.
+Starts at having 5 life. If player's avatar runs out of life at a certain level, player will lose and the game will end right away. At each new level, the life will be restored.
 
 6. Added **pause** game feature where player can pause amidst the game.
 7. Added new font files, music files and images to the game.
@@ -29,8 +31,8 @@ Starts at having 5 life. If player's avatar runs out of life at a certain level,
 
 3. Remove the inheritance of **BackgroundImage** and **Digit** class from **Actor** class.
 
-To ensure Liskov's Substitution Principle is followed as both classes aren't using the *act* method, which is an abstarct method declared in the Actor class. 
-4. Allow any **Node**(s) to be added into the **World** class instead of only objects of **Actor** class / its subclasses.
+To ensure Liskov's Substitution Principle is followed as both classes aren't using the *act* method, which is an abstract method declared in the Actor class. 
+4. Allow any **Node**(s) to be added into the **World** class instead of only objects of **Actor** class or its subclasses.
 
 5. Create subclasses for superclass **Level** (such as **Level1** class, **Level2** class etc) and apply **Template Method Design Pattern** where subclasses will implement the abstract methods declared in superclass *differently*. (see **froggerLevels package**). This can ensure Open-Closed Principle is applied.
 
@@ -48,9 +50,9 @@ Different concrete classes of animal death will implement the **AnimalDeath** in
 
 Each game action has different algorithm. Since we have several game actions which will be reused throughout the levels in Frogger Game, this design pattern can reduce redundancy and messy codes.
 
-10. **Singleton Design Pattern** is applied on StartScreen and InfoScreen. (see **froggerFrames package**). This is because there should only be ONE StartScreen and InfoScreen throughout the game.
+10. **Singleton Design Pattern** is applied on StartScreen and InfoScreen. (see **froggerFrames package**). This is because there should be only ONE StartScreen and InfoScreen throughout the game.
 
 11. **MVC** pattern applied on recording and displaying High Score (see **froggerHighScore package**)
 
-HighScoreController will update the top 5 high score records to the HighScoreView (which is the high score pop up) to be shown in the game. It will also retrieve the username and score of the current HighScoreModel to be updated to the view.
+HighScoreController will update the top 5 high score records to the HighScoreView (which is the high score pop up) to be shown in the game. It will also retrieve the username and score of its HighScoreModel to be updated to the view.
 
