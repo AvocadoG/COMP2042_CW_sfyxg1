@@ -1,6 +1,11 @@
 # COMP2042_sfyxg1 ---- Frogger Game
 
 To run the game, go to **froggerFrames** package Main class.
+
+ECLIPSE JDK version : 14.0.1
+JAVAFX version : JavaFX 11
+JUnit Test version : JUnit 4
+
 # Extension/Addition
 
   1. Added a **Start Screen** and **Info Screen** to the game (in **froggerFrames package**)
@@ -25,7 +30,9 @@ Starts at having 5 life. If player's avatar runs out of life at a certain level,
 6. Added **pause** game feature where player can pause amidst the game.
 7. Added new font files, music files and images to the game.
 
+
 # Maintenance 
+
 1. Organize all the classes into different packages and rename them, for better clarity.
 2. Remove unused methods and fields from the classes.
 
