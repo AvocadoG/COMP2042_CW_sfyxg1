@@ -5,8 +5,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
-* Represents one of the Game Actions.<br>
-* Level Up
+* <b>Represents one of the Game Actions.<br>
+* Level Up</b>
 * @author GohXinYee
 *
 */
@@ -44,10 +44,17 @@ public class UpLevel implements GameAction{
 	 	currentlevel.stopMusic();
 	 	currentlevel.stop();
 	 	nextlevel.activateAnimal();
-	 	//nextlevel.updateScore(nextlevel.getlevelPoints());
 	 	primaryStage.setScene(nextlevelscene);
 	 	nextlevel.start();//timer at World
 	 	nextlevel.playMusic();//playmusic right away
+	}
+	
+	/** JUnit testing purpose*/
+	public void TestdoAction() {
+		
+	 	currentlevel.stop();
+	 	nextlevel.activateAnimal();
+	 	nextlevel.start();//timer at World
 	}
 
 }

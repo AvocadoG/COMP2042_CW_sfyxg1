@@ -1,22 +1,22 @@
 package froggerAnimal_Actions;
 
 /**
- * Represents a type of Animal Death.<br>
- * Particularly for when {@link froggerAnimal_Actions.Animal} get hit by the Cars/Trucks in the game
- *
+ * <b>Represents a type of Animal Death.<br>
+ * Particularly for when {@link froggerAnimal_Actions.Animal} get hit by the Cars/Trucks in the game and die.
+ *</b>
  */
 public class CarDeath implements AnimalDeath{
 
 	/** target {@link froggerAnimal_Actions.Animal}*/
 	private Animal animal;
-	/** determine if there is a car death*/
+	/** determine if Animal dies*/
 	private boolean death;
 	
 	/**This constructor will create a {@code CarDeath} object
 	 * @param animal the target {@link froggerAnimal_Actions.Animal} object to do action upon.
-	 * @param carDeath boolean, whether the target Animal has hit by the cars/trucks
+	 * @param carDeath boolean, whether the target Animal has hit by the cars/trucks and die
 	 */
-	CarDeath(Animal animal, boolean carDeath){
+	public CarDeath(Animal animal, boolean carDeath){
 		this.animal=animal;
 		this.death=carDeath;	
 	}

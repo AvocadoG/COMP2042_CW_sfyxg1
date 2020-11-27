@@ -3,8 +3,8 @@ package froggerActors;
 import javafx.scene.image.Image;
 
 /**
- * Represents the Obstacles, which are the cars and the trucks on the road, in Frogger Game.<br>
- * {@code Obstacle} is also an {@link froggerActors.Actor}.
+ * <b>Represents the Obstacles, which are the cars and the trucks on the road, in Frogger Game.<br>
+ * {@code Obstacle} is also an {@link froggerActors.Actor}.</b>
  *
  */
 public class Obstacle extends Actor{

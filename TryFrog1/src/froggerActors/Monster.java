@@ -3,9 +3,9 @@ package froggerActors;
 import javafx.scene.image.Image;
 
 /**
- * Represents the Monster in the game. It will eat {@link froggerAnimal_Actions.Animal}.
+ * <b>Represents the Monster in the game. It will eat {@link froggerAnimal_Actions.Animal}.
  * <br>
- * {@code Monster} is also an {@link froggerActors.Actor}
+ * {@code Monster} is also an {@link froggerActors.Actor}</b>
  * 
  * @author GohXinYee
  *

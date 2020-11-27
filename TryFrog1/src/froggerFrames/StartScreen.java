@@ -17,8 +17,8 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 /**
- * Represents the Start Screen of Frogger Game.<br>
- * <b>Singleton Design Pattern</b> is applied to this class, so there is only <b>one</b> {@code StartScreen} instance throughout the game.
+ * <b>Represents the Start Screen of Frogger Game.<br></b>
+ * <b>Singleton Design Pattern</b> <b>is applied to this class, so there is only <i>one</i> {@code StartScreen} instance throughout the game.</b>
  * @author GohXinYee
  *
  */
@@ -36,6 +36,7 @@ public class StartScreen {
 	private TextField username;
 	/** a vertical box element in {@code StartScreen} to arrange the text and buttons elements vertically*/
 	private VBox startscreenVBox;
+	/** background image for Start Screen*/
 	private BackgroundImage startscreenbackground;
 	/**music player for startscreen*/
 	private MediaPlayer mediaPlayer;
@@ -88,8 +89,8 @@ public class StartScreen {
 	
 	
 	/**
-	 * to retrieve the {@code StartScreen} instance<br>
-	 * declared as <i>static</i> so that it can be called without an {@code StartScreen} object having to be created beforehand.
+	 * Retrieve the {@code StartScreen} instance<br>
+	 * declared as <i>public static</i> so that it can be called in other classes without an {@code StartScreen} object having to be created beforehand.
 	 * @return {@code StartScreen} StartScreen instance
 	 */
 	public static StartScreen getInstance() {
@@ -99,7 +100,7 @@ public class StartScreen {
 		return startscreen;
 	}
 	
-	/**to play the music of StartScreen*/
+	/**play the music of StartScreen*/
 	public void playMusic() {
 		
 		Media sound = new Media(new File("src/froggermusic/StartScreenMusic_KomikuQuietSaturday.mp3").toURI().toString());
@@ -108,7 +109,7 @@ public class StartScreen {
 	    mediaPlayer.play();
 	}
 	
-	/**to stop the music of StartScreen*/
+	/**stop the music of StartScreen*/
 	public void stopMusic() {
 		mediaPlayer.stop();
 	}
@@ -116,7 +117,7 @@ public class StartScreen {
 	
 
 	/**
-	 * To access the group that holds all the elements of an {@code StartScreen} 
+	 * access the group that holds all the elements of an {@code StartScreen} 
 	 * @return {@code Group} {@link StartScreen#startgroup}
 	 */
 	public Group getStartScreenGroup() {

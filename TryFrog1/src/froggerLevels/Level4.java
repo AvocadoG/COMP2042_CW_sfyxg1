@@ -5,10 +5,8 @@ import froggerActors.*;
 import froggerAnimal_Actions.Animal;
 
 /**
- * Level 4 of Frogger Game. <br>
- * At this level, the game further speeds up, faster than the previous Level 1,2,3.
- * @author User
- *
+ * <b>Level 4 of Frogger Game. <br>
+ * At this level, the game further speeds up, faster than the previous Level 1,2,3.</b>
  */
 public class Level4 extends Level{
 

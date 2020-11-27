@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * Represents the game points of {@link froggerAnimal_Actions.Animal} in Frogger Game.
+ * <b>Represents the game points of {@link froggerAnimal_Actions.Animal} in Frogger Game.</b>
  *
  */
 public class Digit extends ImageView{

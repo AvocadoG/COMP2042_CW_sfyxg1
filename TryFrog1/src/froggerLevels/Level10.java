@@ -8,9 +8,8 @@ import froggerActors.WetTurtle;
 import froggerAnimal_Actions.Animal;
 
 /**
- * Level 10 of Frogger Game, which is also the final level.<br>
- * At this level, the game speed is the highest among all the other levels. No more coin destinations for bonus points and the player shall reach all destinations to WIN the Game!
- * @author User
+ * <b>Level 10 of Frogger Game, which is also the final level.<br>
+ * At this level, the game speed is the highest among all the other levels. No more coin destinations for bonus points and the player shall reach all destinations to WIN the Game!</b>
  *
  */
 public class Level10 extends Level{
@@ -39,7 +38,10 @@ public class Level10 extends Level{
 		add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75*1.7));
 		add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2*1.7));
 		add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2*1.7));
-		add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.75*1.7));
+
+		add(new Log("file:src/froggertextures/logsbomb.png", 150, 50, 318, 0.75*1.7,true));		
+
+		
 		add(new Log("file:src/froggertextures/log3.png", 150, 270, 329, 0.75*1.7));
 		add(new Log("file:src/froggertextures/log3.png", 150, 490, 329, 0.75*1.7));
 	

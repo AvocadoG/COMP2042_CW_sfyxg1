@@ -5,9 +5,9 @@ import froggerAnimal_Actions.Animal;
 
 
 /**
- * Level 5 of Frogger Game. <br>
+ *<b> Level 5 of Frogger Game. <br>
  * Similar to {@link froggerLevels.Level3}, some {@link froggerActors.End} destinations come with bonus coins at Level 5, except this time, the game further speeds up.
- * @author User
+ * </b>
  *
  */
 public class Level5 extends Level{

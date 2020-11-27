@@ -20,7 +20,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 /**
- * Represents the game World of Frogger Game where all the game objects are added into this {@code World} for gameplay. 
+ *<b> Represents the game <i>World</i> of Frogger Game where all the game objects are added into this {@code World} for gameplay.</b> 
  *
  */
 public abstract class World extends Pane {
@@ -168,20 +168,5 @@ public abstract class World extends Pane {
         return someArray;
     }
     
-    
-    
-   /*
-   public void add(Actor actor) {
-        getChildren().add(actor);
-    }*/
-    
-
-   /*
-    public void remove(Actor actor) {
-        getChildren().remove(actor);
-    }*/
-
-
-
-   // public abstract void act(long now);
+   
 }

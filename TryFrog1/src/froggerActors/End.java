@@ -3,10 +3,10 @@ package froggerActors;
 import javafx.scene.image.Image;
 
 /**
- * Represents the destination {@link froggerAnimal_Actions.Animal} should reach to win the game.<br>
- * There are 3 types of {@code End} : an <i>empty</i> End, an End with a <i>coin</i>, an <i>activated</i> End that has been reached by {@link froggerAnimal_Actions.Animal}.
+ * <b>Represents the destination {@link froggerAnimal_Actions.Animal} should reach to win the game.<br>
+ * There are 3 types of {@code End} : an <i>empty</i> End, an End with a <i>coin</i>, an <i>occupied</i> End that has been reached by {@link froggerAnimal_Actions.Animal}.
  * <br>
- * {@code End} is also an {@link froggerActors.Actor}
+ * {@code End} is also an {@link froggerActors.Actor}</b>
  */
 public class End extends Actor{
 	
@@ -22,10 +22,10 @@ public class End extends Actor{
 
 	
 	/**
-	 * determine if {@code End} object has been occupied/reached by {@link froggerAnimal_Actions.Animal}.<br>
-	 * <b>true</b> if it has been reached by the Animal
+	 * determine if {@code End} object has been occupied by {@link froggerAnimal_Actions.Animal}.<br>
+	 * <b>true</b> if it has been occupied by the Animal
 	 */
-	private boolean activated = false;//check if END has been entered
+	private boolean occupied = false;//check if END has been entered
 	
 	/**
 	 * determine if {@code End} object has a coin<br>
@@ -78,24 +78,25 @@ public class End extends Actor{
 
 
 	/**
-	 * Called when {@code End} has been reached by {@link froggerAnimal_Actions.Animal}.
-	 * It will mark the {@code End} as <i>activated</i> and with no more <i>coin</i>
+	 * 
+	 * Set the {@code End} as <i>occupied</i> and with no <i>coin</i><br>
+	 * This is for when {@code End} has been reached by {@link froggerAnimal_Actions.Animal}.
 	 */
-	public void setEnd() {
+	public void setEndOccupied() {
 		setImage(endfrogImg);
-		activated = true;
+		occupied = true;
 		hasCoin = false;
 	}
 	
 	
 	/**
-	 * Called to check if the {@code End} has been occupied by the {@link froggerAnimal_Actions.Animal} (Frog).
+	 * Check if the {@code End} has been occupied by the {@link froggerAnimal_Actions.Animal} (Frog).
 	 * 
 	 * @return boolean <b>true</b> if it has been occupied by the {@link froggerAnimal_Actions.Animal}<br>
-	 * See also : {@link End#activated}
+	 * See also : {@link End#occupied}
 	 */
-	public boolean isActivated() {
-		return activated;
+	public boolean isOccupied() {
+		return occupied;
 	}
 
 

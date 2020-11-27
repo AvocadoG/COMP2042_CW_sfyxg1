@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 /**
- * Represents how the high score pop up will look like in Frogger Game.
+ * <b>Represents how the high score pop up will look like in Frogger Game.</b>
  *
  */
 public class HighScoreView {
@@ -22,8 +22,10 @@ public class HighScoreView {
 	private Group highscoregroup;
 	/** quit button in the HighScoreView to exit the game*/
 	private Button quitbtn;
+	private Text currentplayerscore;
 	/** a vertical box element to arrange the buttons and text elements in the HighScoreView vertically*/
 	private VBox highscoreVBox;
+	/** background image for HighScoreView*/
 	private BackgroundImage highscorebackground;
 	
 	
@@ -39,17 +41,9 @@ public class HighScoreView {
 		//create a Group as parent
 		highscoregroup = new Group();
 		
-		//ButtonGenerator bg = new ButtonGenerator(width,height);
-		//quitbtn = bg.generatebtn("");
-		//create a quit button
 		quitbtn = createbtn("file:src/froggertextures/quitbtnfrogger.png");
-
 		
-		//TestGenerator tg = new TextGenerator("font",size, textalignment);
-		//currentplayerscore = tg.generatetxt("text");
-		//create a text to display current player's score
-		//("You " + winlosestatus + "\nYourScore: " + currentplayerpoints);
-		Text currentplayerscore = createText("YOU " + winlosestatus + "\nYour Score: "+ currentplayerpoints,"ChickenPie",20);
+		currentplayerscore = createText("YOU " + winlosestatus + "\nYour Score: "+ currentplayerpoints,"ChickenPie",20);
 		
 		//create a heading for HighScore
 		Text header = createText("High Score Display","ChickenPie",20);
@@ -106,6 +100,18 @@ public class HighScoreView {
 		return quitbtn;
 	}
 	
+	/** retrieve current player's score record
+	 * @return {@code Text} current player's score record*/
+	public Text getcurrentplayerscorerecord() {
+		return currentplayerscore;
+	}
+	
+	/** retrieve high score vbox element that arranges text and button elements appear on high score pop up
+	 * @return {@code VBox} highscore vbox element */
+	public VBox gethighscorevbox() {
+		return highscoreVBox;
+	}
+	
 
 	
 	/**
@@ -145,8 +151,4 @@ public class HighScoreView {
 	
 }
 
-
-/*Text currentplayerscore = new Text ("YOU WIN!\nYour Score: "+ currentplayerpoints);
-currentplayerscore.setTextAlignment(TextAlignment.CENTER);
-currentplayerscore.setFont(Font.loadFont("file:src/froggerfonts/ChickenPie.ttf", 20));*/
 

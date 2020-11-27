@@ -3,11 +3,10 @@ package froggerLevels;
 import froggerActors.*;
 import froggerAnimal_Actions.Animal;
 
-/**
+/**<b>
  * Level 9 of Frogger Game.<br>
- * With coin destinations, Monster and all sinking turtles, at Level 9, all game objects are moving even faster than all previous levels.
- * @author User
- *
+ * With coin destinations, Monster, Log-Bomb and all sinking turtles, at Level 9, all game objects are moving even faster than all previous levels.
+ *</b>
  */
 public class Level9 extends Level{
 	
@@ -37,7 +36,9 @@ public class Level9 extends Level{
 			add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75*1.5));
 			add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2*1.5));
 			add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2*1.5));
-			add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.75*1.5));
+
+			add(new Log("file:src/froggertextures/logsbomb.png", 150, 50, 318, 0.75*1.5,true));	
+			
 			add(new Log("file:src/froggertextures/log3.png", 150, 270, 329, 0.75*1.5));
 			add(new Log("file:src/froggertextures/log3.png", 150, 490, 329, 0.75*1.5));
 		

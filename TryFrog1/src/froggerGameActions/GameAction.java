@@ -1,8 +1,7 @@
 package froggerGameActions;
 
 /**
- * The base frame class for all kinds of Game Actions in Frogger Game
- * @author User
+ * <b>The base frame class for all kinds of Game Actions in Frogger Game</b>
  *
  */
 public interface GameAction {

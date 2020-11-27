@@ -3,8 +3,9 @@ package froggerActors;
 import javafx.scene.image.Image;
 
 /**
- * Represents the logs floating on the river in Frogger Game.<br>
- * {@code Log} is also an {@link froggerActors.Actor}
+ * <b>Represents the logs floating on the river in Frogger Game.<br>
+ * 2 types of logs : Log with bombs and Log without bombs. If Animal jumps onto logs with bombs, it will be killed, drown into the river and die.
+ * {@code Log} is also an {@link froggerActors.Actor}</b>
  */
 public class Log extends Actor {
 
@@ -13,6 +14,8 @@ public class Log extends Actor {
 	/** Image of {@code Log}*/
 	private Image logImg;
 	private int imagewidth,imageheight;
+	/** determine if {@code Log} has bombs*/
+	private boolean hasbomb;
 	
 	/**
 	 * This constructor will create a {@code Log} object for the game
@@ -35,6 +38,22 @@ public class Log extends Actor {
 	}
 	
 	/**
+	 * This constructor will create a {@code Log} object with bomb for the game
+	 * @param imageLink the image link for how the {@code Log} object will be displayed in the game
+	 * @param size the size of the {@code Log} object 
+	 * @param xpos the x position of the {@code Log} object in the game scene
+	 * @param ypos the y position of the {@code Log} object in the game scene
+	 * @param s the moving speed of the {@code Log} object in the game
+	 * @param bomb whether the {@code Log} has bombs
+	 */
+	public Log(String imageLink, int size, int xpos, int ypos, double s, boolean bomb) {
+		
+		this(imageLink,size,xpos,ypos,s);
+		hasbomb=bomb;
+		
+	}
+	
+	/**
 	 * Defines how {@code Log} object will behave in the game.<br>
 	 * {@code Log} object will move continuously in the game, either from left to right or from right to left.
 	 * 
@@ -49,14 +68,23 @@ public class Log extends Actor {
 	}
 
 	/**
-	 * to check if the {@code Log} object is moving towards the left.
+	 * Checks if the {@code Log} object is moving towards the left.
 	 * @return boolean <b>true</b> if the {@code Log} object is moving to the left.
 	 */
 	public boolean goingLeft() {
 		return speed < 0;
 	}
+	
+	/**
+	 * Checks if the {@code Log} object has bombs
+	 * @return boolean <b>true</b> if the {@code Log} object has bombs.
+	 * see also {@link Log#hasbomb}
+	 */
+	public boolean hasbomb() {
+		return hasbomb;
+	}
 
-	/** to retrieve the moving speed of {@code Log} object
+	/** Retrieves the moving speed of {@code Log} object
 	 * @return speed of {@code Log} object*/
 	public double getSpeed() {
 		return speed;

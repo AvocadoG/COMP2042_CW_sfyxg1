@@ -1,8 +1,8 @@
 package froggerAnimal_Actions;
 
 /**
- * This class will refer and execute the action of a type of {@link froggerAnimal_Actions.AnimalDeath}
- * <b>STRATEGY DESIGN PATTERN</b> is applied here
+ * <b>This class will refer and execute the action of a type of {@link froggerAnimal_Actions.AnimalDeath}</b>
+ * .<br><i>Strategy Design Pattern</i> is applied here
  * @author GohXinYee
  *
  */
@@ -15,7 +15,7 @@ public class AnimalDeathContext {
 	 * This constructor will create an {@code AnimalDeathContext} object that sets up the type of {@link froggerAnimal_Actions.AnimalDeath} to be executed.
 	 * @param animaldeath the target animal death type to be executed
 	 */
-	AnimalDeathContext(AnimalDeath animaldeath){
+	public AnimalDeathContext(AnimalDeath animaldeath){
 		this.animaldeath=animaldeath;
 	}
 	

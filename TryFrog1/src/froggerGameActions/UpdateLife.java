@@ -4,8 +4,8 @@ import froggerElements.Life;
 import froggerLevels.Level;
 
 /**
- * Represents one of the Game Actions.<br>
- * Update the latest amount of {@link froggerElements.Life} {@link froggerAnimal_Actions.Animal} has.
+ * <b>Represents one of the Game Actions.<br>
+ * Update the latest amount of {@link froggerElements.Life} {@link froggerAnimal_Actions.Animal} has.</b>
  * @author GohXinYee
  *
  */
@@ -23,7 +23,7 @@ public class UpdateLife implements GameAction{
 	}
 	
 	/**
-	 * update the latest amount of life of Animal in the target game level scene
+	 * update the latest amount of life Animal has in the target game level scene
 	 */
 	@Override
 	public void doAction() {

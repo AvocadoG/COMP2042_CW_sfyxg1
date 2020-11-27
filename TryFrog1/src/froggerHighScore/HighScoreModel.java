@@ -1,8 +1,7 @@
 package froggerHighScore;
 
 /**
- * Represents the player's high score record which consists of a username and game points.
- * @author GohXinYee
+ * <b>Represents the player's high score record which consists of a username and game points.</b>
  *
  */
 public class HighScoreModel {

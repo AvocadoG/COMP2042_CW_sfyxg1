@@ -6,9 +6,9 @@ import froggerAnimal_Actions.Animal;
 import froggerElements.*;
 
 /**
- * Level 6 of Frogger Game.<br>
+ * <b>Level 6 of Frogger Game.<br>
  * At Level 6, there is a {@link froggerActors.Monster} appearing in the game, which will eat the player's avatar (the Frog) and minus points.
- * This is to make the game more challenging.
+ * This is to make the game more challenging.</b>
  */
 public class Level6 extends Level{
 

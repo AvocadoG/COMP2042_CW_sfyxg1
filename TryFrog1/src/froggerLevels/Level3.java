@@ -2,10 +2,9 @@ package froggerLevels;
 import froggerActors.*;
 import froggerAnimal_Actions.Animal;
 /**
- * Level 3 of Frogger Game.<br>
+ * <b>Level 3 of Frogger Game.<br>
  * At this level, there are <i>coins</i> at some of the {@link froggerActors.End} destinations. If player manages to collect all the coins continuously, the player can proceed to the next level right away and gain extra bonus points.
- * @author User
- *
+ *</b>
  */
 public class Level3 extends Level{
 

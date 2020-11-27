@@ -12,8 +12,8 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 /**
- * Represents the Information Screen of Frogger Game.<br>
- * <b>Singleton Design Pattern</b> is applied to this class, so there is only <b>one</b> {@code InfoScreen} instance throughout the game.
+ * <b>Represents the Information Screen of Frogger Game.<br>
+ * Singleton Design Pattern is applied to this class, so there is only <i>one</i> {@code InfoScreen} instance throughout the game.</b>
  * @author GohXinYee
  *
  */
@@ -25,6 +25,7 @@ public class InfoScreen {
 	private Button backtostart;
 	/** a vertical box element in {@code InfoScreen} to arrange the text and buttons vertically*/
 	private VBox infoscreenVBox;
+	/** background image of {@code InfoScreen}*/
 	private BackgroundImage infobackground;
 	/** the {@code InfoScreen} instance.<br>
 	 * declared as <i>static</i> to make sure there is only 1 {@code InfoScreen} throughout the game*/
@@ -34,7 +35,7 @@ public class InfoScreen {
 	
 	/**
 	 * This constructor will create an {@code InfoScreen}, displaying the instructions to play the game.<br>
-	 * The constructor is declared private to ensure that no other classes can create another {@code InfoScreen} instance.
+	 * The constructor is declared private to ensure that no other classes can create another {@code InfoScreen} instance except itself.
 	 * @param ImageLink the link of the background image of {@code InfoScreen}
 	 */
 	private InfoScreen (String ImageLink){
@@ -65,7 +66,7 @@ public class InfoScreen {
 
 	/**
 	 * to retrieve the {@code InfoScreen} instance<br>
-	 * declared as <i>static</i> so that it can be called without an {@code InfoScreen} object having to be created beforehand.
+	 * declared as <i>public static</i> so that it can be called in other classes without an {@code InfoScreen} object having to be created beforehand.
 	 * @return {@code InfoScreen} InfoScreen instance
 	 */
 	public static InfoScreen getInstance() {
@@ -78,7 +79,7 @@ public class InfoScreen {
 
 	
 	/**
-	 * To access the group that holds all the elements of an {@code InfoScreen} 
+	 * Access the group that holds all the elements of an {@code InfoScreen} 
 	 * @return {@code Group} {@link InfoScreen#infogroup}
 	 */
 	public Group getInfoScreenGroup() {

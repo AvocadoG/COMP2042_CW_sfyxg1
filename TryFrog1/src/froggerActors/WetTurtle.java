@@ -3,9 +3,9 @@ package froggerActors;
 import javafx.scene.image.Image;
 
 /**
- * Represents the Green Turtle in Frogger Game.
+ * <b>Represents the Green Turtle in Frogger Game.
  * It will sink into the river during the game.<br>
- * {@code WetTurtle} is also an {@link froggerActors.Actor}.
+ * {@code WetTurtle} is also an {@link froggerActors.Actor}.</b>
  *
  */
 public class WetTurtle extends Actor{

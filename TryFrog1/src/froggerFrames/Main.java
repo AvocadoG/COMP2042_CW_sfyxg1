@@ -12,20 +12,31 @@ import froggerAnimal_Actions.*;
 import froggerGameActions.*;
 import froggerLevels.*;
 
-
+/** where the whole application is run */
 public class Main extends Application {
 	
+	/**timer for the Application*/
 	AnimationTimer timer;
+	/**Level for the Application*/
 	Level level1, level2, level3, level4, level5;
+	/**Level for the Application*/
 	Level level6, level7, level8, level9,level10;
+	/**Scene for the levels in the Application*/
 	Scene level1scene, level2scene, level3scene, level4scene, level5scene;
+	/**Scene for the levels in the Application*/
 	Scene level6scene, level7scene, level8scene, level9scene, level10scene;
+	/**Start Screen of the Application*/
 	StartScreen start;
+	/**Information Screen of the Application*/
 	InfoScreen info;
 	
+	/**username of the current player*/
 	public String username;
+	/**the index of the current level Application is running*/
 	public static int currentlevelvalue;
+	/**the width of the Application screen*/
 	public int gamescreenwidth=600;
+	/**the height of the Application screen*/
 	public int gamescreenheight=800;
 	
 	
@@ -99,19 +110,21 @@ public class Main extends Application {
 	  	//else alert for username input
 		start.getstartbtn().setOnMouseClicked(event-> {
 			if(start.getusername()!= null) {
+				
 				//get username of current player
 				username = start.getusername();
-				//
 				System.out.println(username + " -- Successfully get username.");
-				//
+				
 				//deactivate Start Screen
 				start.stopMusic();
+				
 				//activate Level 1
 				primaryStage.setScene(level1scene);
 				level1.setStage(primaryStage);
 				level1.activateAnimal();
 				level1.start();
 				level1.playMusic();
+				
 				currentlevelvalue=1;//current level = 1
 			}
 			else {
@@ -211,7 +224,7 @@ public class Main extends Application {
 	//STRATEGY DESIGN PATTERN//
 	//each GameAction will be reused by each level
 	/**
-	 * check for appropriate Game Action to execute and execute the Game Action.<br>
+	 * check for appropriate Game Action to perform and execute the Game Action.<br>
 	 * See also : {@link froggerGameActions.GameAction}, {@link froggerGameActions.UpdateScore}, {@link froggerGameActions.UpdateLife}, 
 	 * {@link froggerGameActions.PopHighScore}, {@link froggerGameActions.UpLevel} and {@link froggerGameActions.GameActionContext}.
 	 * @param currentlevel current level of player
@@ -262,34 +275,19 @@ public class Main extends Application {
 	
 	 }
 
-	/**to start the timer of the application*/
+	/**Start the timer of the application*/
 	public void start() {
     	createTimer();
         timer.start();
     }
 
-	/**to stop the timer of the application*/
+	/**Stop the timer of the application*/
     public void stop() {
         timer.stop();
     }
     
-    /*
-    public void winGame(Level level) {
-    	System.out.println("WINNN");
-    	level.stopMusic();
-    	level.stop();
-    	stop();
-    }
-    
-	public void loseGame(Level level){
-	  	System.out.println("LOSEEE");
-	  	level.stopMusic();
-	 	level.stop();
-	  	stop();
 	
-	}*/
-	
-    /**called to end the game
+    /**End the game
      * @param level the level the player is at when the game is ended*/
     public void endGame(Level level) {
     	System.out.println("GAME END");

@@ -1,23 +1,23 @@
 package froggerAnimal_Actions;
 
 /**
- * Represents a type of Animal Death.<br>
- * Particularly for when {@link froggerAnimal_Actions.Animal} drown into the river in the game
+ * <b>Represents a type of Animal Death.<br>
+ * Particularly for when {@link froggerAnimal_Actions.Animal} drown into the river and die.</b>
  *
  */
 public class WaterDeath implements AnimalDeath{
 
 	/** target {@link froggerAnimal_Actions.Animal}*/
 	private Animal animal;
-	/** determine if there is a water death*/
+	/** determine if Animal dies*/
 	private boolean death;
 	
 	
 	/**This constructor will create a {@code WaterDeath} object
 	 * @param animal the target {@link froggerAnimal_Actions.Animal} object to do action upon
-	 * @param waterDeath boolean, whether the target Animal has drown into the river
+	 * @param waterDeath boolean, whether the target Animal has drown into the river die
 	 */
-	WaterDeath(Animal animal, boolean waterDeath){
+	public WaterDeath(Animal animal, boolean waterDeath){
 		this.animal=animal;
 		this.death=waterDeath;
 		

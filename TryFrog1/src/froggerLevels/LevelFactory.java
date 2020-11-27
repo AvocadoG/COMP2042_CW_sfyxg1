@@ -2,12 +2,10 @@ package froggerLevels;
 
 import froggerAnimal_Actions.Animal;
 
-//FACTORY METHOD
 
 /**
- * This is a Level Factory to create the game levels.<br>
+ * <b>This is a Level Factory to create the game levels.<br></b>
  * <b>Factory Method Design Pattern</b> is applied.
- * @author GohXinYee
  *
  */
 public class LevelFactory {

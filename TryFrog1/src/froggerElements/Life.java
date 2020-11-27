@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * Represents the Life of {@link froggerAnimal_Actions.Animal} in Frogger Game.
+ * <b>Represents the Life of {@link froggerAnimal_Actions.Animal} in Frogger Game.</b>
  * @author User
  *
  */

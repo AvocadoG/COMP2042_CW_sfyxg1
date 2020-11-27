@@ -18,10 +18,9 @@ import froggerAnimal_Actions.Animal;
 //speed scale down by 0.7
 
 /**
- * Level 1 of Frogger Game. 
+ *<b> Level 1 of Frogger Game. 
  * The game speed of this level is rather slow for an easy start.<br>
- * There are {@link froggerActors.Obstacle}, {@link froggerActors.Turtle},  {@link froggerActors.WetTurtle},  {@link froggerActors.Log} ,  {@link froggerActors.End} and Level 1.
- * @author User
+ * There are {@link froggerActors.Obstacle}, {@link froggerActors.Turtle},  {@link froggerActors.WetTurtle},  {@link froggerActors.Log} ,  {@link froggerActors.End} and Level 1.</b>
  *
  */
 public class Level1 extends Level{
@@ -61,7 +60,7 @@ public class Level1 extends Level{
 		//0.75 to 0.5, -2 to -1
 		add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2*0.7));//-2
 		add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2*0.7));
-		add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.75*0.7));
+		add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.75*0.7));	
 		add(new Log("file:src/froggertextures/log3.png", 150, 270, 329, 0.75*0.7));
 		add(new Log("file:src/froggertextures/log3.png", 150, 490, 329, 0.75*0.7));
 	

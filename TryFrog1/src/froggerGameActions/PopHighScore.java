@@ -10,8 +10,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * Represents one of the Game Actions.<br>
- * Retrieves and Pops the {@link froggerHighScore.HighScoreView} of Frogger Game.
+ * <b>Represents one of the Game Actions.<br>
+ * Retrieves and Pops the High Score of Frogger Game.</b>
  * @author GohXinYee
  *
  */
@@ -37,7 +37,7 @@ public class PopHighScore implements GameAction{
 	}
 	
 	/**
-	 * pop the HighScoreView that shows <b>the top5 high score records</b> and the current player's score record when the game ends
+	 * pop the HighScore that shows <b>the Top5 high score records</b> and the current player's score record
 	 */
 	@Override
 	public void doAction() {

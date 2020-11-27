@@ -10,7 +10,7 @@ package froggerAnimal_Actions;
 
 
 /**
- * a base frame class for all kinds of Animal's death.
+ * <b>The base frame class for all kinds of Animal's death.</b>
  *
  */
 public interface AnimalDeath {

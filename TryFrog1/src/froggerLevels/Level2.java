@@ -6,9 +6,8 @@ import froggerAnimal_Actions.Animal;
 //level 2 - speed up *1.3
 
 /**
- * Level 2 of Frogger Game. The game speed at Level 2 is higher than Level 1.<br>
- * There are still {@link froggerActors.Obstacle}, {@link froggerActors.Turtle},  {@link froggerActors.WetTurtle},  {@link froggerActors.Log} ,  {@link froggerActors.End} at Level 2.
- * @author User
+ * <b>Level 2 of Frogger Game. The game speed at Level 2 is higher than Level 1.<br>
+ * There are still {@link froggerActors.Obstacle}, {@link froggerActors.Turtle},  {@link froggerActors.WetTurtle},  {@link froggerActors.Log} ,  {@link froggerActors.End} at Level 2.</b>
  *
  */
 public class Level2 extends Level{

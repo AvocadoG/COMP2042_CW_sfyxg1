@@ -4,8 +4,8 @@ import froggerElements.Digit;
 import froggerLevels.Level;
 
 /**
- * Represents one of the Game Actions.<br>
- * Update the latest scores (via {@link froggerElements.Digit}) of {@link froggerAnimal_Actions.Animal}.
+ * <b>Represents one of the Game Actions.<br>
+ * Update the latest scores (via {@link froggerElements.Digit}) of {@link froggerAnimal_Actions.Animal}.</b>
  * @author GohXinYee
  *
  */

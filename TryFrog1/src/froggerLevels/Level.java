@@ -30,25 +30,30 @@ import javafx.stage.Stage;
 
 
 /**
- * The base class for all game levels.<br>
- * It is not a ready game level. It sets up a basic structure for the <b>real game levels</b> and allows functions like level display, checking if the game level has been completed or stopped, checking if the {@link froggerAnimal_Actions.Animal} at the game level has changed score or life etc.<br>
+ * <b>The base class for all game levels.<br>
+ * It is not a ready game level. It sets up a basic structure for the real game levels and allows functions like level display, checking if the game level has been completed or stopped, checking if the {@link froggerAnimal_Actions.Animal} at the game level has changed score or life etc.<br>
  * {@code Level} will have no game objects other than an {@code Animal} and a background image for the level. It will also have the initial score and life ready.<br>
- * <b>Template Design Pattern</b> is applied, where {@code Level} has <b><i>abstract</i> methods</b> to be implemented differently by its subclasses, which are the <b><i>real and concrete</i> game levels</b>.
+ * Template Design Pattern is applied, where {@code Level} has <i>abstract</i> methods to be implemented differently by its subclasses, which are the <i>real and concrete</i> game levels.</b>
  *
  */
 public abstract class Level extends World{
 	
+	/**pause button appear in the level scene*/
 	private Button pausebtn;
-	/**determine if a game level can be paused, <b>true</b> if the level can be paused.*/
+	/**determine if a game level can be paused<br><b>true</b> if the level can be paused.*/
 	private boolean pause=true;
 	
 	/** the {@code Stage} the game level scene is at*/
 	private Stage stage;
 	/**the {@link froggerAnimal_Actions.Animal} object at the game level*/
 	private Animal levelanimal;
+	/**background image of level*/
 	private BackgroundImage levelbackground;
+	/**default initial amount of life at a level*/
 	private Life initiallife;
+	/**default initial game points at a level*/
 	private Digit initialscore;
+	
 	
 	/**This constructor will generate a {@code Level} that sets up a structure for a game level<br> */
 	public Level() {		
@@ -79,9 +84,9 @@ public abstract class Level extends World{
 
 
 	/**
-	 * display the level# of a game level.<br>
-	 * Example: Game Level 1, # is 1
-	 * @param level the # of the game level to be displayed
+	 * display the level index of a game level.<br>
+	 * Example: Game Level 1, index is 1
+	 * @param level the index of the game level to be displayed
 	 */
 	//called in its subclasses only
 	protected void displaylevel(int level) {
@@ -95,7 +100,7 @@ public abstract class Level extends World{
 	}
 
 	/**
-	 * to check if a game level is completed
+	 * Check if a game level is completed
 	 * @return boolean <b>true</b> if the level has been completed by {@code Animal}
 	 */
 	public boolean levelComplete() {
@@ -103,7 +108,7 @@ public abstract class Level extends World{
 	}
 
 	/**
-	 * to check if a game level is stopped
+	 * Check if a game level is stopped
 	 * @return boolean <b>true</b> if the level has been stopped
 	 */
 	//public abstract boolean levelStop();//main
@@ -112,7 +117,7 @@ public abstract class Level extends World{
 	}
 
 	/**
-	 * to check if {@code Animal} has changed score at a game level
+	 * Check if {@code Animal} has changed score at the level
 	 * @return boolean <b>true</b> if the Animal has changed score at that level
 	 */
 	public boolean animalchangeScore() {
@@ -121,7 +126,7 @@ public abstract class Level extends World{
 	}
 
 	/**
-	 * to check if {@code Animal} amount of life has changed at a game level
+	 * Check if {@code Animal} amount of life has changed at the level
 	 * @return boolean <b>true</b> if the Animal amount of life has changed
 	 */
 	public boolean animalchangeLife() {
@@ -130,8 +135,8 @@ public abstract class Level extends World{
 	}
 
 	/**
-	 * get the points of {@code Animal} at a game level
-	 * @return int, the points of {@code Animal} at a game level
+	 * get the points of Animal at the level
+	 * @return int, the points of Animal at that level
 	 */
 	public int getlevelPoints() {
 		// TODO Auto-generated method stub
@@ -139,7 +144,7 @@ public abstract class Level extends World{
 	}
 
 	/**
-	 * get the amount of life of {@code Animal} at a game level
+	 * get the amount of life of {@code Animal} at the level
 	 * @return int, the amount of life of {@code Animal} at a game level
 	 */
 	public int getlevelLife() {
@@ -169,7 +174,6 @@ public abstract class Level extends World{
 	 */
 	public void setStage(Stage primaryStage) {
 		this.stage=primaryStage;
-		System.out.println("Done stage set");
 	}
 	
 	/**
@@ -180,7 +184,6 @@ public abstract class Level extends World{
 	 * @return {@code Stage} of the game level
 	 */
 	public Stage getStage() {
-		System.out.println("Done get");
 		return this.stage;
 	}
 	

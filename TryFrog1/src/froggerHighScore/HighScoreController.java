@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * HighScoreController can retrieve {@link froggerHighScore.HighScoreModel} information, 
- * record the information into file in descending order and update to {@link froggerHighScore.HighScoreView}.
+ * <b>HighScoreController can retrieve {@link froggerHighScore.HighScoreModel} information, 
+ * record the information into file in descending order and update to {@link froggerHighScore.HighScoreView}.</b>
  */
 
 public class HighScoreController {
 
-	/**the target file location*/
+	/**the target file location to record high score*/
 	private File scorefile = new File("src/froggerfiles/scorefile.txt");
 	
 	private HighScoreView view;

@@ -4,10 +4,9 @@ import froggerActors.*;
 import froggerAnimal_Actions.Animal;
 
 /**
- * Level 8 of Frogger Game.<br>
+ * <b>Level 8 of Frogger Game.<br>
  * Game settings are similar to {@link froggerLevels.Level7} but speeds up and {@link froggerActors.Monster} grows bigger.
- * @author User
- *
+ * </b>
  */
 public class Level8 extends Level{
 	
@@ -36,7 +35,7 @@ public class Level8 extends Level{
 			add(new Log("file:src/froggertextures/log3.png", 150, 440, 166, 0.75*1.4));
 			add(new Log("file:src/froggertextures/logs.png", 300, 0, 276, -2*1.4));
 			add(new Log("file:src/froggertextures/logs.png", 300, 400, 276, -2*1.4));
-			add(new Log("file:src/froggertextures/log3.png", 150, 50, 329, 0.75*1.4));
+			add(new Log("file:src/froggertextures/logsbomb.png", 150, 50, 318, 0.75*1.4,true));		
 			add(new Log("file:src/froggertextures/log3.png", 150, 270, 329, 0.75*1.4));
 			add(new Log("file:src/froggertextures/log3.png", 150, 490, 329, 0.75*1.4));
 		

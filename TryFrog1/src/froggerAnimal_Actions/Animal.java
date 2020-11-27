@@ -9,10 +9,10 @@ import javafx.scene.input.KeyEvent;
 
 
 /**
- * Represents the player's avatar in the game, which in this Frogger Game, is the Frog.<br>
- * It can move. It might get hit by the obstacles on the road or drown in the river and die.
+ * <b>Represents the player's avatar in the game, which is a frog in Frogger Game.<br>
+ * It can move. It might get hit by the obstacles on the road, get eaten by monster, get bombed or drown into the river and die.<br>
  * Its goal is to reach the empty {@link froggerActors.End} on the other side.<br>
- * {@code Animal} is also an {@link froggerActors.Actor}.
+ * {@code Animal} is also an {@link froggerActors.Actor}.</b>
  */
 public class Animal extends Actor {
 	
@@ -21,29 +21,21 @@ public class Animal extends Actor {
 	/**Animation for moving backwards*/ Image imgS1, imgS2;
 	/**Animation for moving to the right*/ Image imgD1, imgD2;
 	
-	/**Animations for when Animal got hit by the Car/Trucks or eaten by the Monster*/
-	 Image hitImg1,hitImg2,hitImg3;
-	/**Animations for when Animal drown into the river*/
-	 Image drownImg1,drownImg2,drownImg3,drownImg4;
-	
-	//The standard image size for all Frog animations
-	 private int imgSize = 40;
-	
-	/**determine if the second version of Animal's animations are used during the last time frame.*/
-	 private boolean secondAnimation = false;
-	
+	/**Animations when Animal got hit by the Car/Trucks or eaten by the Monster*/
+	Image hitImg1,hitImg2,hitImg3;
+	/**Animations when Animal drown into the river*/
+	Image drownImg1,drownImg2,drownImg3,drownImg4;
+	private int imgSize = 40;
+	/**determine if the second version of Animal animations are used.*/
+	private boolean secondAnimation = false;
 	/**determine if Animal should move*/
-	 boolean noMove = false;
-	
+	boolean noMove = false;
 	/**the previous y position of Animal in the game*/
 	private double initialYposition = 800;
-	
 	/**level of Animal is at*/
 	private int level=0;
-	
 	/**Animal points*/
 	private int points = 0;
-	
 	/**the number of {@link froggerActors.End} Animal has reached*/
 	private int end=0;
 	/**the amount of coins Animal has collected*/
@@ -58,7 +50,7 @@ public class Animal extends Actor {
 
 	/**
 	 * determine Animal's car death.<br>
-	 * <b>true</b> when Animal gets hit by the trucks or cars (which are the {@link froggerActors.Obstacle}) on the road.
+	 * <b>true</b> when Animal gets hit by the {@link froggerActors.Obstacle} on the road.
 	 */
 	 boolean carDeath = false;
 	
@@ -219,8 +211,8 @@ public class Animal extends Actor {
 	/**
 	 * 
 	 * Defines how {@code Animal} will behave in the game.<br>
-	 * It can collide with other game objects and move along with them.<br>
-	 * Should the Animal experience any car death, water death or monster death, Animal will perform relevant actions upon its death (minus points).<br>
+	 * Animal can collide with other game objects and move along with them.<br>
+	 * Should the Animal experience any death, Animal will perform relevant actions upon its death.<br>
 	 * Should the Animal successfully reach the destinations, Animal will gain points.
 	 * 
 	 */
@@ -248,7 +240,12 @@ public class Animal extends Actor {
 		
 		else if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			Log log = getIntersectingObjects(Log.class).get(0);
-			move(log.getSpeed(),0);
+			if(log.hasbomb()) {
+				waterDeath = true;
+			}
+			else {
+				move(log.getSpeed(),0);
+			}
 		}
 		
 		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
@@ -271,13 +268,12 @@ public class Animal extends Actor {
 		//if the End is empty, +10 points, if the End is empty and has coin, +20 points, else no points
 		//Animal back to default position after reaching one destination
 		else if (getIntersectingObjects(End.class).size() >= 1) {
-			if (getIntersectingObjects(End.class).get(0).isActivated()) {
+			if (getIntersectingObjects(End.class).get(0).isOccupied()) {
 				end--;
 				points-=10;
 			}
 			else if (getIntersectingObjects(End.class).get(0).hasCoin()) {
 				coin++;//coin chain
-				//points+=10;//
 			}
 			else {
 				coin=0;//coin chain break
@@ -286,7 +282,7 @@ public class Animal extends Actor {
 			points+=10;
 			changeScore = true;
 			initialYposition=800;
-			getIntersectingObjects(End.class).get(0).setEnd();
+			getIntersectingObjects(End.class).get(0).setEndOccupied();
 			end++;
 			setX(300);
 			setY(679.8+movementY);
@@ -359,7 +355,7 @@ public class Animal extends Actor {
 	 }
 
 	/**
-	 * Checks if {@code Animal} has reached all the 5 destinations in a single level and is stopped in the game.<br>
+	 * Checks if {@code Animal} has reached all the 5 destinations in a level and is stopped in the game.<br>
 	 * 
 	 * @return boolean <b>true</b> if Animal has reached all the destinations.
 	 */
@@ -389,7 +385,6 @@ public class Animal extends Actor {
 	 * Sets the {@link Animal#level} of the {@code Animal} currently at.
 	 * @param level the game level
 	 */
-	//level for movement along logs and turtles used
 	public void setLevel(int level) {
 		this.level=level;
 	}
@@ -407,7 +402,10 @@ public class Animal extends Actor {
 	public void setmovementX(double mX) {
 		this.movementX=mX;
 	}
-	
+	/**
+	 * Gets the {@link Animal#movementX} of {@code Animal} at each move.
+	 * @return horizontal movement in int
+	 */
 	public double getmovementX() {
 		return this.movementX;
 	}
@@ -420,20 +418,28 @@ public class Animal extends Actor {
 	public void setmovementY(double mY) {
 		this.movementY=mY;
 	}
+	
+	/**
+	 * Gets the {@link Animal#movementY} of {@code Animal} at each move.<br>
+	 * @return vertical movement in int
+	 */
 	public double getmovementY() {
 		return this.movementY;
 	}
 
 	
 	/**
-	 * Sets the number of {@link Animal#end} / destinations Animal has reached.
-	 * @param end value for {@link Animal#end}
+	 * Sets the number of destinations Animal has reached.
+	 * @param end value for number of destinations reached
 	 */
 	public void setEnd(int end) {
 		// TODO Auto-generated method stub
 		this.end=end;
 	}
-	
+	/**
+	 * Gets the number of destinations Animal has reached
+	 * @return number of destinations Animal has reached in int
+	 */
 	public int getEnd() {
 		return end;
 	}
@@ -445,7 +451,10 @@ public class Animal extends Actor {
 	public void setLife(int life) {
 		this.life=life;
 	}
-	
+	/**
+	 * Gets the number of {@link Animal#life} Animal has
+	 * @return number of {@link Animal#life} in int
+	 */
 	public int getLife() {
 		return life;
 	}

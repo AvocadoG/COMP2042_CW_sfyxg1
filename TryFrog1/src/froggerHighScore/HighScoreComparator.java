@@ -3,8 +3,8 @@ package froggerHighScore;
 import java.util.Comparator;
 
 /**
- * Defines how each high score record will be compared.
- * @author User
+ * <b>Defines how each high score record will be compared.</b>
+ * 
  *
  */
 public class HighScoreComparator implements Comparator<HighScoreModel>{
