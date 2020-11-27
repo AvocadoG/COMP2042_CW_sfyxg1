@@ -142,6 +142,7 @@
     </target>
     <target name="Main">
         <java classname="froggerFrames.Main" failonerror="true" fork="yes">
+            <jvmarg line="--module-path &quot;C:\Programs\Java\javafx-sdk-11.0.2\lib&quot; --add-modules=ALL-MODULE-PATH"/>
             <classpath refid="run.Main.classpath"/>
         </java>
     </target>

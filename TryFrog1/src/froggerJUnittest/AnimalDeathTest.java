@@ -45,7 +45,7 @@ public class AnimalDeathTest{
 		System.out.println("Initial life amount " + animal.getLife());
 
 		cardeath=true;
-		System.out.println("Executing monster death action...(car death occurs)");
+		System.out.println("Executing car death action...(car death occurs)");
 		adcontext = new AnimalDeathContext(new CarDeath(animal,cardeath));
 		for(now=11;now<=44;now=now+11) {
 			adcontext.executeAction(now);

@@ -13,22 +13,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
-/*
- * Level1 - 0.7 speed, original , //car -3
- * Level2 - original speed, original, //car -5
- * Level3 - original speed, add Coin function, //car -5
- * Level4 - 1.3 speed, original, //car -7
- * Level5 - 1.3 speed, add Coin function, //car-7
- * 
- * Level6 - original speed, add Monster(2), car -5
- * Level7 - 1.3 speed, add Monster(3), all Wet Turtles, car -5
- * Level8 - 1.4 speed, add Monster(4), all Wet Turtles, car -7
- * Level9 - 1.5 speed, add Monster(4), all Wet Turtles, add Coin, car -7
- * Level10 - 1.7 speed, add Monster(5), all Wet Turtles, car -7
- */
-
-
-
 /**
  * <b>The base class for all game levels.<br>
  * It is not a ready game level. It sets up a basic structure for the real game levels and allows functions like level display, checking if the game level has been completed or stopped, checking if the {@link froggerAnimal_Actions.Animal} at the game level has changed score or life etc.<br>
@@ -111,7 +95,6 @@ public abstract class Level extends World{
 	 * Check if a game level is stopped
 	 * @return boolean <b>true</b> if the level has been stopped
 	 */
-	//public abstract boolean levelStop();//main
 	public boolean levelStop() {
 		return this.levelanimal.noLife();//life = 0
 	}
@@ -152,6 +135,8 @@ public abstract class Level extends World{
 		return this.levelanimal.getLife();
 	}
 
+	
+	
 	/**setter method for {@link Level#levelanimal}
 	 * @param animal animal to set to*/
 	public void setlevelAnimal(Animal animal) {
