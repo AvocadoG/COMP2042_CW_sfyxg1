@@ -3,7 +3,7 @@
 To run the game, go to **froggerFrames** package Main class.
 
 ECLIPSE JDK version : 14.0.1
-JAVAFX version : JavaFX 11
+JAVAFX version : JavaFX SDK 11.0.2
 JUnit Test version : JUnit 4
 
 # Extension/Addition

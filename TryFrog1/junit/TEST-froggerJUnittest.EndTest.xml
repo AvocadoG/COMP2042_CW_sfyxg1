@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="MrsMendes-Asus" name="froggerJUnittest.EndTest" skipped="0" tests="3" time="0.605" timestamp="2020-11-27T13:10:11">
+<testsuite errors="0" failures="0" hostname="MrsMendes-Asus" name="froggerJUnittest.EndTest" skipped="0" tests="3" time="0.946" timestamp="2020-11-27T23:16:37">
   <properties>
     <property name="ant.library.dir" value="C:\Users\User\.p2\pool\plugins\org.apache.ant_1.10.8.v20200515-1239\lib" />
     <property name="env.NUMBER_OF_PROCESSORS" value="8" />
@@ -21,7 +21,7 @@
     <property name="org.osgi.framework.system.capabilities" value="osgi.ee; osgi.ee=&quot;OSGi/Minimum&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1, 1.2&quot;, osgi.ee; osgi.ee=&quot;JRE&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1&quot;, osgi.ee; osgi.ee=&quot;JavaSE&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;,osgi.ee; osgi.ee=&quot;JavaSE/compact1&quot;; version:List&lt;Version&gt;=&quot;1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;,osgi.ee; osgi.ee=&quot;JavaSE/compact2&quot;; version:List&lt;Version&gt;=&quot;1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;,osgi.ee; osgi.ee=&quot;JavaSE/compact3&quot;; version:List&lt;Version&gt;=&quot;1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;" />
     <property name="env.OS" value="Windows_NT" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.1\bin" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner froggerJUnittest.EndTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit\TEST-froggerJUnittest.EndTest.xml crashfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junitvmwatcher3728111935026576334.properties propsfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit11532180511709357823.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner froggerJUnittest.EndTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit\TEST-froggerJUnittest.EndTest.xml crashfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junitvmwatcher12403725736891365187.properties propsfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit3096816997456721389.properties" />
     <property name="jdk.debug" value="release" />
     <property name="org.eclipse.equinox.launcher.splash.location" value="C:\Users\User\.p2\pool\plugins\org.eclipse.epp.package.common_4.17.0.20200910-1200\splash.bmp" />
     <property name="org.osgi.supports.framework.requirebundle" value="true" />
@@ -107,7 +107,7 @@
     <property name="env.PROCESSOR_ARCHITECTURE" value="AMD64" />
     <property name="user.variant" value="" />
     <property name="user.timezone" value="Asia/Singapore" />
-    <property name="org.osgi.framework.uuid" value="cdab5c39-4ac0-49c8-aeb3-36aa21c8b727" />
+    <property name="org.osgi.framework.uuid" value="56c41191-62f2-41a6-8f8e-d678da78bbe3" />
     <property name="env.SystemRoot" value="C:\WINDOWS" />
     <property name="os.name" value="Windows 10" />
     <property name="org.osgi.framework.processor" value="x86-64" />
@@ -145,7 +145,7 @@
     <property name="env.PATHEXT" value=".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC" />
     <property name="org.osgi.supports.framework.fragment" value="true" />
     <property name="osgi.bundles" value="reference:file:org.eclipse.osgi.compatibility.state_1.2.100.v20200811-1344.jar,reference:file:org.eclipse.fx.osgi_3.6.0.201907240103.jar,reference:file:org.eclipse.equinox.simpleconfigurator_1.3.600.v20200721-1308.jar@1:start" />
-    <property name="ant.project.invoked-targets" value="build,init,clean,cleanall,build-subprojects,build-project,build-refprojects,init-eclipse-compiler,build-eclipse-compiler,Main,New_configuration,AnimalDeathTest,EndTest,AnimalTest,LevelFactoryTest,LevelTest,GameAction_UpLevelTest,HighScoreViewTest,LogTest,junitreport" />
+    <property name="ant.project.invoked-targets" value="AnimalDeathTest,init,clean,cleanall,build-subprojects,build-project,build,build-refprojects,init-eclipse-compiler,build-eclipse-compiler,Main,New_configuration,AnimalTest,EndTest,LevelFactoryTest,junitreport,LogTest,HighScoreViewTest,GameAction_UpLevelTest,LevelTest" />
     <property name="osgi.framework.shape" value="jar" />
     <property name="eclipse.p2.profile" value="C__Users_User_eclipse_java-2020-09_eclipse" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
@@ -173,7 +173,7 @@
     <property name="osgi.frameworkClassPath" value="., file:C:/Users/User/eclipse/java-2020-09/eclipse/../../../.p2/pool/plugins/org.eclipse.osgi.compatibility.state_1.2.100.v20200811-1344.jar, file:C:/Users/User/eclipse/java-2020-09/eclipse/../../../.p2/pool/plugins/org.eclipse.fx.osgi_3.6.0.201907240103.jar" />
     <property name="target" value="14" />
     <property name="env.ProgramFiles(x86)" value="C:\Program Files (x86)" />
-    <property name="eclipse.startTime" value="1606479774560" />
+    <property name="eclipse.startTime" value="1606518605357" />
     <property name="org.osgi.framework.os.version" value="10.0.0" />
     <property name="java.vm.info" value="mixed mode, sharing" />
     <property name="java.vm.version" value="14.0.1+7" />
@@ -183,8 +183,8 @@
     <property name="env.OneDrive" value="C:\Users\User\OneDrive" />
     <property name="ant.project.default-target" value="build" />
   </properties>
-  <testcase classname="froggerJUnittest.EndTest" name="test_End_default_notoccupied" time="0.477" />
-  <testcase classname="froggerJUnittest.EndTest" name="test_End_hasCoin" time="0.005" />
+  <testcase classname="froggerJUnittest.EndTest" name="test_End_default_notoccupied" time="0.769" />
+  <testcase classname="froggerJUnittest.EndTest" name="test_End_hasCoin" time="0.006" />
   <testcase classname="froggerJUnittest.EndTest" name="test_End_setEndOccupied" time="0.003" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
