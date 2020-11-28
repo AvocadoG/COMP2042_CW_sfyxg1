@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="MrsMendes-Asus" name="froggerJUnittest.HighScoreViewTest" skipped="0" tests="2" time="0.555" timestamp="2020-11-28T01:23:38">
+<testsuite errors="0" failures="0" hostname="MrsMendes-Asus" name="froggerJUnittest.HighScoreViewTest" skipped="0" tests="2" time="0.618" timestamp="2020-11-28T01:53:42">
   <properties>
     <property name="ant.library.dir" value="C:\Users\User\.p2\pool\plugins\org.apache.ant_1.10.8.v20200515-1239\lib" />
     <property name="env.NUMBER_OF_PROCESSORS" value="8" />
@@ -21,7 +21,7 @@
     <property name="org.osgi.framework.system.capabilities" value="osgi.ee; osgi.ee=&quot;OSGi/Minimum&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1, 1.2&quot;, osgi.ee; osgi.ee=&quot;JRE&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1&quot;, osgi.ee; osgi.ee=&quot;JavaSE&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;,osgi.ee; osgi.ee=&quot;JavaSE/compact1&quot;; version:List&lt;Version&gt;=&quot;1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;,osgi.ee; osgi.ee=&quot;JavaSE/compact2&quot;; version:List&lt;Version&gt;=&quot;1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;,osgi.ee; osgi.ee=&quot;JavaSE/compact3&quot;; version:List&lt;Version&gt;=&quot;1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;" />
     <property name="env.OS" value="Windows_NT" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.1\bin" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner froggerJUnittest.HighScoreViewTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit\TEST-froggerJUnittest.HighScoreViewTest.xml crashfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junitvmwatcher11242793066732526270.properties propsfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit2094477547072058966.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner froggerJUnittest.HighScoreViewTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit\TEST-froggerJUnittest.HighScoreViewTest.xml crashfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junitvmwatcher13042553630143448493.properties propsfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit3725212349801872929.properties" />
     <property name="jdk.debug" value="release" />
     <property name="org.eclipse.equinox.launcher.splash.location" value="C:\Users\User\.p2\pool\plugins\org.eclipse.epp.package.common_4.17.0.20200910-1200\splash.bmp" />
     <property name="org.osgi.supports.framework.requirebundle" value="true" />
@@ -100,7 +100,7 @@
     <property name="env.asl.log" value="Destination=file" />
     <property name="org.osgi.framework.version" value="1.10.0" />
     <property name="java.class.path" value="C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\bin;C:\Programs\Java\javafx-sdk-11.0.2\lib\javafx.base.jar;C:\Programs\Java\javafx-sdk-11.0.2\lib\javafx.controls.jar;C:\Programs\Java\javafx-sdk-11.0.2\lib\javafx.fxml.jar;C:\Programs\Java\javafx-sdk-11.0.2\lib\javafx.graphics.jar;C:\Programs\Java\javafx-sdk-11.0.2\lib\javafx.media.jar;C:\Programs\Java\javafx-sdk-11.0.2\lib\javafx.swing.jar;C:\Programs\Java\javafx-sdk-11.0.2\lib\javafx.web.jar;C:\Programs\Java\javafx-sdk-11.0.2\lib\javafx-swt.jar;C:\Users\User\.p2\pool\plugins\org.junit_4.13.0.v20200204-1500.jar;C:\Users\User\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar;C:\Users\User\Downloads\apache-ant-1.10.9-bin\apache-ant-1.10.9\lib\ant-junit.jar;C:\Users\User\Downloads\apache-ant-1.10.9-bin\apache-ant-1.10.9\lib\ant-junit4.jar;C:\Users\User\.p2\pool\plugins\org.apache.ant_1.10.8.v20200515-1239\lib\ant-launcher.jar;C:\Users\User\.p2\pool\plugins\org.apache.ant_1.10.8.v20200515-1239\lib\ant.jar;C:\Users\User\.p2\pool\plugins\org.apache.ant_1.10.8.v20200515-1239\lib\ant-junit.jar;C:\Users\User\.p2\pool\plugins\org.apache.ant_1.10.8.v20200515-1239\lib\ant-junit4.jar" />
-    <property name="ant.file.TryFrog1" value="C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\buildfrogger2.xml" />
+    <property name="ant.file.TryFrog1" value="C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\buildfrogger3.xml" />
     <property name="source" value="14" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="env.PROCESSOR_ARCHITECTURE" value="AMD64" />
@@ -134,7 +134,7 @@
     <property name="env.windir" value="C:\WINDOWS" />
     <property name="sun.java2d.d3d" value="false" />
     <property name="eclipse.commands" value="-os&#xa;win32&#xa;-ws&#xa;win32&#xa;-arch&#xa;x86_64&#xa;-showsplash&#xa;C:\Users\User\.p2\pool\plugins\org.eclipse.epp.package.common_4.17.0.20200910-1200\splash.bmp&#xa;-launcher&#xa;C:\Users\User\eclipse\java-2020-09\eclipse\eclipse.exe&#xa;-name&#xa;Eclipse&#xa;--launcher.library&#xa;C:\Users\User\eclipse\java-2020-09\eclipse\\../../../.p2/pool/plugins/org.eclipse.equinox.launcher.win32.win32.x86_64_1.1.1300.v20200819-0940\eclipse_11100.dll&#xa;-startup&#xa;C:\Users\User\eclipse\java-2020-09\eclipse\\plugins/org.eclipse.equinox.launcher_1.5.800.v20200727-1323.jar&#xa;--launcher.appendVmargs&#xa;-product&#xa;org.eclipse.epp.package.java.product&#xa;-install&#xa;C:/Users/User/eclipse/java-2020-09/eclipse&#xa;-vm&#xa;C:/Program Files/Java/jdk-14.0.1/bin\server\jvm.dll&#xa;" />
-    <property name="ant.file" value="C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\buildfrogger2.xml" />
+    <property name="ant.file" value="C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\buildfrogger3.xml" />
     <property name="path.separator" value=";" />
     <property name="eclipse.p2.max.threads" value="10" />
     <property name="osgi.compatibility.bootdelegation" value="true" />
@@ -144,7 +144,7 @@
     <property name="env.PATHEXT" value=".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC" />
     <property name="org.osgi.supports.framework.fragment" value="true" />
     <property name="osgi.bundles" value="reference:file:org.eclipse.osgi.compatibility.state_1.2.100.v20200811-1344.jar,reference:file:org.eclipse.fx.osgi_3.6.0.201907240103.jar,reference:file:org.eclipse.equinox.simpleconfigurator_1.3.600.v20200721-1308.jar@1:start" />
-    <property name="ant.project.invoked-targets" value="build,init,clean,cleanall,build-subprojects,build-project,Main,LogTest,LevelTest,LevelFactoryTest,HighScoreViewTest,GameAction_UpLevelTest,EndTest,AnimalTest,AnimalDeathTest,build-refprojects,init-eclipse-compiler,build-eclipse-compiler,junitreport,New_configuration" />
+    <property name="ant.project.invoked-targets" value="HighScoreViewTest" />
     <property name="osgi.framework.shape" value="jar" />
     <property name="eclipse.p2.profile" value="C__Users_User_eclipse_java-2020-09_eclipse" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
@@ -182,8 +182,8 @@
     <property name="env.OneDrive" value="C:\Users\User\OneDrive" />
     <property name="ant.project.default-target" value="build" />
   </properties>
-  <testcase classname="froggerJUnittest.HighScoreViewTest" name="test_HighScoreView_display_currentplayerscore" time="0.456" />
-  <testcase classname="froggerJUnittest.HighScoreViewTest" name="test_HighScoreView_addscoretopopupview" time="0.005" />
+  <testcase classname="froggerJUnittest.HighScoreViewTest" name="test_HighScoreView_display_currentplayerscore" time="0.508" />
+  <testcase classname="froggerJUnittest.HighScoreViewTest" name="test_HighScoreView_addscoretopopupview" time="0.007" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -27,8 +27,8 @@
         <pathelement location="../../../../../../.p2/pool/plugins/org.hamcrest.core_1.3.0.v20180420-1519.jar"/>
     </path>
     <path id="ANTjunit.userclasspath">
-        <pathelement location="../../../../../../Downloads/apache-ant-1.10.9-bin/apache-ant-1.10.9/lib/ant-junit.jar"/>
-        <pathelement location="../../../../../../Downloads/apache-ant-1.10.9-bin/apache-ant-1.10.9/lib/ant-junit4.jar"/>
+        <pathelement location="../../../../../../../../Program Files/ANT/apache-ant-1.10.9/lib/ant-junit.jar"/>
+        <pathelement location="../../../../../../../../Program Files/ANT/apache-ant-1.10.9/lib/ant-junit4.jar"/>
     </path>
     <path id="TryFrog1.classpath">
         <pathelement location="bin"/>
