@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="MrsMendes-Asus" name="froggerJUnittest.AnimalDeathTest" skipped="0" tests="3" time="1.13" timestamp="2020-11-27T23:13:51">
+<testsuite errors="0" failures="0" hostname="MrsMendes-Asus" name="froggerJUnittest.AnimalDeathTest" skipped="0" tests="3" time="0.826" timestamp="2020-11-28T00:47:54">
   <properties>
     <property name="ant.library.dir" value="C:\Users\User\.p2\pool\plugins\org.apache.ant_1.10.8.v20200515-1239\lib" />
     <property name="env.NUMBER_OF_PROCESSORS" value="8" />
@@ -21,7 +21,7 @@
     <property name="org.osgi.framework.system.capabilities" value="osgi.ee; osgi.ee=&quot;OSGi/Minimum&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1, 1.2&quot;, osgi.ee; osgi.ee=&quot;JRE&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1&quot;, osgi.ee; osgi.ee=&quot;JavaSE&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;,osgi.ee; osgi.ee=&quot;JavaSE/compact1&quot;; version:List&lt;Version&gt;=&quot;1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;,osgi.ee; osgi.ee=&quot;JavaSE/compact2&quot;; version:List&lt;Version&gt;=&quot;1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;,osgi.ee; osgi.ee=&quot;JavaSE/compact3&quot;; version:List&lt;Version&gt;=&quot;1.8, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0&quot;" />
     <property name="env.OS" value="Windows_NT" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.1\bin" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner froggerJUnittest.AnimalDeathTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit\TEST-froggerJUnittest.AnimalDeathTest.xml crashfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junitvmwatcher2098622406314077647.properties propsfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit12286446879447028615.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner froggerJUnittest.AnimalDeathTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit\TEST-froggerJUnittest.AnimalDeathTest.xml crashfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junitvmwatcher8233546893406500664.properties propsfile=C:\Users\User\UNMC\UG Year 2\Sem 1\Software Maintenance\COMP2042_CW_sfyxg1\TryFrog1\junit5367256310407425450.properties" />
     <property name="jdk.debug" value="release" />
     <property name="org.eclipse.equinox.launcher.splash.location" value="C:\Users\User\.p2\pool\plugins\org.eclipse.epp.package.common_4.17.0.20200910-1200\splash.bmp" />
     <property name="org.osgi.supports.framework.requirebundle" value="true" />
@@ -144,7 +144,7 @@
     <property name="env.PATHEXT" value=".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC" />
     <property name="org.osgi.supports.framework.fragment" value="true" />
     <property name="osgi.bundles" value="reference:file:org.eclipse.osgi.compatibility.state_1.2.100.v20200811-1344.jar,reference:file:org.eclipse.fx.osgi_3.6.0.201907240103.jar,reference:file:org.eclipse.equinox.simpleconfigurator_1.3.600.v20200721-1308.jar@1:start" />
-    <property name="ant.project.invoked-targets" value="AnimalDeathTest,init,clean,cleanall,build-subprojects,build-project,build,build-refprojects,init-eclipse-compiler,build-eclipse-compiler,Main,New_configuration,AnimalTest,EndTest,LevelFactoryTest,junitreport,LogTest,HighScoreViewTest,GameAction_UpLevelTest,LevelTest" />
+    <property name="ant.project.invoked-targets" value="AnimalDeathTest" />
     <property name="osgi.framework.shape" value="jar" />
     <property name="eclipse.p2.profile" value="C__Users_User_eclipse_java-2020-09_eclipse" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
@@ -182,9 +182,9 @@
     <property name="env.OneDrive" value="C:\Users\User\OneDrive" />
     <property name="ant.project.default-target" value="build" />
   </properties>
-  <testcase classname="froggerJUnittest.AnimalDeathTest" name="test_Animal_CarDeath" time="0.945" />
-  <testcase classname="froggerJUnittest.AnimalDeathTest" name="test_Animal_WaterDeath" time="0.014" />
-  <testcase classname="froggerJUnittest.AnimalDeathTest" name="test_Animal_MonsterDeath" time="0.011" />
+  <testcase classname="froggerJUnittest.AnimalDeathTest" name="test_Animal_CarDeath" time="0.621" />
+  <testcase classname="froggerJUnittest.AnimalDeathTest" name="test_Animal_WaterDeath" time="0.011" />
+  <testcase classname="froggerJUnittest.AnimalDeathTest" name="test_Animal_MonsterDeath" time="0.016" />
   <system-out><![CDATA[Initial points 100
 Initial life amount 5
 Executing car death action...(car death occurs)
