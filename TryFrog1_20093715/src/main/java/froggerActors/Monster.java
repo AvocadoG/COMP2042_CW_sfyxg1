@@ -28,8 +28,8 @@ public class Monster extends Actor{
 
 		this.imgwidth=size;
 		this.imgheight=size;
-		monsterImg1 = createImage("file:src/froggertextures/monster1.png");
-		monsterImg2 = createImage("file:src/froggertextures/monster2.png");
+		monsterImg1 = createImage("file:src/main/resources/froggertextures/monster1.png");
+		monsterImg2 = createImage("file:src/main/resources/froggertextures/monster2.png");
 		setImage(monsterImg1);
 		setX(posX);
 		setY(posY);
