@@ -4,6 +4,7 @@ import froggerAnimal_Actions.*;
 import froggerElements.BackgroundImage;
 import froggerElements.Digit;
 import froggerElements.Life;
+import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,6 +25,7 @@ public abstract class Level extends World{
 	
 	/**pause button appear in the level scene*/
 	private Button pausebtn;
+	private Button quitbtn;
 	/**determine if a game level can be paused<br><b>true</b> if the level can be paused.*/
 	private boolean pause=true;
 	
@@ -46,7 +48,7 @@ public abstract class Level extends World{
 		//add background image for the game level
 		//all game levels have the same background image
 		levelbackground = new BackgroundImage("file:src/main/resources/froggertextures/iKogsKW.png",605,800);
-		initiallife = new Life(5,40,500,60);
+		initiallife = new Life(5,40,450,60);
 		initialscore = new Digit(0,30,550,25);
 		
 		add(levelbackground);
@@ -59,7 +61,10 @@ public abstract class Level extends World{
 		pausebtn.setLayoutX(550);
 		pausebtn.setLayoutY(58);
 		add(pausebtn);
-		
+		quitbtn = createbtn("file:src/main/resources/froggertextures/quitcrossbtnfrogger.png",40,40);
+		quitbtn.setLayoutX(500);
+		quitbtn.setLayoutY(58);
+		add(quitbtn);
 		setbuttonAction();
 		
 		
@@ -212,7 +217,9 @@ public abstract class Level extends World{
 			}
 		});
 		
-		
+		quitbtn.setOnMouseClicked(event -> {
+			Platform.exit();
+		});
 	}
 
 
