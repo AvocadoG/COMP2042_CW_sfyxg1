@@ -30,9 +30,9 @@ JUnit Test version : JUnit 4.13
 2. create a JavaFX project on Eclipse
 3. select src -> import -> File System -> Browse
 4. select the unzipped project folder, keep on clicking until src of the project
-5. src -> main -> java : to retrieve all the classes.java(s)
-6. src -> main -> resources : to retrieve all the relevant music, images, scorefile materials
-7. src -> test -> java : to retrieve all junit test files 
+5. **src -> main -> java** : to retrieve all the classes.java(s)
+6. **src -> main -> resources** : to retrieve all the relevant music, images, scorefile materials
+7. **src -> test -> java**: to retrieve all junit test files 
 8. change all the image,music,font,scorefile.txt links in the codes of **all** the classes.java(s) from 
 	**src/main/resources/froggertextures** to **src/froggertextures**
 	**src/main/resources/froggermusic** to **src/froggermusic**
@@ -61,9 +61,10 @@ There are **10** levels in total, each with new game feautures (such as destinat
 Starts at having 5 life. If player's avatar runs out of life at a certain level, player will lose and the game will end right away. At each new level, the life will be restored.
 
 6. New game features include :
-	-destinations with coins - if player successfully collects all the coins continuously, the player can get +50 bonus points and proceed to the next level straightaway.
-	-logs with bombs on the river - if player jumps onto the logs with bombs, player will die, lose a life.
-	-monster moving back and forth - if player bumps into the monster, the monster will kill the player.
+
+**destinations with coins** - if player successfully collects all the coins continuously, the player can get +50 bonus points and proceed to the next level straightaway.
+**logs with bombs on the river** - if player jumps onto the logs with bombs, player will die, lose a life.
+**monster moving back and forth** - if player bumps into the monster, the monster will kill the player.
 	
 7. Added **pause** game and **quit** game feature where player can pause/quit amidst the game.
 8. Added new font files, music files and images to the game. 
@@ -71,7 +72,7 @@ Starts at having 5 life. If player's avatar runs out of life at a certain level,
 
 # Maintenance 
 
-1. Organize all the classes into different packages and rename them, for better clarity.
+1. Organize all the classes into different packages and rename them, for better clarity. Remove unused images.
 2. Remove unused methods and fields from the classes.
 
 3. Remove the inheritance of **BackgroundImage** and **Digit** class from **Actor** class.
@@ -100,4 +101,6 @@ Each game action has different algorithm. Since we have several game actions whi
 11. **MVC** pattern applied on recording and displaying High Score (see **froggerHighScore package**)
 
 HighScoreController will update the top 5 high score records to the HighScoreView (which is the high score pop up) to be shown in the game. It will also retrieve the username and score of its HighScoreModel to be updated to the view.
+
+12. Added **gradle build** to the project
 
