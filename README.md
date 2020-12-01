@@ -6,21 +6,38 @@ ECLIPSE JDK version : 14
 JAVAFX version : JavaFX SDK 11.0.2
 JUnit Test version : JUnit 4.13
 
-# How to run the program in Eclipse:
-1. File -> Import -> select "existing project into Workspace"
-2. select the zip file
-3. select the project **TryFrog1_20093715**
-4. go to Window -> show view -> other -> **GradleTask**
-5. same for show view **GradleExecution**
-5. go to **GradleTask** -> **TryFrog1_20093715** -> **application** -> **run**
+# How to run the program on Eclipse:
+**Note: Don't have to unzip the project**
+
+**on Gradle build:**
+1. File -> Import -> select "existing Projects into Workspace"
+2. select archive file -> Browse -> select the zip file
+3. select the project **TryFrog1_20093715** -> Finish
+4. go to Window -> show view -> other -> select **GradleTasks**
+5. same for show view **Gradle Execution**
+5. go to **Gradle Tasks** -> select **TryFrog1_20093715** -> **application** -> **run**
 
 **to run the program from the Main.java itself** :
-1. in TryFrog1_20093715, go to **src/main/java**
-2. open **froggerFrames package**
+1. in the imported TryFrog1_20093715 project on Eclipse, go to **src/main/java**
+2. select **froggerFrames package**
 3. select **Main.java**
-4. go to Run Configurations -> select the Main -> go to Arguments
+4. go to Run Configurations -> select the **Main** in Java Application-> go to Arguments
 5. add **--module-path "insert_the_path_to_your_javafx_lib" --add-modules=ALL-MODULE-PATH** in the VM Arguments
 6. select Apply -> Run
+
+**worst come to worst, if the above isn't working**
+1. unzip the project
+2. create a JavaFX project on Eclipse
+3. select src -> import -> File System -> Browse
+4. select the unzipped project folder, keep on clicking until src of the project
+5. src -> main -> java : to retrieve all the classes.java(s)
+6. src -> main -> resources : to retrieve all the relevant music, images, scorefile materials
+7. src -> test -> java : to retrieve all junit test files 
+8. change all the image,music,font,scorefile.txt links in the codes of **all** the classes.java(s) from 
+	**src/main/resources/froggertextures** to **src/froggertextures**
+	**src/main/resources/froggermusic** to **src/froggermusic**
+	**src/main/resources/froggerfonts** to **src/froggermusic**
+	**src/main/resources/froggerfiles** to **src/froggerfiles**
 
 # Extension/Addition
 
@@ -37,14 +54,19 @@ High Score will be popped once the game ends, whether the player has lost or won
 
 4. Added new **levels** to the game (in **froggerLevels package**)
  
-There are **10** levels in total, each with new feautures (such as destinations with coins for bonus points, Logs with bombs, Monster etc) and increasing game speed.This is to add more fun and challenge to the game.
+There are **10** levels in total, each with new game feautures (such as destinations with coins for bonus points, Logs with bombs, Monster etc) and increasing game speed.This is to add more fun and challenge to the game.
 
 5. Added **Life** feature to the game (in **froggerElements package**)
 
 Starts at having 5 life. If player's avatar runs out of life at a certain level, player will lose and the game will end right away. At each new level, the life will be restored.
 
-6. Added **pause** game feature where player can pause amidst the game.
-7. Added new font files, music files and images to the game.
+6. New game features include :
+	-destinations with coins - if player successfully collects all the coins continuously, the player can get +50 bonus points and proceed to the next level straightaway.
+	-logs with bombs on the river - if player jumps onto the logs with bombs, player will die, lose a life.
+	-monster moving back and forth - if player bumps into the monster, the monster will kill the player.
+	
+7. Added **pause** game and **quit** game feature where player can pause/quit amidst the game.
+8. Added new font files, music files and images to the game. 
 
 
 # Maintenance 
