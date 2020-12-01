@@ -158,7 +158,8 @@ public abstract class World extends Pane {
      * @param cls the targeted game object {@code cls} type when retrieving
      * @return a list of game objects of {@code cls} type retrieved from {@code World}
      */
-    public <A extends Actor> List<A> getObjects(Class<A> cls) {
+    @SuppressWarnings("unchecked")
+	public <A extends Actor> List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
         for (Node n: getChildren()) {
             if (cls.isInstance(n)) {

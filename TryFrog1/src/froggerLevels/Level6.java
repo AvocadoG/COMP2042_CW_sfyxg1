@@ -3,7 +3,6 @@ package froggerLevels;
 
 import froggerActors.*;
 import froggerAnimal_Actions.Animal;
-import froggerElements.*;
 
 /**
  * <b>Level 6 of Frogger Game.<br>

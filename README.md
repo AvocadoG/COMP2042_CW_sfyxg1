@@ -1,6 +1,6 @@
 # COMP2042_sfyxg1 ---- Frogger Game
 
-To run the game, go to **froggerFrames** package Main class.
+Main.java is in src/main/java froggerFrames package
 
 ECLIPSE JDK version : 14
 JAVAFX version : JavaFX SDK 11.0.2
