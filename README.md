@@ -3,8 +3,8 @@
 Main.java is in src/main/java froggerFrames package
 
 ECLIPSE JDK version : 14
-JAVAFX version : JavaFX SDK 11.0.2
-JUnit Test version : JUnit 4.13
+	JAVAFX version : JavaFX SDK 11.0.2
+	JUnit Test version : JUnit 4.13
 
 # How to run the program on Eclipse:
 **Note: Don't have to unzip the project**
@@ -34,10 +34,10 @@ JUnit Test version : JUnit 4.13
 6. **src -> main -> resources** : to retrieve all the relevant music, images, scorefile materials
 7. **src -> test -> java**: to retrieve all junit test files 
 8. change all the image,music,font,scorefile.txt links in the codes of **all** the classes.java(s) from 
-	**src/main/resources/froggertextures** to **src/froggertextures**
-	**src/main/resources/froggermusic** to **src/froggermusic**
-	**src/main/resources/froggerfonts** to **src/froggermusic**
-	**src/main/resources/froggerfiles** to **src/froggerfiles**
+	- **src/main/resources/froggertextures** to **src/froggertextures**
+	- **src/main/resources/froggermusic** to **src/froggermusic**
+	- **src/main/resources/froggerfonts** to **src/froggermusic**
+	- **src/main/resources/froggerfiles** to **src/froggerfiles**
 
 # Extension/Addition
 
