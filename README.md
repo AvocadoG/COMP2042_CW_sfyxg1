@@ -4,7 +4,23 @@ Main.java is in src/main/java froggerFrames package
 
 ECLIPSE JDK version : 14
 JAVAFX version : JavaFX SDK 11.0.2
-JUnit Test version : JUnit 4
+JUnit Test version : JUnit 4.13
+
+# How to run the program in Eclipse:
+1. File -> Import -> select "existing project into Workspace"
+2. select the zip file
+3. select the project **TryFrog1_20093715**
+4. go to Window -> show view -> other -> **GradleTask**
+5. same for show view **GradleExecution**
+5. go to **GradleTask** -> **TryFrog1_20093715** -> **application** -> **run**
+
+**to run the program from the Main.java itself** :
+1. in TryFrog1_20093715, go to **src/main/java**
+2. open **froggerFrames package**
+3. select **Main.java**
+4. go to Run Configurations -> select the Main -> go to Arguments
+5. add **--module-path "insert_the_path_to_your_javafx_lib" --add-modules=ALL-MODULE-PATH** in the VM Arguments
+6. select Apply -> Run
 
 # Extension/Addition
 
