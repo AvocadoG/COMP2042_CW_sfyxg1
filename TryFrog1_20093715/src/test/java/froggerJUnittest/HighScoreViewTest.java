@@ -30,7 +30,7 @@ public class HighScoreViewTest {
 	@Test
 	public void test_HighScoreView_display_currentplayerscore() {
 
-		String display = "YOU LOSE\n" + "Your Score: 900";
+		String display = "YOU LOSE!" + " Your Score: 900";
 		assertEquals(highscoreview.getcurrentplayerscorerecord().getText(), display);
 	}
 	

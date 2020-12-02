@@ -1,5 +1,6 @@
 package froggerActors;
 
+import froggerMaterialGenerator.ImageGenerator;
 import javafx.scene.image.Image;
 
 /**
@@ -12,7 +13,6 @@ public class Obstacle extends Actor{
 	private double speed;
 	/** Image of the {@code Obstacle}*/
 	private Image obstacleImg;
-	private int imgwidth,imgheight;
 	
 	
 	/**
@@ -26,9 +26,8 @@ public class Obstacle extends Actor{
 	 */
 	public Obstacle(String imageLink, int xpos, int ypos, double s, int w, int h) {
 		
-		this.imgheight=h;
-		this.imgwidth=w;
-		obstacleImg = createImage(imageLink);
+		ImageGenerator imggenerator = new ImageGenerator();
+		obstacleImg = imggenerator.generate(imageLink,w,h);
 		
 		setImage(obstacleImg);
 		setX(xpos);
@@ -48,18 +47,6 @@ public class Obstacle extends Actor{
 			setX(-200);
 		if (getX() < -50 && speed<0)
 			setX(600);
-	}
-
-	/**
-	 * to create Images for {@code Obstacle} object.<br>
-	 * Used exclusively by {@code Obstacle} object only.
-	 * @param ImageLink the link of the image to be created
-	 * @return {@code Image} a created image for {@code Obstacle}
-	 */
-	private Image createImage(String ImageLink) {
-		// TODO Auto-generated method stub
-		Image img = new Image(ImageLink, this.imgwidth,this.imgheight,true,true);
-		return img;
 	}
 
 }

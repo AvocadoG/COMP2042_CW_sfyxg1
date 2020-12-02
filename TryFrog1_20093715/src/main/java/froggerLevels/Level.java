@@ -4,13 +4,13 @@ import froggerAnimal_Actions.*;
 import froggerElements.BackgroundImage;
 import froggerElements.Digit;
 import froggerElements.Life;
+import froggerMaterialGenerator.ButtonGenerator;
+import froggerMaterialGenerator.TextGenerator;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 
@@ -23,8 +23,9 @@ import javafx.stage.Stage;
  */
 public abstract class Level extends World{
 	
-	/**pause button appear in the level scene*/
+	/**pause button to pause the game*/
 	private Button pausebtn;
+	/**quit button to quit the game*/
 	private Button quitbtn;
 	/**determine if a game level can be paused<br><b>true</b> if the level can be paused.*/
 	private boolean pause=true;
@@ -51,17 +52,18 @@ public abstract class Level extends World{
 		initiallife = new Life(5,40,450,60);
 		initialscore = new Digit(0,30,550,25);
 		
-		add(levelbackground);
+		add(levelbackground);//background
 		add(initiallife);//Life
 		add(initialscore);//add score display
 		
-		//add a pause button to the game level
-		//all game levels will have a pause button
-		pausebtn = createbtn("file:src/main/resources/froggertextures/pausebtnfrogger.png",40,40);
+		//create pause and quit buttons to the game level
+		//all game levels will have a pause and a quit button
+		ButtonGenerator btngenerator = new ButtonGenerator();
+		pausebtn = btngenerator.generate("file:src/main/resources/froggertextures/pausebtnfrogger.png",40,40);
 		pausebtn.setLayoutX(550);
 		pausebtn.setLayoutY(58);
 		add(pausebtn);
-		quitbtn = createbtn("file:src/main/resources/froggertextures/quitcrossbtnfrogger.png",40,40);
+		quitbtn = btngenerator.generate("file:src/main/resources/froggertextures/quitcrossbtnfrogger.png",40,40);
 		quitbtn.setLayoutX(500);
 		quitbtn.setLayoutY(58);
 		add(quitbtn);
@@ -80,9 +82,8 @@ public abstract class Level extends World{
 	//called in its subclasses only
 	protected void displaylevel(int level) {
 		// TODO Auto-generated method stub
-		Text leveldisplay = new Text("Level "+level);
-		leveldisplay.setFont(Font.loadFont("file:src/main/resources/froggerfonts/ChickenPie.ttf", 25));
-		leveldisplay.setFill(Color.WHITE);
+		TextGenerator txtgenerator = new TextGenerator();
+		Text leveldisplay = txtgenerator.generate("Level "+level,"ChickenPie",25,TextAlignment.JUSTIFY,Color.ANTIQUEWHITE);
 		leveldisplay.setX(508);
 		leveldisplay.setY(470);
 		add(leveldisplay);
@@ -178,23 +179,6 @@ public abstract class Level extends World{
 	}
 	
 	
-	/**
-	 * to create button appeared on the game level scene.<br>
-	 * Used <b>exclusively</b> by Level only.
-	 * @param imagelink the link of the image for how the button on the level scene looks like
-	 * @param width the width of the button
-	 * @param height the height of the button
-	 * @return a created {@code Button}
-	 */
-	private Button createbtn(String imagelink, int width, int height) {
-		Button btn = new Button();
-		btn.setMinSize(width, height);
-		btn.setMaxSize(width, height);
-		btn.setGraphic(new ImageView(new Image(imagelink)));
-		return btn;
-	}
-
-
 	/**
 	 * to set up the action of the buttons appear in the game level scene.<br>
 	 * used <b>exclusively</b> by Level only

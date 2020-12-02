@@ -1,5 +1,6 @@
 package froggerActors;
 
+import froggerMaterialGenerator.ImageGenerator;
 import javafx.scene.image.Image;
 
 /**
@@ -15,7 +16,7 @@ public class WetTurtle extends Actor{
 	private Image turtle3;
 	private Image turtle4;
 	private double speed;
-	private int imagewidth,imageheight;
+
 	
 	/**determine if {@code WetTurtle} has submerged into the river<br>
 	 * <b>true</b> if it has*/
@@ -31,12 +32,12 @@ public class WetTurtle extends Actor{
 	 */
 	public WetTurtle(int xpos, int ypos, double s, int w, int h) {
 		
-		this.imagewidth=w;
-		this.imageheight=h;
-		turtle1 = createImage("file:src/main/resources/froggertextures/TurtleAnimation1.png");
-		turtle2 = createImage("file:src/main/resources/froggertextures/TurtleAnimation2Wet.png");
-		turtle3 = createImage("file:src/main/resources/froggertextures/TurtleAnimation3Wet.png");
-		turtle4 = createImage("file:src/main/resources/froggertextures/TurtleAnimation4Wet.png");
+		
+		ImageGenerator imggenerator = new ImageGenerator();
+		turtle1 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation1.png",w,h);
+		turtle2 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation2Wet.png",w,h);
+		turtle3 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation3Wet.png",w,h);
+		turtle4 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation4Wet.png",w,h);
 		
 		setX(xpos);
 		setY(ypos);
@@ -97,10 +98,5 @@ public class WetTurtle extends Actor{
 	 * @param ImageLink the link of the image to be created
 	 * @return {@code Image} a created image for {@code WetTurtle}
 	 */
-	private Image createImage(String ImageLink) {
-		// TODO Auto-generated method stub
-		Image img = new Image(ImageLink, this.imagewidth,this.imageheight,true,true);	
-		return img;
-	}
-	
+
 }

@@ -1,5 +1,6 @@
 package froggerActors;
 
+import froggerMaterialGenerator.ImageGenerator;
 import javafx.scene.image.Image;
 
 /**
@@ -11,7 +12,6 @@ public class Turtle extends Actor{
 	
 	/** Image for {@code Turtle} object*/
 	private Image turtleImg1,turtleImg2,turtleImg3;
-	private int imagewidth, imageheight;
 	private double speed;
 	
 	/**
@@ -24,11 +24,11 @@ public class Turtle extends Actor{
 	 */
 	public Turtle(int xpos, int ypos, double s, int w, int h) {
 		
-		this.imageheight=h;
-		this.imagewidth=w;
-		turtleImg1 = createImage("file:src/main/resources/froggertextures/TurtleAnimation1.png");
-		turtleImg2 = createImage("file:src/main/resources/froggertextures/TurtleAnimation2.png");
-		turtleImg3 = createImage("file:src/main/resources/froggertextures/TurtleAnimation3.png");
+		ImageGenerator imggenerator = new ImageGenerator();
+		turtleImg1 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation1.png",w,h);
+		turtleImg2 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation2.png",w,h);
+		turtleImg3 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation3.png",w,h);
+		
 		setX(xpos);
 		setY(ypos);
 		speed = s;
@@ -67,18 +67,6 @@ public class Turtle extends Actor{
 	 * @return speed of {@code Turtle} object */
 	public double getSpeed() {
 		return speed;
-	}
-
-	/**
-	 * to create Images for {@code Turtle} object.<br>
-	 * Used exclusively by {@code Turtle} object only.
-	 * @param ImageLink the link of the image to be created
-	 * @return {@code Image} a created image for {@code Turtle}
-	 */
-	private Image createImage(String ImageLink) {
-		// TODO Auto-generated method stub
-		Image img = new Image(ImageLink, this.imagewidth,this.imageheight,true,true);
-		return img;
 	}
 }
 

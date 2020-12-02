@@ -1,13 +1,13 @@
 package froggerFrames;
 
 import froggerElements.BackgroundImage;
+import froggerMaterialGenerator.ButtonGenerator;
+import froggerMaterialGenerator.TextGenerator;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
@@ -44,12 +44,15 @@ public class InfoScreen {
 	    infobackground = new BackgroundImage(ImageLink,613,800);
 	    
 		//create a back-to-start button
-		backtostart = createbtn("file:src/main/resources/froggertextures/backtostartbtnfrogger.png");
+	    ButtonGenerator btngenerator = new ButtonGenerator();
+		backtostart = btngenerator.generate("file:src/main/resources/froggertextures/backtostartbtnfrogger.png",140,50);
 		
 		//create subheading and instructions text
-		Text subheading = createText("How to Play??", "ChickenPie",19);
-		Text instructions = createText(getinstructions(),"Phosb___",14);
-	    
+		TextGenerator txtgenerator = new TextGenerator();
+		Text subheading = txtgenerator.generate("How to Play??", "ChickenPie",19,TextAlignment.CENTER,Color.CHOCOLATE);
+		Text instructions = txtgenerator.generate(getinstructions(),"Phosb___",14,TextAlignment.JUSTIFY,Color.BLACK);
+	    instructions.setWrappingWidth(500);
+
 	    //set up a VBox to add in the elements
 		infoscreenVBox = new VBox(15,subheading,instructions,backtostart);
 	    infoscreenVBox.setMinSize(600,800);
@@ -104,51 +107,17 @@ public class InfoScreen {
 				"D key to move Frogger to the right\n" +
 				"S key to move Frogger back\n" +
 				"W key to make Frogger jump\n\n" +				                                                                     
-				"RULES\n" +
+				"RULES\n\n" +
 				"The goals are sending your Frog to all the 5 empty destinations on the other side. " +
-				"Your frog has to AVOID any trucks, cars and monsters on the way and cross the river by jumping onto the logs and turtles.\n" +
-				"Green turtles will submerge into the river from time to time. Red turtles will turn into Green turtles too! " +
+				"\nYour frog has to AVOID any trucks, cars and monsters on the way and cross the river by jumping onto the logs and turtles.\n" +
+				"\nGreen turtles will submerge into the river from time to time. Red turtles will turn into Green turtles too! " +
 				"When Frogger jumps onto the Green Turtle and the Green Turtle submerges, Frogger will sink into the river and DIE.\nThe BOMBS on the Logs will kill your Frog too!."+
 				"\n\n5points for each successful forward movement.\n10points for reaching each destination. Note that SOME destinations have COINS! If your Frog manages to collect all the coins CONTINUOUSLY, it can proceed to the Next level RIGHT AWAY and get extra 50 points!" +
-				"\nMINUS 10points for getting killed by the Trucks, Cars, Monsters, Bombs or drowning into the river. \nMINUS 5points for bumping into the grass block.\n" +
-				"10 Levels in total, Level Up upon reaching all destinations at each level. The speed of the game will increase as your Frog levels up."+
+				"\n\nMINUS 10points for getting killed by the Trucks, Cars, Monsters, Bombs or drowning into the river. \nMINUS 5points for bumping into the grass block.\n" +
+				"\n10 Levels in total, Level Up upon reaching all destinations at each level. The speed of the game will increase as your Frog levels up."+
 				" Beware of the Monster!";
 	}
 
-	
-	/**
-	 * to create button appeared on the {@code InfoScreen}.<br>
-	 * Used <b>exclusively</b> by {@code InfoScreen} object only.
-	 * @param BtnImageLink the link of the image for how the button looks like on the screen
-	 * @return a created {@code Button}
-	 */
-	private Button createbtn(String BtnImageLink) {
-		// TODO Auto-generated method stub
-		Button btn = new Button();
-	    btn.setMinSize(140,50);
-	    btn.setMaxSize(140,50);
-		Image btnImg = new Image(BtnImageLink);
-		btn.setGraphic(new ImageView(btnImg));
-		return btn;
-	}
-	
-	/**
-	 * to create text appeared on the {@code InfoScreen}.<br>
-	 * Used <b>exclusively</b> by {@code InfoScreen} object only.
-	 * @param text the text to be generated
-	 * @param fonttype the font type of the text 
-	 * @param textsize the font size of the text
-	 * @return a created {@code Text}
-	 */
-	private Text createText(String text, String fonttype, int textsize) {
-		// TODO Auto-generated method stub
-		Text txt = new Text(text);
-	    txt.setWrappingWidth(500);
-	    txt.setTextAlignment(TextAlignment.JUSTIFY);
-	    txt.setLineSpacing(3);
-	    txt.setFont(Font.loadFont("file:src/main/resources/froggerfonts/"+fonttype+".ttf", textsize));
-		return txt;
-	}
 	
 	
 }

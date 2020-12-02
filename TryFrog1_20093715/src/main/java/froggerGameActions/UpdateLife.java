@@ -29,7 +29,7 @@ public class UpdateLife implements GameAction{
 	public void doAction() {
 		int life=level.getlevelLife();
 		// TODO Auto-generated method stub
-		level.add(new Life(life,40,500,60));
+		level.add(new Life(life,40,450,60));
 
 	}
 

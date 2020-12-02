@@ -1,5 +1,6 @@
 package froggerActors;
 
+import froggerMaterialGenerator.ImageGenerator;
 import javafx.scene.image.Image;
 
 /**
@@ -44,9 +45,11 @@ public class End extends Actor{
 		setX(x);
 		setY(y);
 		//setting up images//
-		endcoinImg = createImage("file:src/main/resources/froggertextures/EndCoin.png");
-		endImg = createImage("file:src/main/resources/froggertextures/End.png");
-		endfrogImg = createImage("file:src/main/resources/froggertextures/FrogEnd.png");
+		
+		ImageGenerator imggenerator = new ImageGenerator();
+		endcoinImg = imggenerator.generate("file:src/main/resources/froggertextures/EndCoin.png",this.imgwidth,this.imgheight);
+		endImg = imggenerator.generate("file:src/main/resources/froggertextures/End.png",this.imgwidth,this.imgheight);
+		endfrogImg = imggenerator.generate("file:src/main/resources/froggertextures/FrogEnd.png",this.imgwidth,this.imgheight);		
 		
 		if(coin==true) {
 			setImage(endcoinImg);
@@ -111,18 +114,5 @@ public class End extends Actor{
 	}
 
 
-	//used in End class only
-	/**
-	 * to create Images for {@code End} object.<br>
-	 * Used exclusively by {@code End} object only.
-	 * @param ImageLink the link of the image to be created
-	 * @return {@code Image} a created image for {@code End}
-	 */
-	private Image createImage(String ImageLink) {
-		// TODO Auto-generated method stub
-		Image img = new Image(ImageLink, this.imgwidth,this.imgheight,true,true);
-		return img;
-	}
-	
 
 }

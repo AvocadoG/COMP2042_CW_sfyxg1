@@ -1,5 +1,6 @@
 package froggerActors;
 
+import froggerMaterialGenerator.ImageGenerator;
 import javafx.scene.image.Image;
 
 /**
@@ -15,7 +16,6 @@ public class Monster extends Actor{
 	private double speed;
 	/** Image for {@code Monster}*/
 	private Image monsterImg1,monsterImg2;
-	private int imgwidth,imgheight;
 	
 	/**
 	 * This constructor will create a {@code Monster} object with display
@@ -26,10 +26,11 @@ public class Monster extends Actor{
 	 */
 	public Monster(int size, int posX, int posY, double s) {
 
-		this.imgwidth=size;
-		this.imgheight=size;
-		monsterImg1 = createImage("file:src/main/resources/froggertextures/monster1.png");
-		monsterImg2 = createImage("file:src/main/resources/froggertextures/monster2.png");
+		
+		ImageGenerator imggenerator = new ImageGenerator();
+		monsterImg1 = imggenerator.generate("file:src/main/resources/froggertextures/monster1.png",size,size);
+		monsterImg2 = imggenerator.generate("file:src/main/resources/froggertextures/monster2.png",size,size);
+		
 		setImage(monsterImg1);
 		setX(posX);
 		setY(posY);
@@ -59,16 +60,5 @@ public class Monster extends Actor{
 		}
 	}
 
-	/**
-	 * to create Images for {@code Monster} object.<br>
-	 * Used exclusively by {@code Monster} object only.
-	 * @param ImageLink the link of the image to be created
-	 * @return {@code Image} a created image for {@code Monster}
-	 */
-	private Image createImage(String ImageLink) {
-		// TODO Auto-generated method stub
-		Image img = new Image(ImageLink, this.imgwidth, this.imgheight,true,true);
-		return img;
-	}
 
 }

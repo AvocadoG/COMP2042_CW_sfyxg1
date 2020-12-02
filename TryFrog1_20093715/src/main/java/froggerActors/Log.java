@@ -1,5 +1,6 @@
 package froggerActors;
 
+import froggerMaterialGenerator.ImageGenerator;
 import javafx.scene.image.Image;
 
 /**
@@ -13,7 +14,6 @@ public class Log extends Actor {
 	private double speed;
 	/** Image of {@code Log}*/
 	private Image logImg;
-	private int imagewidth,imageheight;
 	/** determine if {@code Log} has bombs*/
 	private boolean hasbomb;
 	
@@ -27,9 +27,10 @@ public class Log extends Actor {
 	 */
 	public Log(String imageLink, int size, int xpos, int ypos, double s) {
 		
-		this.imageheight=size;
-		this.imagewidth=size;
-		logImg = createImage(imageLink);
+
+		ImageGenerator imggenerator = new ImageGenerator();
+		logImg=imggenerator.generate(imageLink,size,size);
+		
 		setImage(logImg);
 		setX(xpos);
 		setY(ypos);
@@ -89,16 +90,7 @@ public class Log extends Actor {
 	public double getSpeed() {
 		return speed;
 	}
+
 	
-	/**
-	 * to create Images for {@code Log} object with display.<br>
-	 * Used exclusively by {@code Log} object only.
-	 * @param ImageLink the link of the image to be created
-	 * @return {@code Image} a created image for {@code Log}
-	 */
-	private Image createImage(String ImageLink) {
-		// TODO Auto-generated method stub
-		Image img = new Image(ImageLink, this.imagewidth,this.imageheight,true,true);
-		return img;
-	}
+
 }

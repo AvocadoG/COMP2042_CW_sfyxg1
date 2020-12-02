@@ -1,6 +1,7 @@
 package froggerAnimal_Actions;
 
 import froggerActors.*;
+import froggerMaterialGenerator.ImageGenerator;
 import javafx.event.EventHandler;
 
 import javafx.scene.image.Image;
@@ -360,7 +361,7 @@ public class Animal extends Actor {
 	 * @return boolean <b>true</b> if Animal has reached all the destinations.
 	 */
 	public boolean getStop() {
-		return end==2;
+		return end==5;
 	}
 	
 	
@@ -471,37 +472,31 @@ public class Animal extends Actor {
 	/**
 	 * Sets up all the necessary animations and looks for {@code Animal}.
 	 * Used exclusively by {@code Animal} only.<br>
-	 * Images for the animations are set up by using {@link Animal#createImage(String)} method
+	 * Images for the animations are set up by using {@link froggerMaterialGenerator.ImageGenerator}
 	 */
 	//used in Animal class only
 		private void animalAnimationSetUp() {
 			// TODO Auto-generated method stub
-			imgW1 = createImage("file:src/main/resources/froggertextures/froggerUp.png");
-			imgA1 = createImage("file:src/main/resources/froggertextures/froggerLeft.png");
-			imgS1 = createImage("file:src/main/resources/froggertextures/froggerDown.png");
-			imgD1 = createImage("file:src/main/resources/froggertextures/froggerRight.png");
-			imgW2 = createImage("file:src/main/resources/froggertextures/froggerUpJump.png");
-			imgA2 = createImage("file:src/main/resources/froggertextures/froggerLeftJump.png");
-			imgS2 = createImage("file:src/main/resources/froggertextures/froggerDownJump.png");
-			imgD2 = createImage("file:src/main/resources/froggertextures/froggerRightJump.png");
-			hitImg1 = createImage("file:src/main/resources/froggertextures/cardeath1.png");
-			hitImg2 = createImage("file:src/main/resources/froggertextures/cardeath2.png");
-			hitImg2 = createImage("file:src/main/resources/froggertextures/cardeath3.png");
-			drownImg1 = createImage("file:src/main/resources/froggertextures/waterdeath1.png");
-			drownImg2 = createImage("file:src/main/resources/froggertextures/waterdeath2.png");
-			drownImg3 = createImage("file:src/main/resources/froggertextures/waterdeath3.png");
-			drownImg4 = createImage("file:src/main/resources/froggertextures/waterdeath4.png");
+			ImageGenerator imggenerator = new ImageGenerator();
+			imgW1 = imggenerator.generate("file:src/main/resources/froggertextures/froggerUp.png",this.imgSize,this.imgSize);
+			imgA1 = imggenerator.generate("file:src/main/resources/froggertextures/froggerLeft.png",this.imgSize,this.imgSize);
+			imgS1 = imggenerator.generate("file:src/main/resources/froggertextures/froggerDown.png",this.imgSize,this.imgSize);
+			imgD1 = imggenerator.generate("file:src/main/resources/froggertextures/froggerRight.png",this.imgSize,this.imgSize);
+			imgW2 = imggenerator.generate("file:src/main/resources/froggertextures/froggerUpJump.png",this.imgSize,this.imgSize);
+			imgA2 = imggenerator.generate("file:src/main/resources/froggertextures/froggerLeftJump.png",this.imgSize,this.imgSize);
+			imgS2 = imggenerator.generate("file:src/main/resources/froggertextures/froggerDownJump.png",this.imgSize,this.imgSize);
+			imgD2 = imggenerator.generate("file:src/main/resources/froggertextures/froggerRightJump.png",this.imgSize,this.imgSize);
+			hitImg1 = imggenerator.generate("file:src/main/resources/froggertextures/cardeath1.png",this.imgSize,this.imgSize);
+			hitImg2 = imggenerator.generate("file:src/main/resources/froggertextures/cardeath2.png",this.imgSize,this.imgSize);
+			hitImg2 = imggenerator.generate("file:src/main/resources/froggertextures/cardeath3.png",this.imgSize,this.imgSize);
+			drownImg1 = imggenerator.generate("file:src/main/resources/froggertextures/waterdeath1.png",this.imgSize,this.imgSize);
+			drownImg2 = imggenerator.generate("file:src/main/resources/froggertextures/waterdeath2.png",this.imgSize,this.imgSize);
+			drownImg3 = imggenerator.generate("file:src/main/resources/froggertextures/waterdeath3.png",this.imgSize,this.imgSize);
+			drownImg4 = imggenerator.generate("file:src/main/resources/froggertextures/waterdeath4.png",this.imgSize,this.imgSize);
 		}
 
 		
-	/**used exclusively by {@code Animal} only to create its images
-	 * @param ImageLink the link of the image for {@code Animal}
-	 * @return {@code Image} a created image*/
-	private Image createImage(String ImageLink) {
-		// TODO Auto-generated method stub
-		Image img = new Image(ImageLink, this.imgSize,this.imgSize,true,true);
-		return img;
-	}
+
 	
 
 }

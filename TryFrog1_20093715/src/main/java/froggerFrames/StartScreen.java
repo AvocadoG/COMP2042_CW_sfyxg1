@@ -2,19 +2,15 @@ package froggerFrames;
 
 import java.io.File;
 import froggerElements.BackgroundImage;
+import froggerMaterialGenerator.ButtonGenerator;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 
 /**
  * <b>Represents the Start Screen of Frogger Game.<br></b>
@@ -60,20 +56,18 @@ public class StartScreen {
 		startscreenbackground = new BackgroundImage(ImageLink,613,800);
 		
 		//create buttons
-		startbtn = createbtn("file:src/main/resources/froggertextures/startbtnfrogger.png");
-		infobtn = createbtn("file:src/main/resources/froggertextures/infobtnfrogger.png");
-		exitbtn = createbtn("file:src/main/resources/froggertextures/exitbtnfrogger.png");
+		ButtonGenerator btngenerator = new ButtonGenerator();
+		startbtn = btngenerator.generate("file:src/main/resources/froggertextures/startbtnfrogger.png",140,50);
+		infobtn = btngenerator.generate("file:src/main/resources/froggertextures/infobtnfrogger.png",140,50);
+		exitbtn = btngenerator.generate("file:src/main/resources/froggertextures/exitbtnfrogger.png",140,50);
 		
-		//create watermark for the game 
-		Text watermark = createText("Frogger Game 2020","Phosb___",15);
-
 		//create a TextField to input username
 		username = new TextField(null);
 		username.setAlignment(Pos.CENTER);
 		username.setMinSize(130, 40);
 		
 		//create a VBox, add all elements into the VBox
-		startscreenVBox = new VBox(20,username,startbtn,infobtn,exitbtn,watermark); 
+		startscreenVBox = new VBox(20,username,startbtn,infobtn,exitbtn); 
 		startscreenVBox.setPrefWidth(150);
 		startscreenVBox.setAlignment(Pos.BASELINE_CENTER);
 		startscreenVBox.setPadding(new Insets(10));
@@ -160,36 +154,6 @@ public class StartScreen {
 		return username.getText();
 	}
 	
-	/**
-	 * to create button appeared on the {@code StartScreen}.<br>
-	 * Used <b>exclusively</b> by {@code StartScreen} object only.
-	 * @param BtnImageLink the link of the image for how the button looks like on the screen
-	 * @return a created {@code Button}
-	 */
-	private Button createbtn(String BtnImageLink) {
-		// TODO Auto-generated method stub
-		Button btn = new Button();
-	    btn.setMinSize(140,50);
-	    btn.setMaxSize(140,50);
-		Image btnImg = new Image(BtnImageLink);
-		btn.setGraphic(new ImageView(btnImg));
-		return btn;
-	}
-	
-	/**
-	 * to create text appeared on the {@code StartScreen}.<br>
-	 * Used <b>exclusively</b> by {@code StartScreen} object only.
-	 * @param text the text to be generated
-	 * @param fonttype the font type of the text 
-	 * @param textsize the font size of the text
-	 * @return a created {@code Text}
-	 */
-	private Text createText(String text, String fonttype, int textsize) {
-		// TODO Auto-generated method stub
-		Text txt = new Text(text);
-		txt.setTextAlignment(TextAlignment.CENTER);
-	    txt.setFont(Font.loadFont("file:src/main/resources/froggerfonts/"+fonttype+".ttf", textsize));
-		return txt;
-	}
+
 }
 

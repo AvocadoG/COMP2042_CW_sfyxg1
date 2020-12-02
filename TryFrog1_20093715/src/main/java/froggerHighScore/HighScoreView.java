@@ -1,14 +1,13 @@
 package froggerHighScore;
 
 import froggerElements.BackgroundImage;
+import froggerMaterialGenerator.ButtonGenerator;
+import froggerMaterialGenerator.TextGenerator;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
@@ -41,14 +40,14 @@ public class HighScoreView {
 		//create a Group as parent
 		highscoregroup = new Group();
 		
-		quitbtn = createbtn("file:src/main/resources/froggertextures/quitbtnfrogger.png");
+		//create button
+		ButtonGenerator btngenerator = new ButtonGenerator();
+		quitbtn = btngenerator.generate("file:src/main/resources/froggertextures/quitbtnfrogger.png",100,30);
 		
-		currentplayerscore = createText("YOU " + winlosestatus + "\nYour Score: "+ currentplayerpoints,"ChickenPie",20);
-		
-		//create a heading for HighScore
-		Text header = createText("High Score Display","ChickenPie",20);
-		header.setUnderline(true);
-		header.setFill(Color.DARKCYAN);
+		//create text
+		TextGenerator txtgenerator = new TextGenerator();
+		currentplayerscore = txtgenerator.generate("YOU " + winlosestatus + "! Your Score: "+ currentplayerpoints,"ChickenPie",25, TextAlignment.CENTER, Color.DARKGOLDENROD);
+		Text header = txtgenerator.generate("High Score Display","ChickenPie",25,TextAlignment.CENTER, Color.DARKCYAN);
 		
 		//create a background image for highscore pop up
 		highscorebackground = new BackgroundImage("file:src/main/resources/froggertextures/highscorepopupfrogger.png",400,500);
@@ -69,8 +68,8 @@ public class HighScoreView {
 	 * @param highscoreinput The high score record to be added into the high score pop up
 	 */
 	public void addscoretopopupview(int rank, String highscoreinput) {
-		Text highscoredata = createText(rank + ".   " + highscoreinput,"Phosb___",15);
-		highscoredata.setFill(Color.DARKGREEN);
+		TextGenerator txtgenerator = new TextGenerator();
+		Text highscoredata = txtgenerator.generate(rank + ".   " + highscoreinput,"Phosb___",20,TextAlignment.CENTER,Color.CHOCOLATE);
 		highscoreVBox.getChildren().add(highscoredata);
 	}
 
@@ -111,43 +110,6 @@ public class HighScoreView {
 	public VBox gethighscorevbox() {
 		return highscoreVBox;
 	}
-	
-
-	
-	/**
-	 * to create button appeared on the {@code HighScoreView}.<br>
-	 * Used <b>exclusively</b> by {@code HighScoreView} object only.
-	 * @param BtnImageLink the link of the image for how the button looks like on the screen
-	 * @return a created {@code Button}
-	 */
-	private Button createbtn(String BtnImageLink) {
-		// TODO Auto-generated method stub
-		Button btn = new Button();
-		btn.setMinSize(100, 30);
-		btn.setMaxSize(100, 30);
-		Image btnImg = new Image(BtnImageLink);
-		btn.setGraphic(new ImageView(btnImg));
-	
-		return btn;
-	}
-
-	
-	/**
-	 * to create text appeared on the {@code HighScoreView}.<br>
-	 * Used <b>exclusively</b> by {@code HighScoreView} object only.
-	 * @param text the text to be generated
-	 * @param fonttype the font type of the text 
-	 * @param textsize the font size of the text
-	 * @return a created {@code Text}
-	 */
-	private Text createText(String text, String fonttype, int textsize) {
-		// TODO Auto-generated method stub
-		Text txt = new Text(text);
-		txt.setTextAlignment(TextAlignment.CENTER);
-	    txt.setFont(Font.loadFont("file:src/main/resources/froggerfonts/"+fonttype+".ttf", textsize));
-		return txt;	
-	}
-	
 	
 }
 
