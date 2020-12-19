@@ -249,8 +249,8 @@ public class Animal extends Actor {
 			}
 		}
 		
-		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
-			Turtle turtle = getIntersectingObjects(Turtle.class).get(0);
+		else if (getIntersectingObjects(DryTurtle.class).size() >= 1 && !noMove) {
+			DryTurtle turtle = getIntersectingObjects(DryTurtle.class).get(0);
 			move(turtle.getSpeed(),0);
 		}
 		

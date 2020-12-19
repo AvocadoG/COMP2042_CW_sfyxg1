@@ -1,5 +1,6 @@
 # COMP2042_sfyxg1
 
+GitHub proof in GitHub folder in the project  
 **Main.java** in src/main/java/froggerFrames
 
 ### How to run the program on Eclipse:

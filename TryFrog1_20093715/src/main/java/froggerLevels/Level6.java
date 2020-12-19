@@ -41,9 +41,9 @@ public class Level6 extends Level{
 		add(new Log("file:src/main/resources/froggertextures/log3.png", 150, 270, 329, 0.75*1.3));
 		add(new Log("file:src/main/resources/froggertextures/log3.png", 150, 490, 329, 0.75*1.3));
 	
-		add(new Turtle(500, 376, -1*1.3, 130, 130));
-		add(new Turtle(300, 376, -1*1.3, 130, 130));
-		add(new Turtle(700, 376, -1*1.3, 130, 130));
+		add(new DryTurtle(500, 376, -1*1.3, 130, 130));
+		add(new DryTurtle(300, 376, -1*1.3, 130, 130));
+		add(new DryTurtle(700, 376, -1*1.3, 130, 130));
 		add(new WetTurtle(600, 217, -1*1.3, 130, 130));
 		add(new WetTurtle(400, 217, -1*1.3, 130, 130));
 		add(new WetTurtle(200, 217, -1*1.3, 130, 130));

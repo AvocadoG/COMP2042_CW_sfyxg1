@@ -20,7 +20,7 @@ import froggerAnimal_Actions.Animal;
 /**
  *<b> Level 1 of Frogger Game. 
  * The game speed of this level is rather slow for an easy start.<br>
- * There are {@link froggerActors.Obstacle}, {@link froggerActors.Turtle},  {@link froggerActors.WetTurtle},  {@link froggerActors.Log} ,  {@link froggerActors.End} and Level 1.</b>
+ * There are {@link froggerActors.Obstacle}, {@link froggerActors.DryTurtle},  {@link froggerActors.WetTurtle},  {@link froggerActors.Log} ,  {@link froggerActors.End} and Level 1.</b>
  *
  */
 public class Level1 extends Level{
@@ -68,9 +68,9 @@ public class Level1 extends Level{
 		//nearer to the resting zone is 376
 		//nearer to the end is 217
 		//-1 to -0.5
-		add(new Turtle(500, 376, -1*0.7, 130, 130));
-		add(new Turtle(300, 376, -1*0.7, 130, 130));
-		add(new Turtle(700, 376, -1*0.7, 130, 130));
+		add(new DryTurtle(500, 376, -1*0.7, 130, 130));
+		add(new DryTurtle(300, 376, -1*0.7, 130, 130));
+		add(new DryTurtle(700, 376, -1*0.7, 130, 130));
 		add(new WetTurtle(600, 217, -1*0.7, 130, 130));
 		add(new WetTurtle(400, 217, -1*0.7, 130, 130));
 		add(new WetTurtle(200, 217, -1*0.7, 130, 130));

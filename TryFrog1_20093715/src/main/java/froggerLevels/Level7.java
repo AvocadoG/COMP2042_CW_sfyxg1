@@ -6,7 +6,7 @@ import froggerAnimal_Actions.Animal;
 /**
  * <b>Level 7 of Frogger Game.<br>
  * At this level, all the turtles turn into {@link froggerActors.WetTurtle} which will sink into the river from time to time, causing player's avatar to die drowning. 
- * Level 7 is unlike the previous levels where there are still regular {@link froggerActors.Turtle} that always float on the river.<br>
+ * Level 7 is unlike the previous levels where there are still regular {@link froggerActors.DryTurtle} that always float on the river.<br>
  * There are also {@link froggerActors.Log} with <i>bombs</i> which will kill the player's avatar if it jumps on it.<br>
  *</b>
  */

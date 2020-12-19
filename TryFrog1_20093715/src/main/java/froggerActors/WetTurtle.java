@@ -6,16 +6,15 @@ import javafx.scene.image.Image;
 /**
  * <b>Represents the Green Turtle in Frogger Game.
  * It will sink into the river during the game.<br>
- * {@code WetTurtle} is also an {@link froggerActors.Actor}.</b>
+ * </b>
  *
  */
-public class WetTurtle extends Actor{
+public class WetTurtle extends Turtle{
 	
 	private Image turtle1;
 	private Image turtle2;
 	private Image turtle3;
 	private Image turtle4;
-	private double speed;
 
 	
 	/**determine if {@code WetTurtle} has submerged into the river<br>
@@ -32,16 +31,13 @@ public class WetTurtle extends Actor{
 	 */
 	public WetTurtle(int xpos, int ypos, double s, int w, int h) {
 		
-		
+		super(xpos,ypos,s);
 		ImageGenerator imggenerator = new ImageGenerator();
 		turtle1 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation1.png",w,h);
 		turtle2 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation2Wet.png",w,h);
 		turtle3 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation3Wet.png",w,h);
 		turtle4 = imggenerator.generate("file:src/main/resources/froggertextures/TurtleAnimation4Wet.png",w,h);
 		
-		setX(xpos);
-		setY(ypos);
-		speed = s;
 		setImage(turtle2);
 	}
 
@@ -86,17 +82,6 @@ public class WetTurtle extends Actor{
 		return sunk;
 	}
 	
-	/** Retrieve the moving speed of {@code WetTurtle}
-	 *  @return speed of {@code WetTurtle} object*/
-	public double getSpeed() {
-		return speed;
-	}
-	
-	/**
-	 * to create Images for {@code WetTurtle} object.<br>
-	 * Used exclusively by {@code WetTurtle} object only.
-	 * @param ImageLink the link of the image to be created
-	 * @return {@code Image} a created image for {@code WetTurtle}
-	 */
+
 
 }

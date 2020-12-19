@@ -7,7 +7,7 @@ import froggerAnimal_Actions.Animal;
 
 /**
  * <b>Level 2 of Frogger Game. The game speed at Level 2 is higher than Level 1.<br>
- * There are still {@link froggerActors.Obstacle}, {@link froggerActors.Turtle},  {@link froggerActors.WetTurtle},  {@link froggerActors.Log} ,  {@link froggerActors.End} at Level 2.</b>
+ * There are still {@link froggerActors.Obstacle}, {@link froggerActors.DryTurtle},  {@link froggerActors.WetTurtle},  {@link froggerActors.Log} ,  {@link froggerActors.End} at Level 2.</b>
  *
  */
 public class Level2 extends Level{
@@ -45,9 +45,9 @@ public class Level2 extends Level{
 		add(new Log("file:src/main/resources/froggertextures/log3.png", 150, 270, 329, 0.75));
 		add(new Log("file:src/main/resources/froggertextures/log3.png", 150, 490, 329, 0.75));
 	
-		add(new Turtle(500, 376, -1, 130, 130));
-		add(new Turtle(300, 376, -1, 130, 130));
-		add(new Turtle(700, 376, -1, 130, 130));
+		add(new DryTurtle(500, 376, -1, 130, 130));
+		add(new DryTurtle(300, 376, -1, 130, 130));
+		add(new DryTurtle(700, 376, -1, 130, 130));
 		add(new WetTurtle(600, 217, -1, 130, 130));
 		add(new WetTurtle(400, 217, -1, 130, 130));
 		add(new WetTurtle(200, 217, -1, 130, 130));
